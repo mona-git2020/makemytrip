@@ -1,0 +1,22 @@
+*** Variables ***
+${loginButton}		css=li[data-cy="account"]
+${hotelButton}		css=li[class='menu_Hotels']
+${destiName}		css=#city
+${enterDesti}		css=.react-autosuggest__input
+${selectDesti}		css=#react-autowhatever-1-section-0-item-0
+${checkin}			css=#checkin
+${checkout}			css=#checkout
+${checkinDate}		css=div[aria-label="Thu Jul 02 2020"][aria-disabled="false"]
+${checkoutDate}		css=div[aria-label="Sat Jul 04 2020"][aria-disabled="false"]
+${roomGuest}		css=#guest
+${adults}			css=li[data-cy="adults-NUMA"]
+${childs}			css=li[data-cy="children-NUMC"]
+${childAge}			css=select[data-cy="childAge-CHILD"] 
+${childAgeValue}	css=select[data-cy="childAge-CHILD"] option[data-cy="childAgeValue-AGE"]
+${addRoom}			css=.btnAddRoom
+${apply}			css=.primaryBtn.btnApply
+${travellingReason}	css=.hsw_inputBox.travelFor
+${travellingForLeisure}		css=li[data-cy="travelFor-Leisure"]
+${travellingForWork}		css=li[data-cy="travelFor-Work"]
+${serachButton}		css=#hsw_search_button
+${home}				link='Home'
