@@ -1,4 +1,4 @@
-*** Setting ***
+*** Settings ***
 Library		Selenium2Library
 Library		String
 Variables	Variables/Variables.py
@@ -14,6 +14,7 @@ search hotels functionality
 *** Keywords ***
 open makemytrip
 	open browser	${url}		${browser}
+	
 	maximize browser window
 	
 search hotels for destination
@@ -34,13 +35,17 @@ search hotels for destination
 	click element	${childs}
 	: FOR	${child_num}	IN RANGE	0	${childsnum}	
 	\	${child}=	convert to string	${child_num}
-	\	${ChildAge}=	replace string	${childAge}		CHILD		${child}
+	\	${Child_Age}=	replace string	${childAge}		CHILD		${child}
 	\	${age}=		convert to string	${age${child_num}}
-	\	${ChildAgeValue}=	replace string	${childAgeValue}	AGE		${age}
-	\	${ChildAgeValue}=	replace string	${ChildAgeValue}	CHILD		${child}	
+	\	${ChildAge_Value}=	replace string	${childAgeValue}	AGE		${age}
+	\	${ChildAge_Value}=	replace string	${ChildAge_Value}	CHILD		${child}	
 	\	click element	${ChildAge}
 	\	click element   ${ChildAgeValue}
 	\	${child_num}=	evaluate	${child_num} + 1
+	\	${childAge}=	replace string	${childAge}		${child}		CHILD	
+	\	${ChildAge_Value}=	replace string	${childAgeValue}	${age}		AGE
+	\	${ChildAge_Value}=	replace string	${ChildAge_Value}	${child}	CHILD	
+
 	click element	${apply}
 	click element	${travellingReason}
 	click element	${travellingForLeisure}

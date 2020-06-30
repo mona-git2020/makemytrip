@@ -1,5 +1,5 @@
 #*** Variables ***
-browser = 'Chrome'
+browser = 'firefox'
 url = 'https://www.makemytrip.com/'
 
 destination = 'Diu'
