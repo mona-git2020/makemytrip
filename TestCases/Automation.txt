@@ -9,11 +9,16 @@ suite setup		open makemytrip
 *** Test Cases ***
 search hotels functionality
 	set selenium speed	4 seconds
-	search hotels for destination
+#	search hotels for destination
+	check Hotels according to destination
+
+#check popular filters for destination
+#	set selenium speed	5 seconds
+#	select MMT Assured from popular filter and check hotels for ${destination}
 
 *** Keywords ***
 open makemytrip
-	open browser	${url}		${browser}		remote_url=http://192.168.43.6:4444/wd/hub
+	open browser	${url}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
 	maximize browser window
 	
 search hotels for destination
@@ -48,3 +53,20 @@ search hotels for destination
 	click element	${travellingReason}
 	click element	${travellingForLeisure}
 	click element	${serachButton}
+	
+check Hotels according to destination
+	click element		${blank}
+	${countHotels}=		get element count	${hotelsLists}	
+	:FOR	${singleHotel}	IN RANGE	2	${countHotels}+1
+	\	${row}=		convert to string	${singleHotel}
+	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}
+ 	\	element should contain		${Checkdesti}		${Destination}
+	\	${singleHotel}=	evaluate	${singleHotel}+1
+	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
+
+select MMT Assured from popular filter and check hotels for ${destination}
+	click element	${blank}
+#	${pass}=	run keyword and return status		element should be enabled	${mmtAssured}		
+#	run keyword if	${pass}		
+	click element	${mmtAssured}
+	element should contain		${mmtAssuredhotels}		imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/mmtAssured.png		
