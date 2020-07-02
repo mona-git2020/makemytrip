@@ -8,20 +8,18 @@ suite setup		open makemytrip
 
 *** Test Cases ***
 search hotels functionality
-	set selenium speed	2 seconds
+	set selenium speed	4 seconds
 	search hotels for destination
 
 *** Keywords ***
 open makemytrip
-	open browser	${url}		${browser}
-	
+	open browser	${url}		${browser}		remote_url=http://192.168.43.6:4444/wd/hub
 	maximize browser window
 	
 search hotels for destination
 	click element	${loginButton}
 	click element	${hotelButton}
 	click element	${destiName}
-#	click element	${hotelButton}
 	input text		${enterDesti}	${Destination}
 	click element	${selectDesti}
 	click element	${checkinDate}

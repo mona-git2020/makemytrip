@@ -1,6 +1,9 @@
 #*** Variables ***
-browser = 'firefox'
+
+browser = 'FireFox'
+plateform = 'WIN10'
 url = 'https://www.makemytrip.com/'
+
 
 destination = 'Diu'
 checkin = 'Thu Jul 02 2020'
