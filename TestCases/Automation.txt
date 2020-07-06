@@ -1,20 +1,33 @@
 *** Settings ***
 Library		Selenium2Library
 Library		String
+Library		Collections	
 Variables	Variables/Variables.py
 Resource	../Common/Common_Variables.txt
-
 suite setup		open makemytrip
 
+
+
 *** Test Cases ***
-search hotels functionality
-	set selenium speed	4 seconds
+#search hotels functionality
+#	set selenium speed	4 seconds
 #	search hotels for destination
-	check Hotels according to destination
+#	check Hotels according to destination
 
 #check popular filters for destination
 #	set selenium speed	5 seconds
-#	select MMT Assured from popular filter and check hotels for ${destination}
+#	click element		${blank}
+#	select popular filter and check clickable or not
+
+check price per night filter for destination
+	set selenium speed	5 seconds
+	click element		${blank}
+	select price per night and check hotels according to filter		
+
+check locality filters for destination
+	set selenium speed	5 seconds
+	click element		${blank}	
+	select locality filter and check clickable or not
 
 *** Keywords ***
 open makemytrip
@@ -55,18 +68,59 @@ search hotels for destination
 	click element	${serachButton}
 	
 check Hotels according to destination
-	click element		${blank}
+#	click element		${blank}
 	${countHotels}=		get element count	${hotelsLists}	
-	:FOR	${singleHotel}	IN RANGE	2	${countHotels}+1
+	:FOR	${singleHotel}	IN RANGE	2	${countHotels}+2
 	\	${row}=		convert to string	${singleHotel}
 	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}
  	\	element should contain		${Checkdesti}		${Destination}
 	\	${singleHotel}=	evaluate	${singleHotel}+1
 	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
 
-select MMT Assured from popular filter and check hotels for ${destination}
-	click element	${blank}
-#	${pass}=	run keyword and return status		element should be enabled	${mmtAssured}		
-#	run keyword if	${pass}		
-	click element	${mmtAssured}
-	element should contain		${mmtAssuredhotels}		imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/mmtAssured.png		
+select popular filter and check clickable or not
+	click element		${popularFilterShowmore}
+	${totalPopularFilter}=	get element count	${popularFilter}
+	: FOR	${pofilter}		IN RANGE	6	${totalPopularFilter}+1
+	\	${filternum}=		convert to string	${pofilter}
+	\	${popularFilter_Num}=	replace string		${popularFilterNum}		FILTERNUM		${filternum}
+	\	${check_Box}=	replace string		${popularCheckBox}		FILTERNUM		${filternum}
+	\	click element	${popularFilter_Num}
+	\	${status}=	run keyword and return status	checkbox should be selected		${check_Box}
+	\	run keyword if	${status}==True		check hotels according to popular filter for destination	${pofilter}		@{popularFiltersList}
+	\	${pofilter}=	evaluate	${pofilter}+1
+	\	click element	${popularFilter_Num}
+	\	${popularFilterNum}=	replace string		${popularFilterNum}		${filternum}	FILTERNUM
+	\	${popularCheckBox}=		replace string		${popularCheckBox}		${filternum}	FILTERNUM	
+#	\	...		if element is not clickable		${pofilter}		${popularFilterNum}		${checkBox}		${filternum}
+#	\	...		ELSE	if element is not clickable		${pofilter}		${popularFilterNum}		${checkBox}		${filternum}
+				
+
+
+check hotels according to popular filter for destination 
+	[Arguments]		${pofilter}		@{popularFiltersList}
+	${countHotels}=		get element count	${hotelsLists}
+	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
+	\	${row}=		convert to string	${singleHotel}
+	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}
+ 	\	element should contain		${Checkdesti}		${popularFiltersList[${pofilter}-1]}
+	\	${singleHotel}=	evaluate	${singleHotel}+1
+	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
+			
+
+select price per night and check hotels according to filter
+	drag and drop		${lastValue}	${initValue}
+
+select locality filter and check clickable or not
+	click element		${localityFilterShowmore}
+	${totalLocalityFilter}=	get element count	${localityFilter}
+
+select MySafety from popular filter and check hotels for ${destination}
+	checkbox should be selected		${MySafety}
+	click element	${MySafety}
+	${countHotels}=		get element count	${hotelsLists}
+	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
+	\	${row}=		convert to string	${singleHotel}
+	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}
+ 	\	element should contain		${MySafetyImage}	Mysafety
+	\	${singleHotel}=	evaluate	${singleHotel}+1
+	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW	

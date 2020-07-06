@@ -22,8 +22,28 @@ ${travellingForWork}		css=li[data-cy="travelFor-Work"]
 ${serachButton}		css=#hsw_search_button
 ${home}				link='Home'
 ${hotelsLists}		css=.listingRowOuter
-${checkdesti}		css=.listingRowOuter:nth-child(ROW)
+${checkdesti}		css=#Listing_hotel_ROW
 ${blank}			css=.bodyFixed.overlayWholeBlack
-
-${mmtAssured}		css=#hlistpg_fr_popular_filters ul:nth-child(2) li:nth-child(1)
+${popularFilterShowmore}	css=#hlistpg_fr_popular_filters #hlistpg_proptypes_show_more
+${localityFilterShowmore}	css=#hlistpg_fr_locality #hlistpg_proptypes_show_more
+${starCategoryShowmore}		css=#hlistpg_fr_star_category #hlistpg_proptypes_show_more
+${propertyTypesShowmore}	css=#hlistpg_fr_property_types #hlistpg_proptypes_show_more
+${facilityShowmore}			css=#hlistpg_fr_facility #hlistpg_proptypes_show_more
+${popularFilter}		css=#hlistpg_fr_popular_filters .checkmarkOuter
+${localityFilter}		css=#hlistpg_fr_locality .checkmarkOuter
+${popularFilter}		css=#hlistpg_fr_star_category .checkmarkOuter
+${propertyTypeFilter}	css=#hlistpg_fr_property_types .checkmarkOuter
+${facilityFilter}		css=#hlistpg_fr_facility .checkmarkOuter
+${userRatingFilter}		css=#hlistpg_fr_user_rating .checkmarkOuter
+${popularFilterNum}		css=#hlistpg_fr_popular_filters .filterList li:nth-child(FILTERNUM)
+${localityFilter}		css=#hlistpg_fr_locality .filterList li:nth-child(FILTERNUM)
+${popularFilter}		css=#hlistpg_fr_star_category .filterList li:nth-child(FILTERNUM)
+${propertyTypeFilter}	css=#hlistpg_fr_property_types .filterList li:nth-child(FILTERNUM)
+${facilityFilter}		css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)
+${userRatingFilter}		css=#hlistpg_fr_user_rating .filterList li:nth-child(FILTERNUM)
+${popularCheckBox}			css=#hlistpg_fr_popular_filters ul li:nth-child(FILTERNUM) input[type="checkbox"]
+${initValue}		css=div[aria-valuenow="0"]
+${targetValue}		css=div[aria-valuenow="5"]
+${lastValue}		css=div[aria-valuenow="6"]
 ${mmtAssuredhotels}	css=.listingRowOuter:nth-child(2) 
+${MySafetyImage}	css=img[src="https://promos.makemytrip.com/COVID/safe.png"]	
