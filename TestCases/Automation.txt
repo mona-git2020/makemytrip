@@ -12,22 +12,45 @@ suite setup		open makemytrip
 #search hotels functionality
 #	set selenium speed	4 seconds
 #	search hotels for destination
-#	check Hotels according to destination
+#	check Hotels according to destination					
 
 #check popular filters for destination
 #	set selenium speed	5 seconds
 #	click element		${blank}
-#	select popular filter and check clickable or not
+#	click element		css=#hlistpg_fr_popular_filters .filterList li:nth-child(1)
+#	element should contain  	css=#Listing_hotel_1	//imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/mmtAssured.png
+#	select filter from "select filter" and check checkbox is clickable or not	${popularFiltersList}	${popularFilterNum}		${popularCheckBox}		${popularFilterShowmore}	${popularFilter}
 
-check price per night filter for destination
-	set selenium speed	5 seconds
-	click element		${blank}
-	select price per night and check hotels according to filter		
+#check price per night filter for destination
+#	set selenium speed	5 seconds
+#	click element		${blank}
+#	select price per night and check hotels according to filter		
 
-check locality filters for destination
+#check locality filters for destination		
+#	set selenium speed	5 seconds
+#	click element		${blank}	
+#	select filter from "select filter" and check checkbox is clickable or not	${localityFilterList}	${localityFilterNum}		${localityCheckBox}		${localityFilterShowmore}	${localityFilter}
+
+#check star category filters for destination
+#	set selenium speed	5 seconds
+#	click element		${blank}	
+#	select filter from "select filter" and check checkbox is clickable or not	${starCategoryFilterList}	${starCategoryFilterNum}		${starCategoryCheckBox}		${starCategoryFilterShowmore}	${starCategoryFilter}
+
+check property types filters for destination
 	set selenium speed	5 seconds
 	click element		${blank}	
-	select locality filter and check clickable or not
+	select filter from "select filter" and check checkbox is clickable or not	${propertyTypeList}		${propertyTypeFilterNum}		${propertyTypeCheckBox}		${propertyTypeShowmore}	${propertyTypeFilter}
+
+#check facility filters for destination
+#	set selenium speed	5 seconds
+#	click element		${blank}	
+#	select filter from "select filter" and check checkbox is clickable or not	${facilityFilterList}	${facilityFilterNum}		${facilityCheckBox}		${facilityFilterShowmore}	${facilityFilter}
+
+#check user rating filters for destination
+#	set selenium speed	5 seconds
+#	click element		${blank}	
+#	select filter from "select filter" and check checkbox is clickable or not	${userRatingFilterList}		${userRatingFilterNum}		${userRatingCheckBox}		${userRatingFilterShowmore}		${userRatingFilter}
+
 
 *** Keywords ***
 open makemytrip
@@ -77,32 +100,34 @@ check Hotels according to destination
 	\	${singleHotel}=	evaluate	${singleHotel}+1
 	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
 
-select popular filter and check clickable or not
-	click element		${popularFilterShowmore}
-	${totalPopularFilter}=	get element count	${popularFilter}
-	: FOR	${pofilter}		IN RANGE	6	${totalPopularFilter}+1
-	\	${filternum}=		convert to string	${pofilter}
-	\	${popularFilter_Num}=	replace string		${popularFilterNum}		FILTERNUM		${filternum}
-	\	${check_Box}=	replace string		${popularCheckBox}		FILTERNUM		${filternum}
-	\	click element	${popularFilter_Num}
+select filter from "select filter" and check checkbox is clickable or not
+	[Arguments]		${FiltersList}	${FilterNum}		${CheckBox}		${FilterShowmore}	${Filters}
+	click element		${FilterShowmore}
+	${totalFilter}=	get element count	${Filters}
+	log		${FilterNum}
+	: FOR	${filter}		IN RANGE	1	${totalFilter}+1
+	\	${num}=		convert to string	${filter}
+	\	${check_Box}=	replace string		${CheckBox}		FILTERNUM		${num}
+	\	log		${FilterNum}
+	\	${Filter_Num}=	replace string		${FilterNum}	FILTERNUM		${num}
+	\	log		${Filter_Num}
+	\	click element	${Filter_Num}
 	\	${status}=	run keyword and return status	checkbox should be selected		${check_Box}
-	\	run keyword if	${status}==True		check hotels according to popular filter for destination	${pofilter}		@{popularFiltersList}
-	\	${pofilter}=	evaluate	${pofilter}+1
-	\	click element	${popularFilter_Num}
-	\	${popularFilterNum}=	replace string		${popularFilterNum}		${filternum}	FILTERNUM
-	\	${popularCheckBox}=		replace string		${popularCheckBox}		${filternum}	FILTERNUM	
-#	\	...		if element is not clickable		${pofilter}		${popularFilterNum}		${checkBox}		${filternum}
-#	\	...		ELSE	if element is not clickable		${pofilter}		${popularFilterNum}		${checkBox}		${filternum}
+	\	run keyword if	${status}==True		check hotels according to popular filter for destination	${filter}		${FiltersList}
+	\	${filter}=	evaluate	${filter}+1
+	\	click element	${Filter_Num}
+	\	${FilterNum}=	replace string		${FilterNum}		${num}		FILTERNUM
+	\	${CheckBox}=		replace string		${CheckBox}		${num}		FILTERNUM	
 				
 
 
 check hotels according to popular filter for destination 
-	[Arguments]		${pofilter}		@{popularFiltersList}
+	[Arguments]		${filter}		${FiltersList}
 	${countHotels}=		get element count	${hotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${row}=		convert to string	${singleHotel}
 	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}
- 	\	element should contain		${Checkdesti}		${popularFiltersList[${pofilter}-1]}
+ 	\	element should contain		${Checkdesti}		${FiltersList[${filter}-1]}
 	\	${singleHotel}=	evaluate	${singleHotel}+1
 	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
 			
