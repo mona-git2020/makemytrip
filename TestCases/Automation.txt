@@ -36,20 +36,20 @@ suite setup		open makemytrip
 #	click element		${blank}	
 #	select filter from "select filter" and check checkbox is clickable or not	${starCategoryFilterList}	${starCategoryFilterNum}		${starCategoryCheckBox}		${starCategoryFilterShowmore}	${starCategoryFilter}
 
-check property types filters for destination
-	set selenium speed	5 seconds
-	click element		${blank}	
-	select filter from "select filter" and check checkbox is clickable or not	${propertyTypeList}		${propertyTypeFilterNum}		${propertyTypeCheckBox}		${propertyTypeShowmore}	${propertyTypeFilter}
+#check property types filters for destination
+#	set selenium speed	5 seconds
+#	click element		${blank}	
+#	select filter from "select filter" and check checkbox is clickable or not	${propertyTypeList}		${propertyTypeFilterNum}		${propertyTypeCheckBox}		${propertyTypeShowmore}	${propertyTypeFilter}
 
 #check facility filters for destination
 #	set selenium speed	5 seconds
 #	click element		${blank}	
 #	select filter from "select filter" and check checkbox is clickable or not	${facilityFilterList}	${facilityFilterNum}		${facilityCheckBox}		${facilityFilterShowmore}	${facilityFilter}
 
-#check user rating filters for destination
-#	set selenium speed	5 seconds
-#	click element		${blank}	
-#	select filter from "select filter" and check checkbox is clickable or not	${userRatingFilterList}		${userRatingFilterNum}		${userRatingCheckBox}		${userRatingFilterShowmore}		${userRatingFilter}
+check user rating filters for destination
+	set selenium speed	5 seconds
+	click element		${blank}	
+	select filter from "User Rating filter" and check checkbox is clickable or not	${userRatingList}		${userRatingFilterNum}		${userRatingCheckBox}		${userRatingFilter}
 
 
 *** Keywords ***
@@ -111,26 +111,29 @@ select filter from "select filter" and check checkbox is clickable or not
 	\	log		${FilterNum}
 	\	${Filter_Num}=	replace string		${FilterNum}	FILTERNUM		${num}
 	\	log		${Filter_Num}
-	\	click element	${Filter_Num}
-	\	${status}=	run keyword and return status	checkbox should be selected		${check_Box}
-	\	run keyword if	${status}==True		check hotels according to popular filter for destination	${filter}		${FiltersList}
-	\	${filter}=	evaluate	${filter}+1
-	\	click element	${Filter_Num}
+	\	${value}=	get text	${Filter_Num}	
+#	\	append to list	${FiltersList}	${value}
+	\	click element	${Filter_Num}	
+	\	${status}=	run keyword and return status	element should contain		${applied}		${value}
+#checkbox should be selected		${check_Box}
+	\	run keyword if	${status}==True		check hotels according to popular filter for destination	${filter}		${FiltersList}		${Filter_Num}		${value}
 	\	${FilterNum}=	replace string		${FilterNum}		${num}		FILTERNUM
 	\	${CheckBox}=		replace string		${CheckBox}		${num}		FILTERNUM	
-				
+	\	${filter}=	evaluate	${filter}+1				
 
 
 check hotels according to popular filter for destination 
-	[Arguments]		${filter}		${FiltersList}
+	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
+	${valueUpper}=		convert to upper case	${value}
 	${countHotels}=		get element count	${hotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${row}=		convert to string	${singleHotel}
 	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}
- 	\	element should contain		${Checkdesti}		${FiltersList[${filter}-1]}
+ 	\	${status}=		run keyword and return status	element should contain		${Checkdesti}		${value}
+	\	run keyword if		${status}==False	element should contain		${Checkdesti}		${valueUpper}
 	\	${singleHotel}=	evaluate	${singleHotel}+1
 	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
-			
+	click element	${appliedFilter}		
 
 select price per night and check hotels according to filter
 	drag and drop		${lastValue}	${initValue}
@@ -149,3 +152,41 @@ select MySafety from popular filter and check hotels for ${destination}
  	\	element should contain		${MySafetyImage}	Mysafety
 	\	${singleHotel}=	evaluate	${singleHotel}+1
 	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW	
+
+
+
+select filter from "User Rating filter" and check checkbox is clickable or not	
+	[Arguments]		${FiltersList}		${FilterNum}		${CheckBox}		${Filters}
+	${totalFilter}=	get element count	${Filters}
+	: FOR	${filter}		IN RANGE	1	${totalFilter}+1
+	\	${num}=		convert to string	${filter}
+	\	${check_Box}=	replace string		${CheckBox}		FILTERNUM		${num}
+	\	log		${FilterNum}
+	\	${Filter_Num}=	replace string		${FilterNum}	FILTERNUM		${num}
+	\	log		${Filter_Num}
+	\	${value}=	get text	${Filter_Num}	
+	\	click element	${Filter_Num}	
+	\	${status}=	run keyword and return status	element should contain		${applied}		${value}
+	\	run keyword if	${status}==True		check hotels according to "User Rating filter" for destination	${filter}		${FiltersList}		${Filter_Num}
+	\	${FilterNum}=	replace string		${FilterNum}		${num}		FILTERNUM
+	\	${CheckBox}=		replace string		${CheckBox}		${num}		FILTERNUM	
+	\	${filter}=	evaluate	${filter}+1				
+	
+	
+check hotels according to "User Rating filter" for destination	
+	[Arguments]		${filter}		${FiltersList}		${Filter_Num}
+	${countHotels}=		get element count	${hotelsLists}
+	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
+	\	${row}=		convert to string	${singleHotel}
+	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}	
+	\	element should contain		${Checkdesti}		${FiltersList[${filter}-1]}
+	\	${singleHotel}=	evaluate	${singleHotel}+1
+	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
+	click element	${appliedFilter}		
+
+
+
+
+
+
+

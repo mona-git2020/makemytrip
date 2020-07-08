@@ -19,8 +19,10 @@ localityFilterList = ["Diu Airport", "Diu Fort", "Nagoa Beach", "Bandar Chowk"]
 
 starCategoryList = ["Unrated", "4 Star", "3 Star", "2 Star", "1 Star"]
 
-userRatingList = ["4.5 & above(Excellent)", "4 & above(Very Good)", "3 & above(Good)"]
+userRatingList = ["4.5/5", "4.0/5", "3.0/5"]
 
-propertyTypeList = ["Hotel", "RESORT", "GUEST HOUSE", "HOMESTAY", "APART-HOTEL", "Camp", "Farm House"]
+#propertyTypeList = ["Hotel", "RESORT", "HOMESTAY", "APART-HOTEL", "GUEST HOUSE", "Camp", "Farm House"]
+propertyTypeList = []
 
-facilityFilterList = ["Caretaker", "Cafe", "Kitchenette", "Elevator/Lift", "Spa", "Restaurant", "Bar", "Indoor Games", "Parking", "Balcony/Terrace", "Living Room", "Bonfire", "Facilities for Guests with Disabilities", "Swimming Pool", "Wi-Fi", "Barbeque", "Fireplace", "Room Service"]
+#facilityFilterList = ["Caretaker", "Cafe", "Kitchenette", "Elevator/Lift", "Spa", "Restaurant", "Bar", "Indoor Games", "Parking", "Balcony/Terrace", "Living Room", "Bonfire", "Facilities for Guests with Disabilities", "Swimming Pool", "Wi-Fi", "Barbeque", "Fireplace", "Room Service"]
+facilityFilterList = []

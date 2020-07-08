@@ -1,0 +1,6 @@
+1594219845194	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\AMAN\\AppData\\Local\\Temp\\rust_mozprofileLk0t46"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1594219859738	Marionette	INFO	Listening on port 9645
+1594219859924	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://jsak.mmtcdn.com/pwa_v3/pwa_hotel/js/vendor.6cba3a9c.js, line 16: Error: timeout of 10000ms exceeded
+JavaScript error: https://jsak.mmtcdn.com/pwa_v3/pwa_hotel/js/vendor.6cba3a9c.js, line 16: Error: timeout of 10000ms exceeded
