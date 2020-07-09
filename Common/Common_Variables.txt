@@ -24,11 +24,18 @@ ${home}				link='Home'
 ${hotelsLists}		css=.listingRowOuter
 ${checkdesti}		css=#Listing_hotel_ROW
 ${blank}			css=.bodyFixed.overlayWholeBlack
-${popularFilterShowmore}	css=#hlistpg_fr_popular_filters #hlistpg_proptypes_show_more
-${localityFilterShowmore}	css=#hlistpg_fr_locality .blueText.pointer.latoBold.font12
-${starCategoryShowmore}		css=#hlistpg_fr_star_category #hlistpg_proptypes_show_more
-${propertyTypeShowmore}	css=#hlistpg_fr_property_types #hlistpg_proptypes_show_more
-${facilityFilterShowmore}			css=#hlistpg_fr_facility #hlistpg_proptypes_show_more
+${popularFilterSection}		css=#hlistpg_fr_popular_filters
+${localityFilterSection}	css=#hlistpg_fr_locality
+${starCategorySection}		css=#hlistpg_fr_star_category
+${propertyTypeSection}		css=#hlistpg_fr_property_types
+${facilityFilterSection}	css=#hlistpg_fr_facility
+${userRatingFilterSection}	css=#hlistpg_fr_user_rating
+${popularFilterShowmore}		css=#hlistpg_fr_popular_filters #hlistpg_proptypes_show_more
+${localityFilterShowmore}		css=#hlistpg_fr_locality .blueText.pointer.latoBold.font12
+${starCategoryShowmore}			css=#hlistpg_fr_star_category #hlistpg_proptypes_show_more
+${propertyTypeShowmore}			css=#hlistpg_fr_property_types #hlistpg_proptypes_show_more
+${facilityFilterShowmore}		css=#hlistpg_fr_facility #hlistpg_proptypes_show_more
+${userRatingFilterShowmore}		css=#hlistpg_fr_user_rating #hlistpg_proptypes_show_more
 ${popularFilter}		css=#hlistpg_fr_popular_filters .checkmarkOuter
 ${localityFilter}		css=#hlistpg_fr_locality .checkmarkOuter
 ${starCategoryFilter}	css=#hlistpg_fr_star_category .checkmarkOuter
@@ -38,17 +45,24 @@ ${userRatingFilter}		css=#hlistpg_fr_user_rating .checkmarkOuter
 ${popularFilterNum}			css=#hlistpg_fr_popular_filters .filterList li:nth-child(FILTERNUM)
 ${localityFilterNum}		css=#hlistpg_fr_locality .filterList li:nth-child(FILTERNUM)
 ${starCategoryFilterNum}	css=#hlistpg_fr_star_category .filterList li:nth-child(FILTERNUM)
-${propertyTypeFilterNum}	css=#hlistpg_fr_property_types .filterList li:nth-child(FILTERNUM) label
-${facilityFilterNum}		css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label
-${userRatingFilterNum}		css=#hlistpg_fr_user_rating .filterList li:nth-child(FILTERNUM) .checkmarkOuter
+${propertyTypeFilterNum}	css=#hlistpg_fr_property_types .filterList li:nth-child(FILTERNUM) 
+${facilityFilterNum}		css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) 
+${userRatingFilterNum}		css=#hlistpg_fr_user_rating .filterList li:nth-child(FILTERNUM) 
 ${popularCheckBox}				css=#hlistpg_fr_popular_filters ul li:nth-child(FILTERNUM) input[type="checkbox"]
 ${localityCheckBox}				css=#hlistpg_fr_locality ul li:nth-child(FILTERNUM) input[type="checkbox"]
 ${starCategoryCheckBox}			css=#hlistpg_fr_star_category ul li:nth-child(FILTERNUM) input[type="checkbox"]
 ${propertyTypeCheckBox}			css=#hlistpg_fr_property_types ul li:nth-child(FILTERNUM) input[type="checkbox"]
 ${facilityCheckBox}				css=#hlistpg_fr_facility ul li:nth-child(FILTERNUM) input[type="checkbox"]
 ${userRatingCheckBox}			css=#hlistpg_fr_user_rating ul li:nth-child(FILTERNUM) input[type="checkbox"]
+${popularFilterValue}		css=#hlistpg_fr_popular_filters .filterList li:nth-child(FILTERNUM) label
+${localityFilterValue}		css=#hlistpg_fr_locality .filterList li:nth-child(FILTERNUM) label
+${starCategoryFilterValue}		css=#hlistpg_fr_star_category .filterList li:nth-child(FILTERNUM) label
+${propertyTypeFilterValue}	css=#hlistpg_fr_property_types .filterList li:nth-child(FILTERNUM) label
+${facilityFilterValue}		css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label
+${userRatingFilterValue}		css=#hlistpg_fr_user_rating .filterList li:nth-child(FILTERNUM) label
 ${applied}			css=.appliedFilters li:nth-child(1) 
 ${appliedFilter}	css=.appliedFilters li:nth-child(1) a
+${userRating}		css=#Listing_hotel_ROW #hlistpg_hotel_user_rating span[itemprop="ratingValue"]
 ${initValue}		css=div[aria-valuenow="0"]
 ${targetValue}		css=div[aria-valuenow="5"]
 ${lastValue}		css=div[aria-valuenow="6"]

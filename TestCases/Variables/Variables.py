@@ -19,7 +19,7 @@ localityFilterList = ["Diu Airport", "Diu Fort", "Nagoa Beach", "Bandar Chowk"]
 
 starCategoryList = ["Unrated", "4 Star", "3 Star", "2 Star", "1 Star"]
 
-userRatingList = ["4.5/5", "4.0/5", "3.0/5"]
+userRatingList = ["4.5", "4.0", "3.0"]
 
 #propertyTypeList = ["Hotel", "RESORT", "HOMESTAY", "APART-HOTEL", "GUEST HOUSE", "Camp", "Farm House"]
 propertyTypeList = []
