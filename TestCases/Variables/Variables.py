@@ -1,7 +1,7 @@
 #*** Variables ***
 
 browser = 'FireFox'
-url = 'https://www.makemytrip.com/hotels/hotel-listing/?checkin=07102020&checkout=07122020&locusId=CTDIU&locusType=city&city=CTDIU&country=IN&searchText=Diu%2C%20Daman%20and%20Diu%2C%20India&roomStayQualifier=2e2e11e5e&_uCurrency=INR&reference=hotel&type=city'
+url = 'https://www.makemytrip.com/hotels/hotel-listing/?checkin=07142020&city=CTDIU&checkout=07162020&roomStayQualifier=2e2e10e6e&locusId=CTDIU&country=IN&locusType=city&searchText=Diu,%20Daman%20and%20Diu,%20India&visitorId=f399ec2b-c28a-47c5-ba31-f602cdd3f250'
 
 
 destination = 'Diu'
@@ -15,7 +15,7 @@ allFilters = ["Popular", "Locality", "Star Category", "User Rating", "Property T
 
 popularFiltersList = ["MMT Assured", "MySafety - Safe and Hygienic Stays", "Pay @ Hotel Available", "EMI Deals Available", "LOW_COST_EMI", "Free Breakfast", "Free Cancellation, Zero Payment Now", "Free Cancellation"]
 
-localityFilterList = ["Diu Airport", "Diu Fort", "Nagoa Beach", "Bandar Chowk"]
+localityFilterList = {"Near Diu Airport" : "Diu Airport", "Near Diu Fort" : "Diu Fort", "Near Bandar Chowk" : "Bandar Chowk"}
 
 starCategoryList = ["Unrated", "4 Star", "3 Star", "2 Star", "1 Star"]
 

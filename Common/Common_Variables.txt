@@ -25,7 +25,7 @@ ${hotelsLists}		css=.listingRowOuter
 ${checkdesti}		css=#Listing_hotel_ROW
 ${blank}			css=.bodyFixed.overlayWholeBlack
 ${popularFilterSection}		css=#hlistpg_fr_popular_filters
-${localityFilterSection}	css=#hlistpg_fr_locality
+${localityFilterSection}	css=#hlistpg_fr_locality div div
 ${starCategorySection}		css=#hlistpg_fr_star_category
 ${propertyTypeSection}		css=#hlistpg_fr_property_types
 ${facilityFilterSection}	css=#hlistpg_fr_facility
@@ -37,25 +37,25 @@ ${propertyTypeShowmore}			css=#hlistpg_fr_property_types #hlistpg_proptypes_show
 ${facilityFilterShowmore}		css=#hlistpg_fr_facility #hlistpg_proptypes_show_more
 ${userRatingFilterShowmore}		css=#hlistpg_fr_user_rating #hlistpg_proptypes_show_more
 ${popularFilter}		css=#hlistpg_fr_popular_filters .checkmarkOuter
-${localityFilter}		css=#hlistpg_fr_locality .checkmarkOuter
+${localityFilter}		css=#hlistpg_fr_locality div div:nth-child(SEC) .checkmarkOuter
 ${starCategoryFilter}	css=#hlistpg_fr_star_category .checkmarkOuter
 ${propertyTypeFilter}	css=#hlistpg_fr_property_types .checkmarkOuter
 ${facilityFilter}		css=#hlistpg_fr_facility .checkmarkOuter
 ${userRatingFilter}		css=#hlistpg_fr_user_rating .checkmarkOuter
 ${popularFilterNum}			css=#hlistpg_fr_popular_filters .filterList li:nth-child(FILTERNUM)
-${localityFilterNum}		css=#hlistpg_fr_locality .filterList li:nth-child(FILTERNUM)
+${localityFilterNum}		css=#hlistpg_fr_locality div div:nth-child(SEC) .filterList li:nth-child(FILTERNUM)
 ${starCategoryFilterNum}	css=#hlistpg_fr_star_category .filterList li:nth-child(FILTERNUM)
 ${propertyTypeFilterNum}	css=#hlistpg_fr_property_types .filterList li:nth-child(FILTERNUM) 
 ${facilityFilterNum}		css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) 
 ${userRatingFilterNum}		css=#hlistpg_fr_user_rating .filterList li:nth-child(FILTERNUM) 
 ${popularCheckBox}				css=#hlistpg_fr_popular_filters ul li:nth-child(FILTERNUM) input[type="checkbox"]
-${localityCheckBox}				css=#hlistpg_fr_locality ul li:nth-child(FILTERNUM) input[type="checkbox"]
+${localityCheckBox}				css=#hlistpg_fr_locality div div:nth-child(SEC) ul li:nth-child(FILTERNUM) input[type="checkbox"]
 ${starCategoryCheckBox}			css=#hlistpg_fr_star_category ul li:nth-child(FILTERNUM) input[type="checkbox"]
 ${propertyTypeCheckBox}			css=#hlistpg_fr_property_types ul li:nth-child(FILTERNUM) input[type="checkbox"]
 ${facilityCheckBox}				css=#hlistpg_fr_facility ul li:nth-child(FILTERNUM) input[type="checkbox"]
 ${userRatingCheckBox}			css=#hlistpg_fr_user_rating ul li:nth-child(FILTERNUM) input[type="checkbox"]
 ${popularFilterValue}		css=#hlistpg_fr_popular_filters .filterList li:nth-child(FILTERNUM) label
-${localityFilterValue}		css=#hlistpg_fr_locality .filterList li:nth-child(FILTERNUM) label
+${localityFilterValue}		css=#hlistpg_fr_locality div div:nth-child(SEC) .filterList li:nth-child(FILTERNUM) label
 ${starCategoryFilterValue}		css=#hlistpg_fr_star_category .filterList li:nth-child(FILTERNUM) label
 ${propertyTypeFilterValue}	css=#hlistpg_fr_property_types .filterList li:nth-child(FILTERNUM) label
 ${facilityFilterValue}		css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label
@@ -68,3 +68,4 @@ ${targetValue}		css=div[aria-valuenow="5"]
 ${lastValue}		css=div[aria-valuenow="6"]
 ${mmtAssuredhotels}	css=.listingRowOuter:nth-child(2) 
 ${MySafetyImage}	css=img[src="https://promos.makemytrip.com/COVID/safe.png"]	
+${nearByHotels}		css=.latoBlack.font24.blackText.appendTop20+p~div.listingRowOuter
