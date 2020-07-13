@@ -60,12 +60,22 @@ ${starCategoryFilterValue}		css=#hlistpg_fr_star_category .filterList li:nth-chi
 ${propertyTypeFilterValue}	css=#hlistpg_fr_property_types .filterList li:nth-child(FILTERNUM) label
 ${facilityFilterValue}		css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label
 ${userRatingFilterValue}		css=#hlistpg_fr_user_rating .filterList li:nth-child(FILTERNUM) label
-${applied}			css=.appliedFilters li:nth-child(1) 
+${applied}			css=.appliedFilters 
 ${appliedFilter}	css=.appliedFilters li:nth-child(1) a
 ${userRating}		css=#Listing_hotel_ROW #hlistpg_hotel_user_rating span[itemprop="ratingValue"]
 ${initValue}		css=div[aria-valuenow="0"]
 ${targetValue}		css=div[aria-valuenow="5"]
 ${lastValue}		css=div[aria-valuenow="6"]
-${mmtAssuredhotels}	css=.listingRowOuter:nth-child(2) 
-${MySafetyImage}	css=img[src="https://promos.makemytrip.com/COVID/safe.png"]	
+${mmtAssuredhotels}	css=.listingRowOuter:nth-child(2)
+
+${MySafetyNum}		css=#hlistpg_fr_popular_filters .filterList li:nth-child(2) 
+${MySafetyImage}	css=#Listing_hotel_ROW img[src="https://promos.makemytrip.com/COVID/safe.png"]	
+
+
+
 ${nearByHotels}		css=.latoBlack.font24.blackText.appendTop20+p~div.listingRowOuter
+${totalStars}		css=.sprite.rating_blank.appendLeft10	
+${Stars}		css=#Listing_hotel_ROW span[content="STAR"]
+
+${hotelFacilities}	css=#detpg_hotel_facilities
+${facilities}		css=#Facilities
