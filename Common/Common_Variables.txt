@@ -65,11 +65,15 @@ ${appliedFilter}	css=.appliedFilters li:nth-child(1) a
 ${userRating}		css=#Listing_hotel_ROW #hlistpg_hotel_user_rating span[itemprop="ratingValue"]
 ${initValue}		css=div[aria-valuenow="0"]
 ${targetValue}		css=div[aria-valuenow="5"]
-${lastValue}		css=div[aria-valuenow="6"]
+${lastValue}		css=div[aria-valuenow="9"]
+${inrPrice}			css=#Listing_hotel_ROW #hlistpg_hotel_shown_price
+${targetPrice}		css=.maxValue
 ${mmtAssuredhotels}	css=.listingRowOuter:nth-child(2)
 
+${MMTAssuredImage}			css=#Listing_hotel_ROW img[src="//imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/mmtAssured.png"]
+
 ${MySafetyNum}		css=#hlistpg_fr_popular_filters .filterList li:nth-child(2) 
-${MySafetyImage}	css=#Listing_hotel_ROW img[src="https://promos.makemytrip.com/COVID/safe.png"]	
+${MySafetyImage}		css=#Listing_hotel_ROW img[src="https://promos.makemytrip.com/COVID/safe.png"]	
 
 
 

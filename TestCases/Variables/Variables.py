@@ -1,7 +1,7 @@
 
 
 browser = 'FireFox'
-url = 'https://www.makemytrip.com/hotels/hotel-listing/?checkin=07142020&city=CTDIU&checkout=07162020&roomStayQualifier=2e2e10e6e&locusId=CTDIU&country=IN&locusType=city&searchText=Diu,%20Daman%20and%20Diu,%20India&visitorId=f399ec2b-c28a-47c5-ba31-f602cdd3f250'
+url = 'https://www.makemytrip.com/hotels/hotel-listing/?checkin=07182020&city=CTDIU&checkout=07202020&roomStayQualifier=2e2e10e6e&locusId=CTDIU&country=IN&locusType=city&searchText=Diu,%20Daman%20and%20Diu,%20India&visitorId=f399ec2b-c28a-47c5-ba31-f602cdd3f250'
 
 
 destination = 'Diu'
@@ -13,7 +13,7 @@ age0 = 10
 age1 = 5
 allFilters = ["Popular", "Locality", "Star Category", "User Rating", "Property Types", "Ficility"]
 
-popularFiltersList = ["MMT Assured", "MySafety - Safe and Hygienic Stays", "Pay @ Hotel Available", "EMI Deals Available", "LOW_COST_EMI", "Free Breakfast", "Free Cancellation, Zero Payment Now", "Free Cancellation"]
+popularFiltersList = {"MMT Assured" : "MMT Assured", "MySafety - Safe and Hygienic Stays" : "MySafety - Safe and Hygienic Stays", "Pay @ Hotel Available" : "Pay@Hotel", "EMI Deals Available" : "EMI Deals Available", "LOW_COST_EMI" : "LOW_COST_EMI", "Free Breakfast" : "Free Breakfast", "Free Cancellation, Zero Payment Now" : "Free Cancellation, Zero Payment Now", "Free Cancellation" : "Free Cancellation"}
 
 localityFilterList = {"Near Diu Airport" : "Diu Airport", "Near Diu Fort" : "Diu Fort", "Near Bandar Chowk" : "Bandar Chowk"}
 
