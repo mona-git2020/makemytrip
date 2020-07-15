@@ -68,6 +68,7 @@ ${targetValue}		css=div[aria-valuenow="5"]
 ${lastValue}		css=div[aria-valuenow="9"]
 ${inrPrice}			css=#Listing_hotel_ROW #hlistpg_hotel_shown_price
 ${targetPrice}		css=.maxValue
+${startingPrice}=	css=.minValue
 ${mmtAssuredhotels}	css=.listingRowOuter:nth-child(2)
 
 ${MMTAssuredImage}			css=#Listing_hotel_ROW img[src="//imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/mmtAssured.png"]
