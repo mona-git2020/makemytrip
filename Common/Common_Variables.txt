@@ -70,11 +70,11 @@ ${inrPrice}			css=#Listing_hotel_ROW #hlistpg_hotel_shown_price
 ${targetPrice}		css=.maxValue
 ${startingPrice}=	css=.minValue
 ${mmtAssuredhotels}	css=.listingRowOuter:nth-child(2)
-
+${banner}			css=#Listing_hotel_ROW #hlistpg_hotel_type
 ${MMTAssuredImage}			css=#Listing_hotel_ROW img[src="//imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/mmtAssured.png"]
 
 ${MySafetyNum}		css=#hlistpg_fr_popular_filters .filterList li:nth-child(2) 
-${MySafetyImage}		css=#Listing_hotel_ROW img[src="https://promos.makemytrip.com/COVID/safe.png"]	
+${MySafetyImage}	css=#Listing_hotel_ROW img[src="https://promos.makemytrip.com/COVID/safe.png"]	
 
 
 

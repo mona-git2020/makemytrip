@@ -19,8 +19,8 @@ suite setup		open makemytrip
 #	select filter from "select filter" and check checkbox is clickable or not	${popularFilterSection}		${allFilters[0]}	${popularFiltersList}	${popularFilterNum}		${popularCheckBox}		${popularFilterShowmore}	${popularFilter}	${popularFilterValue}
 
 check price per night filter for destination
-	set selenium speed	5 seconds
-	click element		${blank}
+#	set selenium speed	5 seconds
+#	click element		${blank}
 	select price per night and check hotels according to filter		
 
 check locality filters for destination		
@@ -33,10 +33,10 @@ check star category filters for destination
 #	click element		${blank}	
 	select filter from "Select filter" and check checkbox is clickable or not	${starCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${starCategoryFilterNum}		${starCategoryCheckBox}		${starCategoryShowmore}		${starCategoryFilter}		${starCategoryFilterValue}
 
-#check property types filters for destination
+check property types filters for destination
 #	set selenium speed	5 seconds
 #	click element		${blank}	
-#	select filter from "Select filter" and check checkbox is clickable or not	${propertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${propertyTypeFilterNum}		${propertyTypeCheckBox}		${propertyTypeShowmore}		${propertyTypeFilter}		${propertyTypeFilterValue}
+	select filter from "Select filter" and check checkbox is clickable or not	${propertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${propertyTypeFilterNum}		${propertyTypeCheckBox}		${propertyTypeShowmore}		${propertyTypeFilter}		${propertyTypeFilterValue}
 
 
 check user rating filters for destination
@@ -53,7 +53,7 @@ check user rating filters for destination
 
 *** Keywords ***
 open makemytrip
-	open browser	${url}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
+	open browser	${url}		${browser}		remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
 	maximize browser window
 	
 search hotels for destination
@@ -168,9 +168,11 @@ check hotels according to "Property Types filter" for destination
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${row}=		convert to string	${singleHotel}
 	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}
- 	\	${status}=		run keyword and return status	element should contain		${Checkdesti}		${value}
-	\	run keyword if		${status}==False	element should contain		${Checkdesti}		${valueUpper}
+	\	${banner}=	replace string		${banner}	ROW		${row}
+ 	\	${status}=		run keyword and return status	element should be visible		${banner}		
+	\	run keyword if		${status}==True		element should contain		${Checkdesti}		${valueUpper}	ELSE	log		Hotels
 	\	${singleHotel}=	evaluate	${singleHotel}+1
+	\	${banner}=	replace string		${banner}	${row}		ROW
 	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
 	click element	${appliedFilter}		
 
