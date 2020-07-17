@@ -1,7 +1,7 @@
 
 
 
-url = 'https://www.makemytrip.com/hotels/hotel-listing/?checkin=07202020&checkout=07222020&locusId=CTDIU&locusType=city&city=CTDIU&country=IN&searchText=Diu%2C%20Daman%20and%20Diu%2C%20India&roomStayQualifier=2e2e10e6e&_uCurrency=INR&reference=hotel&type=city'
+url = 'https://www.makemytrip.com/hotels/hotel-listing/?_uCurrency=INR&checkin=07202020&checkout=07222020&city=CTXMU&country=IN&locusId=CTXMU&locusType=city&roomStayQualifier=2e2e10e6e&searchText=Mount%20Abu%2C%20Rajasthan%2C%20India&visitorId=f399ec2b-c28a-47c5-ba31-f602cdd3f250'
 
 
 destination = 'Diu'
@@ -15,7 +15,7 @@ allFilters = ["Popular", "Locality", "Star Category", "User Rating", "Property T
 
 popularFiltersList = {"MMT Assured" : "MMT Assured", "MySafety - Safe and Hygienic Stays" : "MySafety - Safe and Hygienic Stays", "Pay @ Hotel Available" : "Pay@Hotel", "EMI Deals Available" : "EMI Deals Available", "LOW_COST_EMI" : "LOW_COST_EMI", "Free Breakfast" : "Free Breakfast", "Free Cancellation, Zero Payment Now" : "Free Cancellation, Zero Payment Now", "Free Cancellation" : "Free Cancellation"}
 
-localityFilterList = {"Near Diu Airport" : "Diu Airport", "Near Diu Fort" : "Diu Fort", "Near Bandar Chowk" : "Bandar Chowk"}
+localityFilterList = {"Near Polo Ground" : "Near Polo Ground", "Near Nakki Lake" : "Near Nakki Lake", "Sunset Road" : "Sunset Road", "Near Chacha Museum" : "Near Chacha Museum", "Kumarwada" : "Kumarwada", "Sani Gaon" : "Sani Gaon", "Near Mount Abu Bus Stand" : "Near Mount Abu Bus Stand", "Machgoan" : "Machgoan", "Dhundayi" : "Dhundayi"}
 
 starCategoryFilterList = {"Unrated" : "Unrated", "4 Star" : "4", "3 Star" : "3", "2 Star" : "2", "1 Star" : "1"}
 

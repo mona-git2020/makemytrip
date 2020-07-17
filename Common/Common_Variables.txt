@@ -63,9 +63,9 @@ ${userRatingFilterValue}		css=#hlistpg_fr_user_rating .filterList li:nth-child(F
 ${applied}			css=.appliedFilters 
 ${appliedFilter}	css=.appliedFilters li:nth-child(1) a
 ${userRating}		css=#Listing_hotel_ROW #hlistpg_hotel_user_rating span[itemprop="ratingValue"]
-${initValue}		css=div[aria-valuenow="0"]
+${initValue}		css=.input-range__track.input-range__track--background span.input-range__slider-container:nth-child(2) div.input-range__slider
 ${targetValue}		css=div[aria-valuenow="5"]
-${lastValue}		css=div[aria-valuenow="9"]
+${lastValue}		css=.input-range__track.input-range__track--background span.input-range__slider-container:nth-child(3) div.input-range__slider
 ${inrPrice}			css=#Listing_hotel_ROW #hlistpg_hotel_shown_price
 ${targetPrice}		css=.maxValue
 ${startingPrice}=	css=.minValue
