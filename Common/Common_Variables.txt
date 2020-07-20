@@ -1,86 +1,86 @@
 *** Variables ***
-${loginButton}		css=li[data-cy="account"]
-${hotelButton}		css=li[class='menu_Hotels']
-${destiName}		css=#city
-${enterDesti}		css=.react-autosuggest__input
-${selectDesti}		css=#react-autowhatever-1-section-0-item-0
-${checkin}			css=#checkin
-${checkout}			css=#checkout
-${checkinDate}		css=div[aria-label="Thu Jul 02 2020"][aria-disabled="false"]
-${checkoutDate}		css=div[aria-label="Sat Jul 04 2020"][aria-disabled="false"]
-${roomGuest}		css=#guest
-#${adults}			css=li[data-cy="adults-NUMA"]
-${adults}			link=2
-${childs}			css=li[data-cy="children-NUMC"]
-${childAge}			css=select[data-cy="childAge-CHILD"] 
-${childAgeValue}	css=select[data-cy="childAge-CHILD"] option[data-cy="childAgeValue-AGE"]
-${addRoom}			css=.btnAddRoom
-${apply}			css=.primaryBtn.btnApply
-${travellingReason}	css=.hsw_inputBox.travelFor
-${travellingForLeisure}		css=li[data-cy="travelFor-Leisure"]
-${travellingForWork}		css=li[data-cy="travelFor-Work"]
-${serachButton}		css=#hsw_search_button
-${home}				link='Home'
-${hotelsLists}		css=.listingRowOuter
-${checkdesti}		css=#Listing_hotel_ROW
-${blank}			css=.bodyFixed.overlayWholeBlack
-${popularFilterSection}		css=#hlistpg_fr_popular_filters
-${localityFilterSection}	css=#hlistpg_fr_locality div div
-${starCategorySection}		css=#hlistpg_fr_star_category
-${propertyTypeSection}		css=#hlistpg_fr_property_types
-${facilityFilterSection}	css=#hlistpg_fr_facility
-${userRatingFilterSection}	css=#hlistpg_fr_user_rating
-${popularFilterShowmore}		css=#hlistpg_fr_popular_filters #hlistpg_proptypes_show_more
-${localityFilterShowmore}		css=#hlistpg_fr_locality .blueText.pointer.latoBold.font12
-${starCategoryShowmore}			css=#hlistpg_fr_star_category #hlistpg_proptypes_show_more
-${propertyTypeShowmore}			css=#hlistpg_fr_property_types #hlistpg_proptypes_show_more
-${facilityFilterShowmore}		css=#hlistpg_fr_facility #hlistpg_proptypes_show_more
-${userRatingFilterShowmore}		css=#hlistpg_fr_user_rating #hlistpg_proptypes_show_more
-${popularFilter}		css=#hlistpg_fr_popular_filters .checkmarkOuter
-${localityFilter}		css=#hlistpg_fr_locality div div:nth-child(SEC) .checkmarkOuter
-${starCategoryFilter}	css=#hlistpg_fr_star_category .checkmarkOuter
-${propertyTypeFilter}	css=#hlistpg_fr_property_types .checkmarkOuter
-${facilityFilter}		css=#hlistpg_fr_facility .checkmarkOuter
-${userRatingFilter}		css=#hlistpg_fr_user_rating .checkmarkOuter
-${popularFilterNum}			css=#hlistpg_fr_popular_filters .filterList li:nth-child(FILTERNUM)
-${localityFilterNum}		css=#hlistpg_fr_locality div div:nth-child(SEC) .filterList li:nth-child(FILTERNUM)
-${starCategoryFilterNum}	css=#hlistpg_fr_star_category .filterList li:nth-child(FILTERNUM)
-${propertyTypeFilterNum}	css=#hlistpg_fr_property_types .filterList li:nth-child(FILTERNUM) 
-${facilityFilterNum}		css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) 
-${userRatingFilterNum}		css=#hlistpg_fr_user_rating .filterList li:nth-child(FILTERNUM) 
-${popularCheckBox}				css=#hlistpg_fr_popular_filters ul li:nth-child(FILTERNUM) input[type="checkbox"]
-${localityCheckBox}				css=#hlistpg_fr_locality div div:nth-child(SEC) ul li:nth-child(FILTERNUM) input[type="checkbox"]
-${starCategoryCheckBox}			css=#hlistpg_fr_star_category ul li:nth-child(FILTERNUM) input[type="checkbox"]
-${propertyTypeCheckBox}			css=#hlistpg_fr_property_types ul li:nth-child(FILTERNUM) input[type="checkbox"]
-${facilityCheckBox}				css=#hlistpg_fr_facility ul li:nth-child(FILTERNUM) input[type="checkbox"]
-${userRatingCheckBox}			css=#hlistpg_fr_user_rating ul li:nth-child(FILTERNUM) input[type="checkbox"]
-${popularFilterValue}		css=#hlistpg_fr_popular_filters .filterList li:nth-child(FILTERNUM) label
-${localityFilterValue}		css=#hlistpg_fr_locality div div:nth-child(SEC) .filterList li:nth-child(FILTERNUM) label
-${starCategoryFilterValue}		css=#hlistpg_fr_star_category .filterList li:nth-child(FILTERNUM) label
-${propertyTypeFilterValue}	css=#hlistpg_fr_property_types .filterList li:nth-child(FILTERNUM) label
-${facilityFilterValue}		css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label
-${userRatingFilterValue}		css=#hlistpg_fr_user_rating .filterList li:nth-child(FILTERNUM) label
-${applied}			css=.appliedFilters 
-${appliedFilter}	css=.appliedFilters li:nth-child(1) a
-${userRating}		css=#Listing_hotel_ROW #hlistpg_hotel_user_rating span[itemprop="ratingValue"]
-${initValue}		css=.input-range__track.input-range__track--background span.input-range__slider-container:nth-child(2) div.input-range__slider
-${targetValue}		css=div[aria-valuenow="5"]
-${lastValue}		css=.input-range__track.input-range__track--background span.input-range__slider-container:nth-child(3) div.input-range__slider
-${inrPrice}			css=#Listing_hotel_ROW #hlistpg_hotel_shown_price
-${targetPrice}		css=.maxValue
-${startingPrice}=	css=.minValue
-${mmtAssuredhotels}	css=.listingRowOuter:nth-child(2)
-${banner}			css=#Listing_hotel_ROW #hlistpg_hotel_type
-${MMTAssuredImage}			css=#Listing_hotel_ROW img[src="//imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/web/mmtAssured.png"]
+${LoginButton}		css=li[data-cy="account"]
+${HotelButton}		css=li[class='menu_Hotels']
+${DestiName}		css=#city
+${EnterDesti}		css=.react-autosuggest__input
+${SelectDesti}		css=li[id*='section-0-item-0']
+${CheckIn}			css=#checkin
+${CheckOut}			css=#checkout
+${CheckInDate}		css=div[aria-label="Thu Jul 02 2020"][aria-disabled="false"]
+${CheckOutDate}		css=div[aria-label="Sat Jul 04 2020"][aria-disabled="false"]
+${RoomGuest}		css=#guest
+#${Adults}			css=li[data-cy="adults-NUMA"]
+${Adults}			link=2
+${Childs}			css=li[data-cy="children-NUMC"]
+${ChildAge}			css=select[data-cy="childAge-CHILD"] 
+${ChildAgeValue}	css=select[data-cy="childAge-CHILD"] option[data-cy="childAgeValue-AGE"]
+${AddRoom}			css=.btnAddRoom
+${ApplyButton}			css=button[class*='btnApply']
+${TravellingReason}	css=.hsw_inputBox.travelFor
+${TravellingForLeisure}		css=li[data-cy="travelFor-Leisure"]
+${TravellingForWork}		css=li[data-cy="travelFor-Work"]
+${SerachButton}		css=#hsw_search_button
+${HomeLink}				link='Home'
+${HotelsLists}		css=.listingRowOuter
+${CheckDesti}		css=#Listing_hotel_ROW
+${Blank}			css=.bodyFixed.overlayWholeBlack
+${PopularFilterSection}		css=div[id*='popular_filters']
+${LocalityFilterSection}	css=div[id*='locality'] div div
+${StarCategorySection}		css=div[id*='star_category']
+${PropertyTypeSection}		css=div[id*='property_types']
+${FacilityFilterSection}	css=div[id*='facility']
+${UserRatingFilterSection}	css=div[id*='user_rating']
+${PopularFilterShowmore}		css=div[id*='popular_filters'] span[id*='show_more']
+${LocalityFilterShowmore}		css=div[id*='locality'] .blueText.pointer.latoBold.font12
+${StarCategoryShowmore}			css=div[id*='star_category'] span[id*='show_more']
+${PropertyTypeShowmore}			css=div[id*='property_types'] span[id*='show_more']
+${FacilityFilterShowmore}		css=div[id*='facility'] span[id*='show_more']
+${UserRatingFilterShowmore}		css=div[id*='user_rating'] span[id*='show_more']
+${PopularFilter}		css=div[id*='popular_filters'] .checkmarkOuter
+${LocalityFilter}		css=div[id*='locality'] div div:nth-child(SEC) .checkmarkOuter
+${StarCategoryFilter}	css=div[id*='star_category'] .checkmarkOuter
+${PropertyTypeFilter}	css=div[id*='property_types'] .checkmarkOuter
+${FacilityFilter}		css=div[id*='facility'] .checkmarkOuter
+${UserRatingFilter}		css=div[id*='user_rating'] .checkmarkOuter
+${PopularFilterNum}			css=div[id*='popular_filters'] ul li:nth-child(FILTERNUM)
+${LocalityFilterNum}		css=div[id*='locality'] div div:nth-child(SEC) ul li:nth-child(FILTERNUM)
+${StarCategoryFilterNum}	css=div[id*='star_category'] ul li:nth-child(FILTERNUM)
+${PropertyTypeFilterNum}	css=div[id*='property_types'] ul li:nth-child(FILTERNUM) 
+${FacilityFilterNum}		css=div[id*='facility'] ul li:nth-child(FILTERNUM) 
+${UserRatingFilterNum}		css=div[id*='user_rating'] ul li:nth-child(FILTERNUM) 
+${PopularCheckBox}				css=div[id*='popular_filters'] ul li:nth-child(FILTERNUM) input[type="checkbox"]
+${LocalityCheckBox}				css=div[id*='locality'] div div:nth-child(SEC) ul li:nth-child(FILTERNUM) input[type="checkbox"]
+${StarCategoryCheckBox}			css=div[id*='star_category'] ul li:nth-child(FILTERNUM) input[type="checkbox"]
+${PropertyTypeCheckBox}			css=div[id*='property_types'] ul li:nth-child(FILTERNUM) input[type="checkbox"]
+${FacilityCheckBox}				css=div[id*='facility'] ul li:nth-child(FILTERNUM) input[type="checkbox"]
+${UserRatingCheckBox}			css=div[id*='user_rating'] ul li:nth-child(FILTERNUM) input[type="checkbox"]
+${PopularFilterValue}				css=div[id*='popular_filters'] ul li:nth-child(FILTERNUM) label
+${LocalityFilterValue}				css=div[id*='locality'] div div:nth-child(SEC) ul li:nth-child(FILTERNUM) label
+${starCategoryFilterValue}			css=div[id*='star_category'] ul li:nth-child(FILTERNUM) label
+${PropertyTypeFilterValue}			css=div[id*='property_types'] ul li:nth-child(FILTERNUM) label
+${FacilityFilterValue}				css=div[id*='facility'] ul li:nth-child(FILTERNUM) label
+${UserRatingFilterValue}			css=div[id*='user_rating'] ul li:nth-child(FILTERNUM) label
+${Applied}			css=.appliedFilters 
+${AppliedFilter}	css=.appliedFilters li:nth-child(1) a
+${UserRating}		css=#Listing_hotel_ROW div[id*='user_rating'] span[itemprop="ratingValue"]
+${InitValue}		css=span[class*='slider-container']:nth-child(2) div[class*='slider']
+${TargetValue}		css=div[aria-valuenow="5"]
+${LastValue}		css=span[class*='slider-container']:nth-child(3) div[class*='slider']
+${inrPrice}			css=#Listing_hotel_ROW p[id*='shown_price']
+${TargetPrice}		css=.maxValue
+${StartingPrice}=	css=.minValue
+${MmtAssuredhotels}	css=.listingRowOuter:nth-child(2)
+${Banner}			css=#Listing_hotel_ROW #hlistpg_hotel_type
+${MMTAssuredImage}			css=#Listing_hotel_ROW img[src*="mmtAssured.png"]
 
-${MySafetyNum}		css=#hlistpg_fr_popular_filters .filterList li:nth-child(2) 
-${MySafetyImage}	css=#Listing_hotel_ROW img[src="https://promos.makemytrip.com/COVID/safe.png"]	
+${MySafetyNum}		css=div[id*='popular_filters'] ul li:nth-child(2) 
+${MySafetyImage}	css=#Listing_hotel_ROW img[src*="safe.png"]	
 
 
 
-${nearByHotels}		css=.latoBlack.font24.blackText.appendTop20+p~div.listingRowOuter
-${totalStars}		css=.sprite.rating_blank.appendLeft10	
+${NearByHotels}		css=.latoBlack.font24.blackText.appendTop20+p~div.listingRowOuter
+${TotalStars}		css=.sprite.rating_blank.appendLeft10	
 ${Stars}		css=#Listing_hotel_ROW span[content="STAR"]
 
-${hotelFacilities}	css=#detpg_hotel_facilities
-${facilities}		css=#Facilities
+${HotelFacilities}	css=#detpg_hotel_facilities
+${Facilities}		css=#Facilities

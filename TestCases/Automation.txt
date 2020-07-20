@@ -4,309 +4,289 @@ Library		String
 Library		Collections	
 Variables	Variables/Variables.py
 Resource	../Common/Common_Variables.txt
-suite setup		open makemytrip
+Suite Setup		Open Makemytrip
 
 
 *** Test Cases ***
-search hotels functionality
-	set selenium speed	4 seconds
-	search hotels for destination
-	check Hotels according to destination					
+#Search Hotels Functionality
+#	Set Selenium Speed	4 seconds
+#	Search Hotels For Destination
+#	Check Hotels According to Destination					
 
-check popular filters for destination
-	set selenium speed	5 seconds
-	click element		${blank}
-	select filter from "select filter" and check checkbox is clickable or not	${popularFilterSection}		${allFilters[0]}	${popularFiltersList}	${popularFilterNum}		${popularCheckBox}		${popularFilterShowmore}	${popularFilter}	${popularFilterValue}
+#Check Popular Filters For Destination
+#	Set Selenium Speed	5 seconds
+#	Click Element		${Blank}
+#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmore}	${PopularFilter}	${PopularFilterValue}
 
-check price per night filter for destination
-	set selenium speed	5 seconds
-	click element		${blank}
-	select price per night and check hotels according to filter		
+#Check Price Per Night Filter For Destination
+#	Set Selenium Speed	5 seconds
+#	Click Element		${Blank}
+#	Select Price Per Night And Check Hotels According To Filter		
 
-check locality filters for destination		
-	set selenium speed	5 seconds
-	click element		${blank}	
-	select filter from "Select filter" and check checkbox is clickable or not	${localityFilterSection}	${allFilters[1]}	${localityFilterList}	${localityFilterNum}		${localityCheckBox}		${localityFilterShowmore}	${localityFilter}	${localityFilterValue}
+#Check Locality Filters For Destination		
+#	Set Selenium Speed	5 seconds
+#	Click Element		${Blank}	
+#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmore}	${LocalityFilter}	${LocalityFilterValue}
 
-check star category filters for destination
-	set selenium speed	5 seconds
-	click element		${blank}	
-	select filter from "Select filter" and check checkbox is clickable or not	${starCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${starCategoryFilterNum}		${starCategoryCheckBox}		${starCategoryShowmore}		${starCategoryFilter}		${starCategoryFilterValue}
+#Check Star Category Filters For Destination
+#	Set Selenium Speed	5 seconds
+#	Click Element		${Blank}	
+#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmore}		${StarCategoryFilter}		${StarCategoryFilterValue}
 
-check property types filters for destination
-	set selenium speed	5 seconds
-	click element		${blank}	
-	select filter from "Select filter" and check checkbox is clickable or not	${propertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${propertyTypeFilterNum}		${propertyTypeCheckBox}		${propertyTypeShowmore}		${propertyTypeFilter}		${propertyTypeFilterValue}
+#Check Property Types Filters For Destination
+#	Set Selenium Speed	5 seconds
+#	Click Element		${Blank}	
+#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmore}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
 
 
-check user rating filters for destination
-	set selenium speed	5 seconds
-	click element		${blank}	
-	select filter from "Select filter" and check checkbox is clickable or not	${userRatingFilterSection}	${allFilters[3]}	${userRatingList}		${userRatingFilterNum}		${userRatingCheckBox}	${userRatingFilterShowmore}		${userRatingFilter}		${userRatingFilterValue}
+#Check User Rating Filters For Destination
+#	Set Selenium Speed	5 seconds
+#	Click Element		${Blank}	
+#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmore}		${UserRatingFilter}		${UserRatingFilterValue}
 
-check facility filters for destination
-	set selenium speed	5 seconds
-	click element		${blank}	
-	select filter from "Select filter" and check checkbox is clickable or not	${facilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${facilityFilterNum}		${facilityCheckBox}		${facilityFilterShowmore}	${facilityFilter}		${facilityFilterValue}
+Check Facility Filters For Destination
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}	
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${FacilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${FacilityFilterNum}		${FacilityCheckBox}		${FacilityFilterShowmore}	${FacilityFilter}		${FacilityFilterValue}
 
 
 
 *** Keywords ***
-open makemytrip
-	open browser	${url}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
-	maximize browser window
+Open Makemytrip
+	Open Browser	${url}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
+	Maximize Browser Window
 	
-search hotels for destination
-	click element	${loginButton}
-	click element	${hotelButton}
-	click element	${destiName}
-	input text		${enterDesti}	${Destination}
-	click element	${selectDesti}
-	click element	${checkinDate}
-	click element	${checkoutDate}
-	click element	${roomGuest}
-	${numa}=	convert to string	${adultsnum}
-	${Adults}=	replace string	${adults}	NUMA	${numa}
-	click element	${Adults}
-	${numc}=	convert to string	${childsnum}
-	${Childs}=	replace string	${childs}	NUMC	${numc}	
-	click element	${childs}
+Search Hotels For Destination
+	Click Element	${LoginButton}
+	Click Element	${HotelButton}
+	Click Element	${DestiName}
+	Input Text		${EnterDesti}	${Destination}
+	Click Element	${SelectDesti}
+	Click Element	${CheckInDate}
+	Click Element	${CheckOutDate}
+	Click Element	${RoomGuest}
+	${numa}=	Convert To String	${adultsnum}
+	${Adults}=	Replace String	${Adults}	NUMA	${numa}
+	Click Element	${Adults}
+	${numc}=	Convert To String	${childsnum}
+	${Childs}=	Replace String	${Childs}	NUMC	${numc}	
+	Click Element	${Childs}
 	: FOR	${child_num}	IN RANGE	0	${childsnum}	
-	\	${child}=	convert to string	${child_num}
-	\	${Child_Age}=	replace string	${childAge}		CHILD		${child}
-	\	${age}=		convert to string	${age${child_num}}
-	\	${ChildAge_Value}=	replace string	${childAgeValue}	AGE		${age}
-	\	${ChildAge_Value}=	replace string	${ChildAge_Value}	CHILD		${child}	
-	\	click element	${ChildAge}
-	\	click element   ${ChildAgeValue}
-	\	${child_num}=	evaluate	${child_num} + 1
-	\	${childAge}=	replace string	${childAge}		${child}		CHILD	
-	\	${ChildAge_Value}=	replace string	${childAgeValue}	${age}		AGE
-	\	${ChildAge_Value}=	replace string	${ChildAge_Value}	${child}	CHILD	
+	\	${child}=	Convert To String	${child_num}
+	\	${Child_Age}=	Replace String	${ChildAge}		CHILD		${child}
+	\	${age}=		Convert To String	${age${child_num}}
+	\	${ChildAge_Value}=	Replace String	${ChildAgeValue}	AGE		${age}
+	\	${ChildAge_Value}=	Replace String	${ChildAge_Value}	CHILD		${child}	
+	\	Click Element	${ChildAge}
+	\	Click Element   ${ChildAgeValue}
+	\	${child_num}=	Evaluate	${child_num} + 1
+	\	${childAge}=	Replace String	${childAge}		${child}		CHILD	
+	\	${ChildAge_Value}=	Replace String	${ChildAgeValue}	${age}		AGE
+	\	${ChildAge_Value}=	Replace String	${ChildAge_Value}	${child}	CHILD	
 
-	click element	${apply}
-	click element	${travellingReason}
-	click element	${travellingForLeisure}
-	click element	${serachButton}
+	Click Element	${ApplyButton}
+	Click Element	${TravellingReason}
+	Click Element	${TravellingForLeisure}
+	Click Element	${SerachButton}
 	
-check Hotels according to destination
-#	click element		${blank}
-	${countHotels}=		get element count	${hotelsLists}	
+Check Hotels According to Destination
+#	Click Element		${Blank}
+	${countHotels}=		Get Element Count	${HotelsLists}	
 	:FOR	${singleHotel}	IN RANGE	2	${countHotels}+2
-	\	${row}=		convert to string	${singleHotel}
-	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}
- 	\	element should contain		${Checkdesti}		${Destination}
-	\	${singleHotel}=	evaluate	${singleHotel}+1
-	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
+	\	${row}=		Convert To String	${singleHotel}
+	\	${CheckDesti}=	Replace String		${CheckDesti}	ROW		${row}
+ 	\	Element Should Contain		${CheckDesti}		${Destination}
+	\	${singleHotel}=	Evaluate	${singleHotel}+1
+	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
 
 	
 
-select filter from "Select filter" and check checkbox is clickable or not	
-	[Arguments]		${FilterSection}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${FilterShowmore}		${Filters}		${filterValue}
-	${showmore}=	run keyword and return status	page should contain element		${FilterShowmore}
-	run keyword if		${showmore}==True	click element	${FilterShowmore}
-	${totalSection}=	get element count	${FilterSection}
-	run keyword if		${totalSection}>1	select filter from more than one sections		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${FilterShowmore}		${Filters}		${filterValue}
-	...		ELSE	select filter from single section		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${FilterShowmore}		${Filters}		${filterValue}
+Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	
+	[Arguments]		${FilterSection}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${FilterShowMore}		${Filters}		${FilterValue}
+	${showmore}=	Run Keyword And Return Status	Page Should Contain Element		${FilterShowMore}
+	Run Keyword If		${showmore}==True	Click Element	${FilterShowMore}
+	${totalSection}=	Get Element Count	${FilterSection}
+	Run Keyword If		${totalSection}>1	Select Filter From More Than One Sections		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}			${Filters}		${FilterValue}
+	...		ELSE	Select Filter From Single Section		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}			${Filters}		${FilterValue}
 	
-select filter from single section
-	[Arguments]		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${FilterShowmore}		${Filters}		${filterValue}
-	${totalFilter}=	get element count	${Filters}
+Select Filter From Single Section
+	[Arguments]		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
+	${totalFilter}=	Get Element Count	${Filters}
 	: FOR	${filter}		IN RANGE	1	${totalFilter}+1
-	\	${num}=		convert to string	${filter}
-	\	log		${FilterNum}
-	\	${Filter_Num}=	replace string		${FilterNum}	FILTERNUM		${num}	
-	\	${Filter_Value}=	replace string		${filterValue}		FILTERNUM		${num}		
-	\	log		${Filter_Num}
-	\	log		${Filter_Value}
-	\	${value}=	get text	${Filter_Value}
-	\	click element	${Filter_Num}	
-	\	${status}=	run keyword and return status	element should contain		${applied}		${value}
-	\	run keyword if	${status}==True		check hotels according to "${selectFilterValue} filter" for destination		${filter}		${FiltersList}		${Filter_Num}		${value}
-	\	${FilterNum}=	replace string		${FilterNum}		${num}		FILTERNUM	
-	\	${filterValue}=	replace string		${filterValue}		${num}		FILTERNUM	
-	\	${filter}=	evaluate	${filter}+1				
+	\	${num}=		Convert To String	${filter}
+	\	Log		${FilterNum}
+	\	${Filter_Num}=	Replace String		${FilterNum}	FILTERNUM		${num}	
+	\	${Filter_Value}=	Replace String		${FilterValue}		FILTERNUM		${num}		
+	\	Log		${Filter_Num}
+	\	Log		${Filter_Value}
+	\	${value}=	Get Text	${Filter_Value}
+	\	Click Element	${Filter_Num}	
+	\	${status}=	Run Keyword And Return Status	Element Should Contain		${Applied}		${value}
+	\	Run Keyword If	${status}==True		Check Hotels According To "${selectFilterValue} Filter" For Destination		${filter}		${FiltersList}		${Filter_Num}		${value}
+	\	${FilterNum}=	Replace String		${FilterNum}		${num}		FILTERNUM	
+	\	${FilterValue}=	Replace String		${FilterValue}		${num}		FILTERNUM	
+	\	${filter}=	Evaluate	${filter}+1				
 
 	
-select filter from more than one sections
-	[Arguments]		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${FilterShowmore}		${Filters}		${filterValue}
+Select Filter From More Than One Sections
+	[Arguments]		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
 	: FOR	${section}		IN RANGE	1	${totalSection}+1
-	\	select filter from section filter	${section}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${FilterShowmore}		${Filters}		${filterValue}
+	\	Select Filter From Section Filter	${section}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
 	
-select filter from section filter	
-	[Arguments]		${section}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${FilterShowmore}		${Filters}		${filterValue}
-	${sec}=		convert to string	${section}
-	${sec_filter}=	replace string	${Filters}		SEC		${sec}
-	${totalFilter}=	get element count	${sec_filter}
+Select Filter From Section Filter	
+	[Arguments]		${section}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
+	${sec}=		Convert To String	${section}
+	${sec_filter}=	Replace String	${Filters}		SEC		${sec}
+	${totalFilter}=	Get Element Count	${sec_filter}
 	: FOR	${filter}		IN RANGE	1	${totalFilter}+1
-	\	${num}=		convert to string	${filter}
-	\	log		${FilterNum}
-	\	${Filter_Num}=	replace string		${FilterNum}	FILTERNUM		${num}	
-	\	${Filter_Num}=	replace string		${Filter_Num}	SEC		${sec}
-	\	${Filter_Value}=	replace string		${filterValue}		FILTERNUM		${num}		
-	\	${Filter_Value}=	replace string		${Filter_Value}		SEC		${sec}	
-	\	log		${Filter_Num}
-	\	log		${Filter_Value}
-	\	${value}=	get text	${Filter_Value}
-	\	click element	${Filter_Num}	
-	\	${status}=	run keyword and return status	element should contain		${applied}		${value}
-	\	run keyword if	${status}==True		check hotels according to "${selectFilterValue} filter" for destination		${filter}		${FiltersList}		${Filter_Num}		${value}
-	\	${FilterNum}=	replace string		${FilterNum}		${sec}		SEC			count=1	
-	\	${FilterNum}=	replace string		${FilterNum}		${num}		FILTERNUM	
-	\	${filterValue}=	replace string		${filterValue}		${sec}		SEC			count=1	
-	\	${filterValue}=	replace string		${filterValue}		${num}		FILTERNUM	
-	\	${filter}=	evaluate	${filter}+1				
+	\	${num}=		Convert To String	${filter}
+	\	Log		${FilterNum}
+	\	${Filter_Num}=	Replace String		${FilterNum}	FILTERNUM		${num}	
+	\	${Filter_Num}=	Replace String		${Filter_Num}	SEC		${sec}
+	\	${Filter_Value}=	Replace String		${FilterValue}		FILTERNUM		${num}		
+	\	${Filter_Value}=	Replace String		${Filter_Value}		SEC		${sec}	
+	\	Log		${Filter_Num}
+	\	Log		${Filter_Value}
+	\	${value}=	Get Text	${Filter_Value}
+	\	Click Element	${Filter_Num}	
+	\	${status}=	Run Keyword And Return Status	Element Should Contain		${Applied}		${value}
+	\	Run Keyword If	${status}==True		check hotels according to "${selectFilterValue} filter" for destination		${filter}		${FiltersList}		${Filter_Num}		${value}
+	\	${FilterNum}=	Replace String		${FilterNum}		${sec}		SEC			count=1	
+	\	${FilterNum}=	Replace String		${FilterNum}		${num}		FILTERNUM	
+	\	${FilterValue}=	Replace String		${FilterValue}		${sec}		SEC			count=1	
+	\	${FilterValue}=	Replace String		${FilterValue}		${num}		FILTERNUM	
+	\	${filter}=	Evaluate	${filter}+1				
 
 
-check hotels according to "Popular filter" for destination
+Check Hotels According To "Popular Filter" For Destination
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
-	${countHotels}=		get element count	${hotelsLists}
+	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
-	\	${row}=		convert to string	${singleHotel}
-	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}
-	\
- 	\	${status}=		run keyword and return status	element should contain		${Checkdesti}		${FiltersList["${value}"]}
-	\	run keyword if		${status}==False	check image of "${value}" popular filter	${row}	${value}	
-	\	...		ELSE IF		${status}==True		element should contain		${Checkdesti}		${FiltersList["${value}"]}
-	\	...		ELSE		check only filter hotels for that
-	\	${singleHotel}=	evaluate	${singleHotel}+1
+	\	${row}=		Convert To String	${singleHotel}
+	\	${CheckDesti}=	Replace String		${CheckDesti}	ROW		${row}
+	
+ 	\	${status}=		Run Keyword And Return Status	Element Should Contain		${CheckDesti}		${FiltersList["${value}"]}
+	\	Run Keyword If		${status}==False	Check Image Of "${value}" Popular Filter	${row}	${value}	
+	\	...		ELSE IF		${status}==True		Element Should Contain		${CheckDesti}		${FiltersList["${value}"]}
+	\	...		ELSE		Check Only Filter Hotels For That
+	\	${singleHotel}=	Evaluate	${singleHotel}+1
 
-	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
-	click element	${appliedFilter}		
+	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
+	Click Element	${AppliedFilter}		
 
-check image of "MMT Assured" popular filter	
+Check Image Of "MMT Assured" Popular Filter	
 	[Arguments]		${row}	${value}	
-	${MMTAssuredImage}=		replace string		${MMTAssuredImage}	ROW		${row}
-	element should be visible		${MMTAssuredImage}
-	${MMTAssuredImage}=		replace string		${MMTAssuredImage}	${row}	ROW
+	${MMTAssuredImage}=		Replace String		${MMTAssuredImage}	ROW		${row}
+	Element Should Be Visible		${MMTAssuredImage}
+	${MMTAssuredImage}=		Replace String		${MMTAssuredImage}	${row}	ROW
 	
-check image of "MySafety - Safe and Hygienic Stays" popular filter	
+Check Image Of "MySafety - Safe and Hygienic Stays" Popular Filter	
 	[Arguments]		${row}	${value}	
-	${MySafetyImage}=		replace string		${MySafetyImage}	ROW		${row}
-	element should be visible		${MySafetyImage}
-	${MySafetyImage}=		replace string		${MySafetyImage}	${row}	ROW
+	${MySafetyImage}=		Replace String		${MySafetyImage}	ROW		${row}
+	Element Should Be Visible		${MySafetyImage}
+	${MySafetyImage}=		Replace String		${MySafetyImage}	${row}	ROW
 	
-check only filter hotels for that
-	{countHotels}=		get element count	${hotelsLists}	
+Check Only Filter Hotels For That
+	{countHotels}=		Get Element Count	${HotelsLists}	
 	
-check hotels according to "Property Types filter" for destination 
+Check Hotels According To "Property Types Filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
 	${valueUpper}=		convert to upper case	${value}
-	${countHotels}=		get element count	${hotelsLists}
+	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
-	\	${row}=		convert to string	${singleHotel}
-	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}
-	\	${banner}=	replace string		${banner}	ROW		${row}
- 	\	${status}=		run keyword and return status	element should be visible		${banner}		
-	\	run keyword if		${status}==True		element should contain		${Checkdesti}		${valueUpper}	ELSE	log		Hotels
-	\	${singleHotel}=	evaluate	${singleHotel}+1
-	\	${banner}=	replace string		${banner}	${row}		ROW
-	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
-	click element	${appliedFilter}		
+	\	${row}=		Convert To String	${singleHotel}
+	\	${CheckDesti}=	Replace String		${CheckDesti}	ROW		${row}
+	\	${Banner}=	Replace String		${Banner}	ROW		${row}
+ 	\	${status}=		Run Keyword And Return Status	Element Should Be Visible		${Banner}		
+	\	Run Keyword If		${status}==True		Element Should Contain		${CheckDesti}		${valueUpper}	ELSE	Log		Hotels
+	\	${singleHotel}=	Evaluate	${singleHotel}+1
+	\	${Banner}=	Replace String		${Banner}	${row}		ROW
+	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
+	Click Element	${AppliedFilter}		
 
-select price per night and check hotels according to filter
-	element should be visible	${lastValue}
+Select Price Per Night And Check Hotels According To Filter
+	Element Should Be Visible	${LastValue}
 	Execute Javascript		window.scroll(0,500)
-	Drag And Drop By Offset		${lastValue}	-100		0
+	Drag And Drop By Offset		${LastValue}	-100		0
 	Execute Javascript		window.scroll(0,500)
-	Drag And Drop By Offset		${initValue}	50		0
-	${maxTargetPrice}=		get text	${targetPrice}
-	${maxTargetPrice}=		convert to string	${maxTargetPrice}
-	log		${maxTargetPrice}
-	${maxPrice}=	Strip String		${maxTargetPrice}		characters=INR
-	log		${maxPrice}
-	${minTargetPrice}=		get text	${startingPrice}
-	${minTargetPrice}=		convert to string	${minTargetPrice}
-	log		${minTargetPrice}
-	${minPrice}=	Strip String		${minTargetPrice}		characters=INR
-	log		${minPrice}
+	Drag And Drop By Offset		${InitValue}	50		0
+	${MaxTargetPrice}=		Get Text	${TargetPrice}
+	${MaxTargetPrice}=		Convert To String	${MaxTargetPrice}
+	Log		${MaxTargetPrice}
+	${maxPrice}=	Strip String		${MaxTargetPrice}		characters=INR
+	Log		${maxPrice}
+	${MinTargetPrice}=		Get Text	${StartingPrice}
+	${MinTargetPrice}=		Convert To String	${MinTargetPrice}
+	Log		${MinTargetPrice}
+	${minPrice}=	Strip String		${MinTargetPrice}		characters=INR
+	Log		${minPrice}
 
-	${countHotels}=		get element count	${hotelsLists}
+	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
-	\	${row}=		convert to string	${singleHotel}
-	\	${inrPrice}=	replace string		${inrPrice}		ROW		${row}
-	\	${shownInrPrice}=		get text	${inrPrice}
-	\	${shownInrPrice}=		convert to string	${shownInrPrice}
-	\	log		${shownInrPrice}
+	\	${row}=		Convert To String	${singleHotel}
+	\	${InrPrice}=	Replace String		${InrPrice}		ROW		${row}
+	\	${shownInrPrice}=		Get Text	${InrPrice}
+	\	${shownInrPrice}=		Convert To String	${shownInrPrice}
+	\	Log		${shownInrPrice}
 	\	${price}=	Strip String		${shownInrPrice}		characters=INR
-	\	log		${price}
+	\	Log		${price}
 	\	${Legth}=	Get Length		${price}
-	\	${price}=	remove string		${price}	,
-	\	log		${price}
-	\	should be true		${maxPrice}>=${price}
-	\	should be true		${minPrice}<=${price}
-	\	${inrPrice}=	replace string		${inrPrice}		${row}	ROW	
-	click element	${appliedFilter}
+	\	${price}=	Remove String		${price}	,
+	\	Log		${price}
+	\	Should Be True		${maxPrice}>=${price}
+	\	Should Be True		${minPrice}<=${price}
+	\	${InrPrice}=	Replace String		${InrPrice}		${row}	ROW	
+	Click Element	${AppliedFilter}
 	
 	
-check hotels according to "Locality filter" for destination 
+Check Hotels According To "Locality filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
-	${countHotels}=		get element count	${hotelsLists}
-	${countAfterNearBy}=	get element count	${nearByHotels}
+	${countHotels}=		Get Element Count	${HotelsLists}
+	${countAfterNearBy}=	Get Element Count	${NearByHotels}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}-${countAfterNearBy}
-	\	${row}=		convert to string	${singleHotel}
-	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}
- 	\	element should contain		${Checkdesti}		${FiltersList["${value}"]}	
-	\	${singleHotel}=	evaluate	${singleHotel}+1
-	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
-	click element	${appliedFilter}		
+	\	${row}=		Convert To String	${singleHotel}
+	\	${CheckDesti}=	Replace String		${CheckDesti}	ROW		${row}
+ 	\	Element Should Contain		${CheckDesti}		${FiltersList["${value}"]}	
+	\	${singleHotel}=	Evaluate	${singleHotel}+1
+	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
+	Click Element	${AppliedFilter}		
 
 
 
-#check hotels according to "Ficility filter" for destination 
-#	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
-#	${countHotels}=		get element count	${hotelsLists}
-#	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
-#	\	${row}=		convert to string	${singleHotel}
-#	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}
-#	\	click element	${Checkdesti}
-#	\	click element	${hotelFacilities}
-# 	\	element should contain		${facilities}		${value}
-#	\	${singleHotel}=	evaluate	${singleHotel}+1
-#	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
-#	click element	${appliedFilter}		
-
-
-check hotels according to "Ficility filter" for destination 
+Check Hotels According To "Ficility filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
-	${countHotels}=		get element count	${hotelsLists}
-	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
-	\	${row}=		convert to string	${singleHotel}
-	\	${Checkdesti}=	replace string		${checkdesti}	ROW		${row}
-	\	element should contain		${Checkdesti}		${value}
-	\	${singleHotel}=	evaluate	${singleHotel}+1
-	\	${checkdesti}=	replace string		${checkdesti}	${row}		ROW
-	click element	${appliedFilter}		
-
+	Element Should Be Visible		${HotelsLists}
+	${countHotels}=		Get Element Count	${HotelsLists}
+	Click Element	${AppliedFilter}
 
 	
-check hotels according to "User Rating filter" for destination	
+Check Hotels According To "User Rating filter" For Destination	
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}	${value1}
-	${countHotels}=		get element count	${hotelsLists}
+	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}	
-	\	${row}=		convert to string	${singleHotel}
-	\	${userRating}=	replace string		${userRating}	ROW		${row}	
-	\	${value}=	get text	${userRating}
-	\	should be true		${value}>=${FiltersList[${filter}-1]}	
-	\	${singleHotel}=	evaluate	${singleHotel}+1
-	\	${userRating}=	replace string		${userRating}	${row}		ROW
-	click element	${appliedFilter}		
+	\	${row}=		Convert To String	${singleHotel}
+	\	${UserRating}=	Replace String		${UserRating}	ROW		${row}	
+	\	${value}=	Get Text	${UserRating}
+	\	Should Be True		${value}>=${FiltersList[${filter}-1]}	
+	\	${singleHotel}=	Evaluate	${singleHotel}+1
+	\	${UserRating}=	Replace String		${UserRating}	${row}		ROW
+	Click Element	${AppliedFilter}		
 
 
-check hotels according to "Star Category filter" for destination 
+Check Hotels According To "Star Category filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
-	${countHotels}=		get element count	${hotelsLists}
+	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
-	\	${row}=		convert to string	${singleHotel}
-	\	${value1}=		convert to string		${value}
-	\	${Star}=	replace string		${Stars}	ROW		${row}
-	\	${Star}=		replace string		${Star}		STAR	${FiltersList["${value1}"]}
-	\	${status}=		run keyword and return status	element should be visible		${Star}		
-	\	run keyword if		${status}==True		log		match 
-	\	${singleHotel}=	evaluate	${singleHotel}+1
-	\	${Stars}=	replace string		${Stars}	${row}		ROW
-	\	${Stars}=		replace string		${Stars}	${FiltersList["${value1}"]}		STAR
-	click element	${appliedFilter}		
+	\	${row}=		Convert To String	${singleHotel}
+	\	${value1}=		Convert To String		${value}
+	\	${Star}=		Replace String		${Stars}	ROW		${row}
+	\	${Star}=		Replace String		${Star}		STAR	${FiltersList["${value1}"]}
+	\	${status}=		Run Keyword And Return Status	Element Should Be Visible		${Star}		
+	\	Run Keyword If		${status}==True		Log		match 
+	\	${singleHotel}=	Evaluate	${singleHotel}+1
+	\	${Stars}=		Replace String		${Stars}	${row}		ROW
+	\	${Stars}=		Replace String		${Stars}	${FiltersList["${value1}"]}		STAR
+	Click Element	${AppliedFilter}		
 
 
 
