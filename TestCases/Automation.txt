@@ -8,41 +8,41 @@ Suite Setup		Open Makemytrip
 
 
 *** Test Cases ***
-#Search Hotels Functionality
-#	Set Selenium Speed	4 seconds
-#	Search Hotels For Destination
-#	Check Hotels According to Destination					
+Search Hotels Functionality
+	Set Selenium Speed	4 seconds
+	Search Hotels For Destination
+	Check Hotels According to Destination					
 
-#Check Popular Filters For Destination
-#	Set Selenium Speed	5 seconds
-#	Click Element		${Blank}
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmore}	${PopularFilter}	${PopularFilterValue}
+Check Popular Filters For Destination
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmore}	${PopularFilter}	${PopularFilterValue}
 
-#Check Price Per Night Filter For Destination
-#	Set Selenium Speed	5 seconds
-#	Click Element		${Blank}
-#	Select Price Per Night And Check Hotels According To Filter		
+Check Price Per Night Filter For Destination
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}
+	Select Price Per Night And Check Hotels According To Filter		
 
-#Check Locality Filters For Destination		
-#	Set Selenium Speed	5 seconds
-#	Click Element		${Blank}	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmore}	${LocalityFilter}	${LocalityFilterValue}
+Check Locality Filters For Destination		
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}	
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmore}	${LocalityFilter}	${LocalityFilterValue}
 
-#Check Star Category Filters For Destination
-#	Set Selenium Speed	5 seconds
-#	Click Element		${Blank}	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmore}		${StarCategoryFilter}		${StarCategoryFilterValue}
+Check Star Category Filters For Destination
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}	
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmore}		${StarCategoryFilter}		${StarCategoryFilterValue}
 
-#Check Property Types Filters For Destination
-#	Set Selenium Speed	5 seconds
-#	Click Element		${Blank}	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmore}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
+Check Property Types Filters For Destination
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}	
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmore}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
 
 
-#Check User Rating Filters For Destination
-#	Set Selenium Speed	5 seconds
-#	Click Element		${Blank}	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmore}		${UserRatingFilter}		${UserRatingFilterValue}
+Check User Rating Filters For Destination
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}	
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmore}		${UserRatingFilter}		${UserRatingFilterValue}
 
 Check Facility Filters For Destination
 	Set Selenium Speed	5 seconds
