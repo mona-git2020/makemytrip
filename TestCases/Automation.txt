@@ -10,44 +10,48 @@ Suite Setup		Open Makemytrip
 *** Test Cases ***
 Search Hotels Functionality
 	Set Selenium Speed	4 seconds
+#	Click Element		${Blank}
+	Wait Until Element Is Visible	${LoginButton}
+#	Wait Until Element Is Visible	${HotelButton}
+#	Wait Until Element Is Visible	${DestiName}
 	Search Hotels For Destination
 	Check Hotels According to Destination					
 
-Check Popular Filters For Destination
-	Set Selenium Speed	5 seconds
-	Click Element		${Blank}
-	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmore}	${PopularFilter}	${PopularFilterValue}
+#Check Popular Filters For Destination
+#	Set Selenium Speed	5 seconds
+#	Click Element		${Blank}
+#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmoreLink}	${PopularFilter}	${PopularFilterValue}
 
-Check Price Per Night Filter For Destination
-	Set Selenium Speed	5 seconds
-	Click Element		${Blank}
-	Select Price Per Night And Check Hotels According To Filter		
+#Check Price Per Night Filter For Destination
+#	Set Selenium Speed	5 seconds
+#	Click Element		${Blank}
+#	Select Price Per Night And Check Hotels According To Filter		
 
-Check Locality Filters For Destination		
-	Set Selenium Speed	5 seconds
-	Click Element		${Blank}	
-	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmore}	${LocalityFilter}	${LocalityFilterValue}
+#Check Locality Filters For Destination		
+#	Set Selenium Speed	5 seconds
+#	Click Element		${Blank}	
+#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmoreLink}	${LocalityFilter}	${LocalityFilterValue}
 
-Check Star Category Filters For Destination
-	Set Selenium Speed	5 seconds
-	Click Element		${Blank}	
-	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmore}		${StarCategoryFilter}		${StarCategoryFilterValue}
+#Check Star Category Filters For Destination
+#	Set Selenium Speed	5 seconds
+#	Click Element		${Blank}	
+#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmoreLink}		${StarCategoryFilter}		${StarCategoryFilterValue}
 
-Check Property Types Filters For Destination
-	Set Selenium Speed	5 seconds
-	Click Element		${Blank}	
-	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmore}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
+#Check Property Types Filters For Destination
+#	Set Selenium Speed	5 seconds
+#	Click Element		${Blank}	
+#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmoreLink}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
 
 
-Check User Rating Filters For Destination
-	Set Selenium Speed	5 seconds
-	Click Element		${Blank}	
-	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmore}		${UserRatingFilter}		${UserRatingFilterValue}
+#Check User Rating Filters For Destination
+#	Set Selenium Speed	5 seconds
+#	Click Element		${Blank}	
+#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmoreLink}		${UserRatingFilter}		${UserRatingFilterValue}
 
-Check Facility Filters For Destination
-	Set Selenium Speed	5 seconds
-	Click Element		${Blank}	
-	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${FacilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${FacilityFilterNum}		${FacilityCheckBox}		${FacilityFilterShowmore}	${FacilityFilter}		${FacilityFilterValue}
+#Check Facility Filters For Destination
+#	Set Selenium Speed	5 seconds
+#	Click Element		${Blank}	
+#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${FacilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${FacilityFilterNum}		${FacilityCheckBox}		${FacilityFilterShowmoreLink}	${FacilityFilter}		${FacilityFilterValue}
 
 
 
@@ -57,7 +61,8 @@ Open Makemytrip
 	Maximize Browser Window
 	
 Search Hotels For Destination
-	Click Element	${LoginButton}
+	${status}=		Run Keyword And Return Status	Element Should Be Visible		${HotelButton}
+	Run Keyword If		${status}==False		Click Element	${LoginButton}
 	Click Element	${HotelButton}
 	Click Element	${DestiName}
 	Input Text		${EnterDesti}	${Destination}
@@ -121,7 +126,7 @@ Select Filter From Single Section
 	\	Log		${Filter_Value}
 	\	${value}=	Get Text	${Filter_Value}
 	\	Click Element	${Filter_Num}	
-	\	${status}=	Run Keyword And Return Status	Element Should Contain		${Applied}		${value}
+	\	${status}=	Run Keyword And Return Status	Element Should Contain		${AppliedSection}		${value}
 	\	Run Keyword If	${status}==True		Check Hotels According To "${selectFilterValue} Filter" For Destination		${filter}		${FiltersList}		${Filter_Num}		${value}
 	\	${FilterNum}=	Replace String		${FilterNum}		${num}		FILTERNUM	
 	\	${FilterValue}=	Replace String		${FilterValue}		${num}		FILTERNUM	
@@ -149,7 +154,7 @@ Select Filter From Section Filter
 	\	Log		${Filter_Value}
 	\	${value}=	Get Text	${Filter_Value}
 	\	Click Element	${Filter_Num}	
-	\	${status}=	Run Keyword And Return Status	Element Should Contain		${Applied}		${value}
+	\	${status}=	Run Keyword And Return Status	Element Should Contain		${AppliedSection}		${value}
 	\	Run Keyword If	${status}==True		check hotels according to "${selectFilterValue} filter" for destination		${filter}		${FiltersList}		${Filter_Num}		${value}
 	\	${FilterNum}=	Replace String		${FilterNum}		${sec}		SEC			count=1	
 	\	${FilterNum}=	Replace String		${FilterNum}		${num}		FILTERNUM	

@@ -6,15 +6,15 @@ ${EnterDesti}		css=.react-autosuggest__input
 ${SelectDesti}		css=li[id*='section-0-item-0']
 ${CheckIn}			css=#checkin
 ${CheckOut}			css=#checkout
-${CheckInDate}		css=div[aria-label="Thu Jul 02 2020"][aria-disabled="false"]
-${CheckOutDate}		css=div[aria-label="Sat Jul 04 2020"][aria-disabled="false"]
+${CheckInDate}		css=div[aria-label="Fri Jul 24 2020"][aria-disabled="false"]
+${CheckOutDate}		css=div[aria-label="Sun Jul 26 2020"][aria-disabled="false"]
 ${RoomGuest}		css=#guest
-#${Adults}			css=li[data-cy="adults-NUMA"]
-${Adults}			link=2
+${Adults}			css=li[data-cy="adults-NUMA"]
+#${Adults}			link=2
 ${Childs}			css=li[data-cy="children-NUMC"]
 ${ChildAge}			css=select[data-cy="childAge-CHILD"] 
 ${ChildAgeValue}	css=select[data-cy="childAge-CHILD"] option[data-cy="childAgeValue-AGE"]
-${AddRoom}			css=.btnAddRoom
+${AddRoomButton}			css=.btnAddRoom
 ${ApplyButton}			css=button[class*='btnApply']
 ${TravellingReason}	css=.hsw_inputBox.travelFor
 ${TravellingForLeisure}		css=li[data-cy="travelFor-Leisure"]
@@ -30,12 +30,12 @@ ${StarCategorySection}		css=div[id*='star_category']
 ${PropertyTypeSection}		css=div[id*='property_types']
 ${FacilityFilterSection}	css=div[id*='facility']
 ${UserRatingFilterSection}	css=div[id*='user_rating']
-${PopularFilterShowmore}		css=div[id*='popular_filters'] span[id*='show_more']
-${LocalityFilterShowmore}		css=div[id*='locality'] .blueText.pointer.latoBold.font12
-${StarCategoryShowmore}			css=div[id*='star_category'] span[id*='show_more']
-${PropertyTypeShowmore}			css=div[id*='property_types'] span[id*='show_more']
-${FacilityFilterShowmore}		css=div[id*='facility'] span[id*='show_more']
-${UserRatingFilterShowmore}		css=div[id*='user_rating'] span[id*='show_more']
+${PopularFilterShowmoreLink}		css=div[id*='popular_filters'] span[id*='show_more']
+${LocalityFilterShowmoreLink}		css=div[id*='locality'] .blueText.pointer.latoBold.font12
+${StarCategoryShowmoreLink}			css=div[id*='star_category'] span[id*='show_more']
+${PropertyTypeShowmoreLink}			css=div[id*='property_types'] span[id*='show_more']
+${FacilityFilterShowmoreLink}		css=div[id*='facility'] span[id*='show_more']
+${UserRatingFilterShowmoreLink}		css=div[id*='user_rating'] span[id*='show_more']
 ${PopularFilter}		css=div[id*='popular_filters'] .checkmarkOuter
 ${LocalityFilter}		css=div[id*='locality'] div div:nth-child(SEC) .checkmarkOuter
 ${StarCategoryFilter}	css=div[id*='star_category'] .checkmarkOuter
@@ -60,7 +60,7 @@ ${starCategoryFilterValue}			css=div[id*='star_category'] ul li:nth-child(FILTER
 ${PropertyTypeFilterValue}			css=div[id*='property_types'] ul li:nth-child(FILTERNUM) label
 ${FacilityFilterValue}				css=div[id*='facility'] ul li:nth-child(FILTERNUM) label
 ${UserRatingFilterValue}			css=div[id*='user_rating'] ul li:nth-child(FILTERNUM) label
-${Applied}			css=.appliedFilters 
+${AppliedSection}			css=.appliedFilters 
 ${AppliedFilter}	css=.appliedFilters li:nth-child(1) a
 ${UserRating}		css=#Listing_hotel_ROW div[id*='user_rating'] span[itemprop="ratingValue"]
 ${InitValue}		css=span[class*='slider-container']:nth-child(2) div[class*='slider']

@@ -1,3483 +1,506 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.0.4 (Python 3.7.6 on win32)" generated="20200720 11:10:16.338">
+<robot generator="Robot 3.0.4 (Python 3.7.6 on win32)" generated="20200721 20:48:06.875">
 <suite id="s1" name="Automation" source="D:\MONU\Robotframework\makemytrip\TestCases\Automation.txt">
-<kw name="open makemytrip" type="setup">
+<kw name="Open Makemytrip" type="setup">
 <kw name="Open Browser" library="Selenium2Library">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
 <arg>${url}</arg>
 <arg>${browser}</arg>
 </arguments>
-<msg timestamp="20200720 11:10:16.623" level="INFO">Opening browser 'Firefox' to base url 'https://www.makemytrip.com/hotels/hotel-listing/?checkin=07232020&amp;city=CTDIU&amp;checkout=07252020&amp;roomStayQualifier=2e2e10e6e&amp;locusId=CTDIU&amp;country=IN&amp;locusType=city&amp;searchText=Diu,%20Daman%20and%20Diu,%20India&amp;visitorId=f399ec2b-c28a-47c5-ba31-f602cdd3f250'.</msg>
-<msg timestamp="20200720 11:10:16.623" level="INFO">Firefox driver log is always forced to to: D:\MONU\Robotframework\makemytrip\TestCases\geckodriver-3.log</msg>
-<status status="PASS" starttime="20200720 11:10:16.623" endtime="20200720 11:11:22.228"></status>
+<msg timestamp="20200721 20:48:07.182" level="INFO">Opening browser 'Firefox' to base url 'https://www.makemytrip.com/'.</msg>
+<msg timestamp="20200721 20:48:07.208" level="INFO">Firefox driver log is always forced to to: D:\MONU\Robotframework\makemytrip\TestCases\geckodriver-17.log</msg>
+<status status="PASS" starttime="20200721 20:48:07.182" endtime="20200721 20:48:56.717"></status>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20200720 11:11:22.228" endtime="20200720 11:11:22.244"></status>
+<status status="PASS" starttime="20200721 20:48:56.717" endtime="20200721 20:48:56.733"></status>
 </kw>
-<status status="PASS" starttime="20200720 11:10:16.623" endtime="20200720 11:11:22.244"></status>
+<status status="PASS" starttime="20200721 20:48:07.181" endtime="20200721 20:48:56.733"></status>
 </kw>
-<test id="s1-t1" name="check facility filters for destination">
+<test id="s1-t1" name="Search Hotels Functionality">
 <kw name="Set Selenium Speed" library="Selenium2Library">
 <doc>Sets the delay that is waited after each Selenium command.</doc>
 <arguments>
-<arg>5 seconds</arg>
+<arg>4 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200720 11:11:22.244" endtime="20200720 11:11:22.244"></status>
+<status status="PASS" starttime="20200721 20:48:56.733" endtime="20200721 20:48:56.733"></status>
 </kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
-<arg>${blank}</arg>
+<arg>${LoginButton}</arg>
 </arguments>
-<msg timestamp="20200720 11:11:22.244" level="INFO">Clicking element 'css=.bodyFixed.overlayWholeBlack'.</msg>
-<status status="PASS" starttime="20200720 11:11:22.244" endtime="20200720 11:11:32.751"></status>
+<status status="PASS" starttime="20200721 20:48:56.748" endtime="20200721 20:49:04.831"></status>
 </kw>
-<kw name="select filter from &quot;Select filter&quot; and check checkbox is clickable or not">
-<arguments>
-<arg>${facilityFilterSection}</arg>
-<arg>${allFilters[5]}</arg>
-<arg>${facilityFilterList}</arg>
-<arg>${facilityFilterNum}</arg>
-<arg>${facilityCheckBox}</arg>
-<arg>${facilityFilterShowmore}</arg>
-<arg>${facilityFilter}</arg>
-<arg>${facilityFilterValue}</arg>
-</arguments>
+<kw name="Search Hotels For Destination">
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
 <arguments>
-<arg>page should contain element</arg>
-<arg>${FilterShowmore}</arg>
-</arguments>
-<assign>
-<var>${showmore}</var>
-</assign>
-<kw name="Page Should Contain Element" library="Selenium2Library">
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<arguments>
-<arg>${FilterShowmore}</arg>
-</arguments>
-<msg timestamp="20200720 11:11:37.787" level="INFO">Current page contains element 'css=#hlistpg_fr_facility #hlistpg_proptypes_show_more'.</msg>
-<status status="PASS" starttime="20200720 11:11:32.751" endtime="20200720 11:11:37.787"></status>
-</kw>
-<msg timestamp="20200720 11:11:37.787" level="INFO">${showmore} = True</msg>
-<status status="PASS" starttime="20200720 11:11:32.751" endtime="20200720 11:11:37.787"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${showmore}==True</arg>
-<arg>click element</arg>
-<arg>${FilterShowmore}</arg>
-</arguments>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${FilterShowmore}</arg>
-</arguments>
-<msg timestamp="20200720 11:11:37.787" level="INFO">Clicking element 'css=#hlistpg_fr_facility #hlistpg_proptypes_show_more'.</msg>
-<status status="PASS" starttime="20200720 11:11:37.787" endtime="20200720 11:11:48.275"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:11:37.787" endtime="20200720 11:11:48.275"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${FilterSection}</arg>
-</arguments>
-<assign>
-<var>${totalSection}</var>
-</assign>
-<msg timestamp="20200720 11:11:53.293" level="INFO">${totalSection} = 1</msg>
-<status status="PASS" starttime="20200720 11:11:48.275" endtime="20200720 11:11:53.293"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${totalSection}&gt;1</arg>
-<arg>select filter from more than one sections</arg>
-<arg>${totalSection}</arg>
-<arg>${selectFilterValue}</arg>
-<arg>${FiltersList}</arg>
-<arg>${FilterNum}</arg>
-<arg>${CheckBox}</arg>
-<arg>${FilterShowmore}</arg>
-<arg>${Filters}</arg>
-<arg>${filterValue}</arg>
-<arg>ELSE</arg>
-<arg>select filter from single section</arg>
-<arg>${totalSection}</arg>
-<arg>${selectFilterValue}</arg>
-<arg>${FiltersList}</arg>
-<arg>${FilterNum}</arg>
-<arg>${CheckBox}</arg>
-<arg>${FilterShowmore}</arg>
-<arg>${Filters}</arg>
-<arg>${filterValue}</arg>
-</arguments>
-<kw name="select filter from single section">
-<arguments>
-<arg>${totalSection}</arg>
-<arg>${selectFilterValue}</arg>
-<arg>${FiltersList}</arg>
-<arg>${FilterNum}</arg>
-<arg>${CheckBox}</arg>
-<arg>${FilterShowmore}</arg>
-<arg>${Filters}</arg>
-<arg>${filterValue}</arg>
-</arguments>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${Filters}</arg>
-</arguments>
-<assign>
-<var>${totalFilter}</var>
-</assign>
-<msg timestamp="20200720 11:11:58.312" level="INFO">${totalFilter} = 18</msg>
-<status status="PASS" starttime="20200720 11:11:53.293" endtime="20200720 11:11:58.312"></status>
-</kw>
-<kw name="${filter} IN RANGE [ 1 | ${totalFilter}+1 ]" type="for">
-<kw name="${filter} = 1" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:11:58.312" level="INFO">${num} = 1</msg>
-<status status="PASS" starttime="20200720 11:11:58.312" endtime="20200720 11:11:58.312"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:11:58.312" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:11:58.312" endtime="20200720 11:11:58.312"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:11:58.312" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(1)</msg>
-<status status="PASS" starttime="20200720 11:11:58.312" endtime="20200720 11:11:58.312"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:11:58.312" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(1) label</msg>
-<status status="PASS" starttime="20200720 11:11:58.312" endtime="20200720 11:11:58.312"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:11:58.312" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(1)</msg>
-<status status="PASS" starttime="20200720 11:11:58.312" endtime="20200720 11:11:58.312"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:11:58.312" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(1) label</msg>
-<status status="PASS" starttime="20200720 11:11:58.312" endtime="20200720 11:11:58.312"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:12:08.380" level="INFO">${value} = Caretaker</msg>
-<status status="PASS" starttime="20200720 11:11:58.312" endtime="20200720 11:12:08.380"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:12:08.380" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(1)'.</msg>
-<status status="PASS" starttime="20200720 11:12:08.380" endtime="20200720 11:12:19.413"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
+<arg>element should be visible</arg>
+<arg>${HotelButton}</arg>
 </arguments>
 <assign>
 <var>${status}</var>
 </assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
 <arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
+<arg>${HotelButton}</arg>
 </arguments>
-<msg timestamp="20200720 11:12:29.766" level="INFO">Element 'css=.appliedFilters' contains text 'Caretaker'.</msg>
-<status status="PASS" starttime="20200720 11:12:19.413" endtime="20200720 11:12:29.766"></status>
+<msg timestamp="20200721 20:49:12.909" level="INFO">Element 'css=li[class='menu_Hotels']' is displayed.</msg>
+<status status="PASS" starttime="20200721 20:49:04.836" endtime="20200721 20:49:12.909"></status>
 </kw>
-<msg timestamp="20200720 11:12:29.766" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:12:19.413" endtime="20200720 11:12:29.766"></status>
+<msg timestamp="20200721 20:49:12.910" level="INFO">${status} = True</msg>
+<status status="PASS" starttime="20200721 20:49:04.835" endtime="20200721 20:49:12.910"></status>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
+<arg>${status}==False</arg>
+<arg>Click Element</arg>
+<arg>${LoginButton}</arg>
 </arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:12:39.820" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:12:29.766" endtime="20200720 11:12:39.820"></status>
+<status status="PASS" starttime="20200721 20:49:12.911" endtime="20200721 20:49:12.912"></status>
 </kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${HotelButton}</arg>
+</arguments>
+<msg timestamp="20200721 20:49:12.914" level="INFO">Clicking element 'css=li[class='menu_Hotels']'.</msg>
+<status status="PASS" starttime="20200721 20:49:12.913" endtime="20200721 20:49:21.367"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${DestiName}</arg>
+</arguments>
+<msg timestamp="20200721 20:49:21.369" level="INFO">Clicking element 'css=#city'.</msg>
+<status status="PASS" starttime="20200721 20:49:21.368" endtime="20200721 20:49:29.816"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${EnterDesti}</arg>
+<arg>${Destination}</arg>
+</arguments>
+<msg timestamp="20200721 20:49:29.818" level="INFO">Typing text 'Diu' into text field 'css=.react-autosuggest__input'.</msg>
+<status status="PASS" starttime="20200721 20:49:29.817" endtime="20200721 20:49:42.005"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${SelectDesti}</arg>
+</arguments>
+<msg timestamp="20200721 20:49:42.007" level="INFO">Clicking element 'css=li[id*='section-0-item-0']'.</msg>
+<status status="PASS" starttime="20200721 20:49:42.006" endtime="20200721 20:49:50.415"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${CheckInDate}</arg>
+</arguments>
+<msg timestamp="20200721 20:49:50.416" level="INFO">Clicking element 'css=div[aria-label="Fri Jul 24 2020"][aria-disabled="false"]'.</msg>
+<status status="PASS" starttime="20200721 20:49:50.415" endtime="20200721 20:49:58.752"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${CheckOutDate}</arg>
+</arguments>
+<msg timestamp="20200721 20:49:58.754" level="INFO">Clicking element 'css=div[aria-label="Sun Jul 26 2020"][aria-disabled="false"]'.</msg>
+<status status="PASS" starttime="20200721 20:49:58.753" endtime="20200721 20:50:07.171"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${RoomGuest}</arg>
+</arguments>
+<msg timestamp="20200721 20:50:07.172" level="INFO">Clicking element 'css=#guest'.</msg>
+<status status="PASS" starttime="20200721 20:50:07.172" endtime="20200721 20:50:15.537"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${adultsnum}</arg>
+</arguments>
+<assign>
+<var>${numa}</var>
+</assign>
+<msg timestamp="20200721 20:50:15.541" level="INFO">${numa} = 2</msg>
+<status status="PASS" starttime="20200721 20:50:15.538" endtime="20200721 20:50:15.541"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${Adults}</arg>
+<arg>NUMA</arg>
+<arg>${numa}</arg>
+</arguments>
+<assign>
+<var>${Adults}</var>
+</assign>
+<msg timestamp="20200721 20:50:15.543" level="INFO">${Adults} = css=li[data-cy="adults-2"]</msg>
+<status status="PASS" starttime="20200721 20:50:15.541" endtime="20200721 20:50:15.543"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Adults}</arg>
+</arguments>
+<msg timestamp="20200721 20:50:15.545" level="INFO">Clicking element 'css=li[data-cy="adults-2"]'.</msg>
+<status status="PASS" starttime="20200721 20:50:15.543" endtime="20200721 20:50:23.827"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${childsnum}</arg>
+</arguments>
+<assign>
+<var>${numc}</var>
+</assign>
+<msg timestamp="20200721 20:50:23.829" level="INFO">${numc} = 2</msg>
+<status status="PASS" starttime="20200721 20:50:23.828" endtime="20200721 20:50:23.829"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${Childs}</arg>
+<arg>NUMC</arg>
+<arg>${numc}</arg>
+</arguments>
+<assign>
+<var>${Childs}</var>
+</assign>
+<msg timestamp="20200721 20:50:23.831" level="INFO">${Childs} = css=li[data-cy="children-2"]</msg>
+<status status="PASS" starttime="20200721 20:50:23.830" endtime="20200721 20:50:23.831"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Childs}</arg>
+</arguments>
+<msg timestamp="20200721 20:50:23.832" level="INFO">Clicking element 'css=li[data-cy="children-2"]'.</msg>
+<status status="PASS" starttime="20200721 20:50:23.832" endtime="20200721 20:50:32.137"></status>
+</kw>
+<kw name="${child_num} IN RANGE [ 0 | ${childsnum} ]" type="for">
+<kw name="${child_num} = 0" type="foritem">
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${child_num}</arg>
+</arguments>
+<assign>
+<var>${child}</var>
+</assign>
+<msg timestamp="20200721 20:50:32.140" level="INFO">${child} = 0</msg>
+<status status="PASS" starttime="20200721 20:50:32.139" endtime="20200721 20:50:32.140"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${ChildAge}</arg>
+<arg>CHILD</arg>
+<arg>${child}</arg>
+</arguments>
+<assign>
+<var>${Child_Age}</var>
+</assign>
+<msg timestamp="20200721 20:50:32.141" level="INFO">${Child_Age} = css=select[data-cy="childAge-0"]</msg>
+<status status="PASS" starttime="20200721 20:50:32.140" endtime="20200721 20:50:32.141"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${age${child_num}}</arg>
+</arguments>
+<assign>
+<var>${age}</var>
+</assign>
+<msg timestamp="20200721 20:50:32.142" level="INFO">${age} = 10</msg>
+<status status="PASS" starttime="20200721 20:50:32.141" endtime="20200721 20:50:32.143"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${ChildAgeValue}</arg>
+<arg>AGE</arg>
+<arg>${age}</arg>
+</arguments>
+<assign>
+<var>${ChildAge_Value}</var>
+</assign>
+<msg timestamp="20200721 20:50:32.143" level="INFO">${ChildAge_Value} = css=select[data-cy="childAge-CHILD"] option[data-cy="childAgeValue-10"]</msg>
+<status status="PASS" starttime="20200721 20:50:32.143" endtime="20200721 20:50:32.144"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${ChildAge_Value}</arg>
+<arg>CHILD</arg>
+<arg>${child}</arg>
+</arguments>
+<assign>
+<var>${ChildAge_Value}</var>
+</assign>
+<msg timestamp="20200721 20:50:32.145" level="INFO">${ChildAge_Value} = css=select[data-cy="childAge-0"] option[data-cy="childAgeValue-10"]</msg>
+<status status="PASS" starttime="20200721 20:50:32.144" endtime="20200721 20:50:32.145"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${ChildAge}</arg>
+</arguments>
+<msg timestamp="20200721 20:50:32.146" level="INFO">Clicking element 'css=select[data-cy="childAge-0"]'.</msg>
+<status status="PASS" starttime="20200721 20:50:32.145" endtime="20200721 20:50:40.504"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${ChildAgeValue}</arg>
+</arguments>
+<msg timestamp="20200721 20:50:40.504" level="INFO">Clicking element 'css=select[data-cy="childAge-0"] option[data-cy="childAgeValue-10"]'.</msg>
+<status status="PASS" starttime="20200721 20:50:40.504" endtime="20200721 20:50:48.777"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${child_num} + 1</arg>
+</arguments>
+<assign>
+<var>${child_num}</var>
+</assign>
+<msg timestamp="20200721 20:50:48.778" level="INFO">${child_num} = 1</msg>
+<status status="PASS" starttime="20200721 20:50:48.777" endtime="20200721 20:50:48.778"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${childAge}</arg>
+<arg>${child}</arg>
+<arg>CHILD</arg>
+</arguments>
+<assign>
+<var>${childAge}</var>
+</assign>
+<msg timestamp="20200721 20:50:48.779" level="INFO">${childAge} = css=select[data-cy="childAge-CHILD"]</msg>
+<status status="PASS" starttime="20200721 20:50:48.778" endtime="20200721 20:50:48.779"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${ChildAgeValue}</arg>
+<arg>${age}</arg>
+<arg>AGE</arg>
+</arguments>
+<assign>
+<var>${ChildAge_Value}</var>
+</assign>
+<msg timestamp="20200721 20:50:48.780" level="INFO">${ChildAge_Value} = css=select[data-cy="childAge-0"] option[data-cy="childAgeValue-AGE"]</msg>
+<status status="PASS" starttime="20200721 20:50:48.779" endtime="20200721 20:50:48.780"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${ChildAge_Value}</arg>
+<arg>${child}</arg>
+<arg>CHILD</arg>
+</arguments>
+<assign>
+<var>${ChildAge_Value}</var>
+</assign>
+<msg timestamp="20200721 20:50:48.781" level="INFO">${ChildAge_Value} = css=select[data-cy="childAge-CHILD"] option[data-cy="childAgeValue-AGE"]</msg>
+<status status="PASS" starttime="20200721 20:50:48.780" endtime="20200721 20:50:48.781"></status>
+</kw>
+<status status="PASS" starttime="20200721 20:50:32.139" endtime="20200721 20:50:48.781"></status>
+</kw>
+<kw name="${child_num} = 1" type="foritem">
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${child_num}</arg>
+</arguments>
+<assign>
+<var>${child}</var>
+</assign>
+<msg timestamp="20200721 20:50:48.782" level="INFO">${child} = 1</msg>
+<status status="PASS" starttime="20200721 20:50:48.782" endtime="20200721 20:50:48.782"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${ChildAge}</arg>
+<arg>CHILD</arg>
+<arg>${child}</arg>
+</arguments>
+<assign>
+<var>${Child_Age}</var>
+</assign>
+<msg timestamp="20200721 20:50:48.783" level="INFO">${Child_Age} = css=select[data-cy="childAge-1"]</msg>
+<status status="PASS" starttime="20200721 20:50:48.783" endtime="20200721 20:50:48.783"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${age${child_num}}</arg>
+</arguments>
+<assign>
+<var>${age}</var>
+</assign>
+<msg timestamp="20200721 20:50:48.785" level="INFO">${age} = 5</msg>
+<status status="PASS" starttime="20200721 20:50:48.784" endtime="20200721 20:50:48.785"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${ChildAgeValue}</arg>
+<arg>AGE</arg>
+<arg>${age}</arg>
+</arguments>
+<assign>
+<var>${ChildAge_Value}</var>
+</assign>
+<msg timestamp="20200721 20:50:48.786" level="INFO">${ChildAge_Value} = css=select[data-cy="childAge-CHILD"] option[data-cy="childAgeValue-5"]</msg>
+<status status="PASS" starttime="20200721 20:50:48.786" endtime="20200721 20:50:48.787"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${ChildAge_Value}</arg>
+<arg>CHILD</arg>
+<arg>${child}</arg>
+</arguments>
+<assign>
+<var>${ChildAge_Value}</var>
+</assign>
+<msg timestamp="20200721 20:50:48.789" level="INFO">${ChildAge_Value} = css=select[data-cy="childAge-1"] option[data-cy="childAgeValue-5"]</msg>
+<status status="PASS" starttime="20200721 20:50:48.787" endtime="20200721 20:50:48.789"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${ChildAge}</arg>
+</arguments>
+<msg timestamp="20200721 20:50:48.789" level="INFO">Clicking element 'css=select[data-cy="childAge-1"]'.</msg>
+<status status="PASS" starttime="20200721 20:50:48.789" endtime="20200721 20:50:57.100"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${ChildAgeValue}</arg>
+</arguments>
+<msg timestamp="20200721 20:50:57.101" level="INFO">Clicking element 'css=select[data-cy="childAge-1"] option[data-cy="childAgeValue-5"]'.</msg>
+<status status="PASS" starttime="20200721 20:50:57.100" endtime="20200721 20:51:05.373"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${child_num} + 1</arg>
+</arguments>
+<assign>
+<var>${child_num}</var>
+</assign>
+<msg timestamp="20200721 20:51:05.374" level="INFO">${child_num} = 2</msg>
+<status status="PASS" starttime="20200721 20:51:05.373" endtime="20200721 20:51:05.374"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${childAge}</arg>
+<arg>${child}</arg>
+<arg>CHILD</arg>
+</arguments>
+<assign>
+<var>${childAge}</var>
+</assign>
+<msg timestamp="20200721 20:51:05.374" level="INFO">${childAge} = css=select[data-cy="childAge-CHILD"]</msg>
+<status status="PASS" starttime="20200721 20:51:05.374" endtime="20200721 20:51:05.374"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${ChildAgeValue}</arg>
+<arg>${age}</arg>
+<arg>AGE</arg>
+</arguments>
+<assign>
+<var>${ChildAge_Value}</var>
+</assign>
+<msg timestamp="20200721 20:51:05.375" level="INFO">${ChildAge_Value} = css=select[data-cy="childAge-1"] option[data-cy="childAgeValue-AGE"]</msg>
+<status status="PASS" starttime="20200721 20:51:05.375" endtime="20200721 20:51:05.375"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${ChildAge_Value}</arg>
+<arg>${child}</arg>
+<arg>CHILD</arg>
+</arguments>
+<assign>
+<var>${ChildAge_Value}</var>
+</assign>
+<msg timestamp="20200721 20:51:05.376" level="INFO">${ChildAge_Value} = css=select[data-cy="childAge-CHILD"] option[data-cy="childAgeValue-AGE"]</msg>
+<status status="PASS" starttime="20200721 20:51:05.375" endtime="20200721 20:51:05.376"></status>
+</kw>
+<status status="PASS" starttime="20200721 20:50:48.781" endtime="20200721 20:51:05.376"></status>
+</kw>
+<status status="PASS" starttime="20200721 20:50:32.138" endtime="20200721 20:51:05.376"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${ApplyButton}</arg>
+</arguments>
+<msg timestamp="20200721 20:51:05.376" level="INFO">Clicking element 'css=button[class*='btnApply']'.</msg>
+<status status="PASS" starttime="20200721 20:51:05.376" endtime="20200721 20:51:13.699"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${TravellingReason}</arg>
+</arguments>
+<msg timestamp="20200721 20:51:13.699" level="INFO">Clicking element 'css=.hsw_inputBox.travelFor'.</msg>
+<status status="PASS" starttime="20200721 20:51:13.699" endtime="20200721 20:51:22.060"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${TravellingForLeisure}</arg>
+</arguments>
+<msg timestamp="20200721 20:51:22.062" level="INFO">Clicking element 'css=li[data-cy="travelFor-Leisure"]'.</msg>
+<status status="PASS" starttime="20200721 20:51:22.061" endtime="20200721 20:51:30.350"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${SerachButton}</arg>
+</arguments>
+<msg timestamp="20200721 20:51:30.352" level="INFO">Clicking element 'css=#hsw_search_button'.</msg>
+<status status="PASS" starttime="20200721 20:51:30.351" endtime="20200721 20:51:39.047"></status>
+</kw>
+<status status="PASS" starttime="20200721 20:49:04.834" endtime="20200721 20:51:39.047"></status>
+</kw>
+<kw name="Check Hotels According to Destination">
 <kw name="Get Element Count" library="Selenium2Library">
 <doc>Returns the number of elements matching ``locator``.</doc>
 <arguments>
-<arg>${hotelsLists}</arg>
+<arg>${HotelsLists}</arg>
 </arguments>
 <assign>
 <var>${countHotels}</var>
 </assign>
-<msg timestamp="20200720 11:12:44.853" level="INFO">${countHotels} = 2</msg>
-<status status="PASS" starttime="20200720 11:12:39.820" endtime="20200720 11:12:44.853"></status>
+<msg timestamp="20200721 20:51:43.053" level="INFO">${countHotels} = 0</msg>
+<status status="PASS" starttime="20200721 20:51:39.048" endtime="20200721 20:51:43.053"></status>
 </kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:12:44.853" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:12:44.853" endtime="20200720 11:12:55.371"></status>
+<kw name="${singleHotel} IN RANGE [ 2 | ${countHotels}+2 ]" type="for">
+<status status="PASS" starttime="20200721 20:51:43.053" endtime="20200721 20:51:43.054"></status>
 </kw>
-<status status="PASS" starttime="20200720 11:12:29.766" endtime="20200720 11:12:55.371"></status>
+<status status="PASS" starttime="20200721 20:51:39.048" endtime="20200721 20:51:43.054"></status>
 </kw>
-<status status="PASS" starttime="20200720 11:12:29.766" endtime="20200720 11:12:55.371"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:12:55.371" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:12:55.371" endtime="20200720 11:12:55.371"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:12:55.371" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:12:55.371" endtime="20200720 11:12:55.371"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:12:55.371" level="INFO">${filter} = 2</msg>
-<status status="PASS" starttime="20200720 11:12:55.371" endtime="20200720 11:12:55.371"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:11:58.312" endtime="20200720 11:12:55.371"></status>
-</kw>
-<kw name="${filter} = 2" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:12:55.371" level="INFO">${num} = 2</msg>
-<status status="PASS" starttime="20200720 11:12:55.371" endtime="20200720 11:12:55.371"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:12:55.371" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:12:55.371" endtime="20200720 11:12:55.371"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:12:55.371" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(2)</msg>
-<status status="PASS" starttime="20200720 11:12:55.371" endtime="20200720 11:12:55.371"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:12:55.371" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(2) label</msg>
-<status status="PASS" starttime="20200720 11:12:55.371" endtime="20200720 11:12:55.371"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:12:55.371" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(2)</msg>
-<status status="PASS" starttime="20200720 11:12:55.371" endtime="20200720 11:12:55.371"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:12:55.371" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(2) label</msg>
-<status status="PASS" starttime="20200720 11:12:55.371" endtime="20200720 11:12:55.371"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:13:05.447" level="INFO">${value} = Cafe</msg>
-<status status="PASS" starttime="20200720 11:12:55.393" endtime="20200720 11:13:05.447"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:13:05.447" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(2)'.</msg>
-<status status="PASS" starttime="20200720 11:13:05.447" endtime="20200720 11:13:15.904"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:13:25.949" level="INFO">Element 'css=.appliedFilters' contains text 'Cafe'.</msg>
-<status status="PASS" starttime="20200720 11:13:15.904" endtime="20200720 11:13:25.949"></status>
-</kw>
-<msg timestamp="20200720 11:13:25.949" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:13:15.904" endtime="20200720 11:13:25.949"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:13:36.033" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:13:25.949" endtime="20200720 11:13:36.033"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:13:41.058" level="INFO">${countHotels} = 3</msg>
-<status status="PASS" starttime="20200720 11:13:36.033" endtime="20200720 11:13:41.058"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:13:41.058" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:13:41.058" endtime="20200720 11:13:51.457"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:13:25.949" endtime="20200720 11:13:51.457"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:13:25.949" endtime="20200720 11:13:51.457"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:13:51.457" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:13:51.457" endtime="20200720 11:13:51.457"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:13:51.457" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:13:51.457" endtime="20200720 11:13:51.457"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:13:51.457" level="INFO">${filter} = 3</msg>
-<status status="PASS" starttime="20200720 11:13:51.457" endtime="20200720 11:13:51.457"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:12:55.371" endtime="20200720 11:13:51.457"></status>
-</kw>
-<kw name="${filter} = 3" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:13:51.457" level="INFO">${num} = 3</msg>
-<status status="PASS" starttime="20200720 11:13:51.457" endtime="20200720 11:13:51.457"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:13:51.457" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:13:51.457" endtime="20200720 11:13:51.457"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:13:51.457" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(3)</msg>
-<status status="PASS" starttime="20200720 11:13:51.457" endtime="20200720 11:13:51.457"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:13:51.457" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(3) label</msg>
-<status status="PASS" starttime="20200720 11:13:51.457" endtime="20200720 11:13:51.457"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:13:51.473" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(3)</msg>
-<status status="PASS" starttime="20200720 11:13:51.473" endtime="20200720 11:13:51.473"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:13:51.473" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(3) label</msg>
-<status status="PASS" starttime="20200720 11:13:51.473" endtime="20200720 11:13:51.473"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:14:01.528" level="INFO">${value} = Kitchenette</msg>
-<status status="PASS" starttime="20200720 11:13:51.473" endtime="20200720 11:14:01.528"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:14:01.528" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(3)'.</msg>
-<status status="PASS" starttime="20200720 11:14:01.528" endtime="20200720 11:14:11.992"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:14:22.052" level="INFO">Element 'css=.appliedFilters' contains text 'Kitchenette'.</msg>
-<status status="PASS" starttime="20200720 11:14:11.992" endtime="20200720 11:14:22.052"></status>
-</kw>
-<msg timestamp="20200720 11:14:22.052" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:14:11.992" endtime="20200720 11:14:22.052"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:14:32.092" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:14:22.052" endtime="20200720 11:14:32.092"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:14:37.114" level="INFO">${countHotels} = 5</msg>
-<status status="PASS" starttime="20200720 11:14:32.092" endtime="20200720 11:14:37.114"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:14:37.114" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:14:37.114" endtime="20200720 11:14:47.494"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:14:22.052" endtime="20200720 11:14:47.494"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:14:22.052" endtime="20200720 11:14:47.494"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:14:47.494" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:14:47.494" endtime="20200720 11:14:47.494"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:14:47.494" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:14:47.494" endtime="20200720 11:14:47.494"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:14:47.494" level="INFO">${filter} = 4</msg>
-<status status="PASS" starttime="20200720 11:14:47.494" endtime="20200720 11:14:47.494"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:13:51.457" endtime="20200720 11:14:47.494"></status>
-</kw>
-<kw name="${filter} = 4" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:14:47.494" level="INFO">${num} = 4</msg>
-<status status="PASS" starttime="20200720 11:14:47.494" endtime="20200720 11:14:47.494"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:14:47.494" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:14:47.494" endtime="20200720 11:14:47.494"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:14:47.494" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(4)</msg>
-<status status="PASS" starttime="20200720 11:14:47.494" endtime="20200720 11:14:47.494"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:14:47.494" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(4) label</msg>
-<status status="PASS" starttime="20200720 11:14:47.494" endtime="20200720 11:14:47.494"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:14:47.510" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(4)</msg>
-<status status="PASS" starttime="20200720 11:14:47.494" endtime="20200720 11:14:47.510"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:14:47.510" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(4) label</msg>
-<status status="PASS" starttime="20200720 11:14:47.510" endtime="20200720 11:14:47.510"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:14:57.570" level="INFO">${value} = Barbeque</msg>
-<status status="PASS" starttime="20200720 11:14:47.510" endtime="20200720 11:14:57.570"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:14:57.570" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(4)'.</msg>
-<status status="PASS" starttime="20200720 11:14:57.570" endtime="20200720 11:15:07.945"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Capture Page Screenshot" library="Selenium2Library">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20200720 11:15:18.628" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20200720 11:15:12.953" endtime="20200720 11:15:18.628"></status>
-</kw>
-<msg timestamp="20200720 11:15:18.728" level="FAIL">Element with locator 'css=.appliedFilters' not found.</msg>
-<status status="FAIL" starttime="20200720 11:15:07.945" endtime="20200720 11:15:18.728"></status>
-</kw>
-<msg timestamp="20200720 11:15:18.728" level="INFO">${status} = False</msg>
-<status status="PASS" starttime="20200720 11:15:07.945" endtime="20200720 11:15:18.728"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<status status="PASS" starttime="20200720 11:15:18.728" endtime="20200720 11:15:18.728"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:15:18.728" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:15:18.728" endtime="20200720 11:15:18.728"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:15:18.728" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:15:18.728" endtime="20200720 11:15:18.728"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:15:18.728" level="INFO">${filter} = 5</msg>
-<status status="PASS" starttime="20200720 11:15:18.728" endtime="20200720 11:15:18.728"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:14:47.494" endtime="20200720 11:15:18.728"></status>
-</kw>
-<kw name="${filter} = 5" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:15:18.728" level="INFO">${num} = 5</msg>
-<status status="PASS" starttime="20200720 11:15:18.728" endtime="20200720 11:15:18.728"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:15:18.728" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:15:18.728" endtime="20200720 11:15:18.728"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:15:18.728" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(5)</msg>
-<status status="PASS" starttime="20200720 11:15:18.728" endtime="20200720 11:15:18.728"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:15:18.744" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(5) label</msg>
-<status status="PASS" starttime="20200720 11:15:18.728" endtime="20200720 11:15:18.744"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:15:18.744" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(5)</msg>
-<status status="PASS" starttime="20200720 11:15:18.744" endtime="20200720 11:15:18.744"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:15:18.744" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(5) label</msg>
-<status status="PASS" starttime="20200720 11:15:18.744" endtime="20200720 11:15:18.744"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:15:28.772" level="INFO">${value} = Balcony/Terrace</msg>
-<status status="PASS" starttime="20200720 11:15:18.744" endtime="20200720 11:15:28.772"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:15:28.772" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(5)'.</msg>
-<status status="PASS" starttime="20200720 11:15:28.772" endtime="20200720 11:15:39.212"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:15:49.262" level="INFO">Element 'css=.appliedFilters' contains text 'Balcony/Terrace'.</msg>
-<status status="PASS" starttime="20200720 11:15:39.212" endtime="20200720 11:15:49.262"></status>
-</kw>
-<msg timestamp="20200720 11:15:49.262" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:15:39.212" endtime="20200720 11:15:49.262"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:15:59.321" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:15:49.269" endtime="20200720 11:15:59.321"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:16:04.355" level="INFO">${countHotels} = 6</msg>
-<status status="PASS" starttime="20200720 11:15:59.321" endtime="20200720 11:16:04.355"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:16:04.355" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:16:04.355" endtime="20200720 11:16:14.771"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:15:49.262" endtime="20200720 11:16:14.771"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:15:49.262" endtime="20200720 11:16:14.771"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:16:14.771" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:16:14.771" endtime="20200720 11:16:14.771"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:16:14.771" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:16:14.771" endtime="20200720 11:16:14.771"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:16:14.771" level="INFO">${filter} = 6</msg>
-<status status="PASS" starttime="20200720 11:16:14.771" endtime="20200720 11:16:14.771"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:15:18.728" endtime="20200720 11:16:14.771"></status>
-</kw>
-<kw name="${filter} = 6" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:16:14.771" level="INFO">${num} = 6</msg>
-<status status="PASS" starttime="20200720 11:16:14.771" endtime="20200720 11:16:14.771"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:16:14.771" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:16:14.771" endtime="20200720 11:16:14.771"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:16:14.771" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(6)</msg>
-<status status="PASS" starttime="20200720 11:16:14.771" endtime="20200720 11:16:14.771"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:16:14.771" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(6) label</msg>
-<status status="PASS" starttime="20200720 11:16:14.771" endtime="20200720 11:16:14.771"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:16:14.771" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(6)</msg>
-<status status="PASS" starttime="20200720 11:16:14.771" endtime="20200720 11:16:14.771"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:16:14.771" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(6) label</msg>
-<status status="PASS" starttime="20200720 11:16:14.771" endtime="20200720 11:16:14.771"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:16:24.809" level="INFO">${value} = Living Room</msg>
-<status status="PASS" starttime="20200720 11:16:14.771" endtime="20200720 11:16:24.809"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:16:24.809" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(6)'.</msg>
-<status status="PASS" starttime="20200720 11:16:24.809" endtime="20200720 11:16:35.146"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Capture Page Screenshot" library="Selenium2Library">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20200720 11:16:45.417" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20200720 11:16:40.166" endtime="20200720 11:16:45.417"></status>
-</kw>
-<msg timestamp="20200720 11:16:45.417" level="FAIL">Element with locator 'css=.appliedFilters' not found.</msg>
-<status status="FAIL" starttime="20200720 11:16:35.146" endtime="20200720 11:16:45.417"></status>
-</kw>
-<msg timestamp="20200720 11:16:45.417" level="INFO">${status} = False</msg>
-<status status="PASS" starttime="20200720 11:16:35.146" endtime="20200720 11:16:45.417"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<status status="PASS" starttime="20200720 11:16:45.417" endtime="20200720 11:16:45.417"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:16:45.417" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:16:45.417" endtime="20200720 11:16:45.417"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:16:45.417" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:16:45.417" endtime="20200720 11:16:45.417"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:16:45.417" level="INFO">${filter} = 7</msg>
-<status status="PASS" starttime="20200720 11:16:45.417" endtime="20200720 11:16:45.417"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:16:14.771" endtime="20200720 11:16:45.417"></status>
-</kw>
-<kw name="${filter} = 7" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:16:45.417" level="INFO">${num} = 7</msg>
-<status status="PASS" starttime="20200720 11:16:45.417" endtime="20200720 11:16:45.417"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:16:45.417" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:16:45.417" endtime="20200720 11:16:45.417"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:16:45.417" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(7)</msg>
-<status status="PASS" starttime="20200720 11:16:45.417" endtime="20200720 11:16:45.417"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:16:45.417" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(7) label</msg>
-<status status="PASS" starttime="20200720 11:16:45.417" endtime="20200720 11:16:45.417"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:16:45.417" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(7)</msg>
-<status status="PASS" starttime="20200720 11:16:45.417" endtime="20200720 11:16:45.417"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:16:45.417" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(7) label</msg>
-<status status="PASS" starttime="20200720 11:16:45.417" endtime="20200720 11:16:45.417"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:16:55.464" level="INFO">${value} = Caretaker</msg>
-<status status="PASS" starttime="20200720 11:16:45.417" endtime="20200720 11:16:55.464"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:16:55.464" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(7)'.</msg>
-<status status="PASS" starttime="20200720 11:16:55.464" endtime="20200720 11:17:05.898"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:17:15.965" level="INFO">Element 'css=.appliedFilters' contains text 'Caretaker'.</msg>
-<status status="PASS" starttime="20200720 11:17:05.898" endtime="20200720 11:17:15.965"></status>
-</kw>
-<msg timestamp="20200720 11:17:15.965" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:17:05.898" endtime="20200720 11:17:15.965"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:17:26.020" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:17:15.965" endtime="20200720 11:17:26.020"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:17:31.040" level="INFO">${countHotels} = 2</msg>
-<status status="PASS" starttime="20200720 11:17:26.020" endtime="20200720 11:17:31.040"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:17:31.040" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:17:31.040" endtime="20200720 11:17:41.405"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:17:15.965" endtime="20200720 11:17:41.405"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:17:15.965" endtime="20200720 11:17:41.405"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:17:41.405" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:17:41.405" endtime="20200720 11:17:41.405"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:17:41.405" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:17:41.405" endtime="20200720 11:17:41.405"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:17:41.405" level="INFO">${filter} = 8</msg>
-<status status="PASS" starttime="20200720 11:17:41.405" endtime="20200720 11:17:41.405"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:16:45.417" endtime="20200720 11:17:41.405"></status>
-</kw>
-<kw name="${filter} = 8" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:17:41.405" level="INFO">${num} = 8</msg>
-<status status="PASS" starttime="20200720 11:17:41.405" endtime="20200720 11:17:41.405"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:17:41.405" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:17:41.405" endtime="20200720 11:17:41.405"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:17:41.405" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(8)</msg>
-<status status="PASS" starttime="20200720 11:17:41.405" endtime="20200720 11:17:41.405"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:17:41.405" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(8) label</msg>
-<status status="PASS" starttime="20200720 11:17:41.405" endtime="20200720 11:17:41.405"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:17:41.405" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(8)</msg>
-<status status="PASS" starttime="20200720 11:17:41.405" endtime="20200720 11:17:41.405"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:17:41.405" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(8) label</msg>
-<status status="PASS" starttime="20200720 11:17:41.405" endtime="20200720 11:17:41.405"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:17:51.420" level="INFO">${value} = Facilities for Guests with Disabilities</msg>
-<status status="PASS" starttime="20200720 11:17:41.405" endtime="20200720 11:17:51.420"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:17:51.420" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(8)'.</msg>
-<status status="PASS" starttime="20200720 11:17:51.420" endtime="20200720 11:18:01.896"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:18:11.973" level="INFO">Element 'css=.appliedFilters' contains text 'Facilities for Guests with Disabilities'.</msg>
-<status status="PASS" starttime="20200720 11:18:01.896" endtime="20200720 11:18:11.973"></status>
-</kw>
-<msg timestamp="20200720 11:18:11.973" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:18:01.896" endtime="20200720 11:18:11.973"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:18:22.017" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:18:11.973" endtime="20200720 11:18:22.017"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:18:27.027" level="INFO">${countHotels} = 2</msg>
-<status status="PASS" starttime="20200720 11:18:22.017" endtime="20200720 11:18:27.027"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:18:27.027" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:18:27.027" endtime="20200720 11:18:37.558"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:18:11.973" endtime="20200720 11:18:37.558"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:18:11.973" endtime="20200720 11:18:37.558"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:18:37.558" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:18:37.558" endtime="20200720 11:18:37.558"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:18:37.558" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:18:37.558" endtime="20200720 11:18:37.558"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:18:37.558" level="INFO">${filter} = 9</msg>
-<status status="PASS" starttime="20200720 11:18:37.558" endtime="20200720 11:18:37.558"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:17:41.405" endtime="20200720 11:18:37.558"></status>
-</kw>
-<kw name="${filter} = 9" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:18:37.558" level="INFO">${num} = 9</msg>
-<status status="PASS" starttime="20200720 11:18:37.558" endtime="20200720 11:18:37.558"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:18:37.558" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:18:37.558" endtime="20200720 11:18:37.558"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:18:37.558" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(9)</msg>
-<status status="PASS" starttime="20200720 11:18:37.558" endtime="20200720 11:18:37.558"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:18:37.558" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(9) label</msg>
-<status status="PASS" starttime="20200720 11:18:37.558" endtime="20200720 11:18:37.558"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:18:37.558" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(9)</msg>
-<status status="PASS" starttime="20200720 11:18:37.558" endtime="20200720 11:18:37.558"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:18:37.558" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(9) label</msg>
-<status status="PASS" starttime="20200720 11:18:37.558" endtime="20200720 11:18:37.558"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:18:47.587" level="INFO">${value} = Fireplace</msg>
-<status status="PASS" starttime="20200720 11:18:37.558" endtime="20200720 11:18:47.587"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:18:47.587" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(9)'.</msg>
-<status status="PASS" starttime="20200720 11:18:47.587" endtime="20200720 11:18:58.150"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:19:08.195" level="INFO">Element 'css=.appliedFilters' contains text 'Fireplace'.</msg>
-<status status="PASS" starttime="20200720 11:18:58.150" endtime="20200720 11:19:08.195"></status>
-</kw>
-<msg timestamp="20200720 11:19:08.195" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:18:58.150" endtime="20200720 11:19:08.195"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:19:18.226" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:19:08.195" endtime="20200720 11:19:18.226"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:19:23.241" level="INFO">${countHotels} = 1</msg>
-<status status="PASS" starttime="20200720 11:19:18.226" endtime="20200720 11:19:23.241"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:19:23.241" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:19:23.241" endtime="20200720 11:19:33.741"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:19:08.195" endtime="20200720 11:19:33.741"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:19:08.195" endtime="20200720 11:19:33.741"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:19:33.741" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:19:33.741" endtime="20200720 11:19:33.741"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:19:33.741" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:19:33.741" endtime="20200720 11:19:33.741"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:19:33.741" level="INFO">${filter} = 10</msg>
-<status status="PASS" starttime="20200720 11:19:33.741" endtime="20200720 11:19:33.741"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:18:37.558" endtime="20200720 11:19:33.741"></status>
-</kw>
-<kw name="${filter} = 10" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:19:33.741" level="INFO">${num} = 10</msg>
-<status status="PASS" starttime="20200720 11:19:33.741" endtime="20200720 11:19:33.741"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:19:33.741" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:19:33.741" endtime="20200720 11:19:33.741"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:19:33.741" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(10)</msg>
-<status status="PASS" starttime="20200720 11:19:33.741" endtime="20200720 11:19:33.741"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:19:33.741" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(10) label</msg>
-<status status="PASS" starttime="20200720 11:19:33.741" endtime="20200720 11:19:33.741"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:19:33.741" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(10)</msg>
-<status status="PASS" starttime="20200720 11:19:33.741" endtime="20200720 11:19:33.741"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:19:33.741" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(10) label</msg>
-<status status="PASS" starttime="20200720 11:19:33.741" endtime="20200720 11:19:33.741"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:19:43.788" level="INFO">${value} = Room Service</msg>
-<status status="PASS" starttime="20200720 11:19:33.741" endtime="20200720 11:19:43.788"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:19:43.788" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(10)'.</msg>
-<status status="PASS" starttime="20200720 11:19:43.788" endtime="20200720 11:19:54.304"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:20:04.350" level="INFO">Element 'css=.appliedFilters' contains text 'Room Service'.</msg>
-<status status="PASS" starttime="20200720 11:19:54.304" endtime="20200720 11:20:04.350"></status>
-</kw>
-<msg timestamp="20200720 11:20:04.350" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:19:54.304" endtime="20200720 11:20:04.350"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:20:14.381" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:20:04.350" endtime="20200720 11:20:14.381"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:20:19.395" level="INFO">${countHotels} = 10</msg>
-<status status="PASS" starttime="20200720 11:20:14.381" endtime="20200720 11:20:19.395"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:20:19.395" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:20:19.395" endtime="20200720 11:20:30.026"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:20:04.350" endtime="20200720 11:20:30.026"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:20:04.350" endtime="20200720 11:20:30.026"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:20:30.026" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:20:30.026" endtime="20200720 11:20:30.026"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:20:30.026" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:20:30.026" endtime="20200720 11:20:30.026"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:20:30.026" level="INFO">${filter} = 11</msg>
-<status status="PASS" starttime="20200720 11:20:30.026" endtime="20200720 11:20:30.026"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:19:33.741" endtime="20200720 11:20:30.026"></status>
-</kw>
-<kw name="${filter} = 11" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:20:30.026" level="INFO">${num} = 11</msg>
-<status status="PASS" starttime="20200720 11:20:30.026" endtime="20200720 11:20:30.026"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:20:30.026" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:20:30.026" endtime="20200720 11:20:30.026"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:20:30.026" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(11)</msg>
-<status status="PASS" starttime="20200720 11:20:30.026" endtime="20200720 11:20:30.026"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:20:30.026" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(11) label</msg>
-<status status="PASS" starttime="20200720 11:20:30.026" endtime="20200720 11:20:30.026"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:20:30.026" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(11)</msg>
-<status status="PASS" starttime="20200720 11:20:30.026" endtime="20200720 11:20:30.026"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:20:30.026" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(11) label</msg>
-<status status="PASS" starttime="20200720 11:20:30.026" endtime="20200720 11:20:30.026"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:20:40.052" level="INFO">${value} = Living Room</msg>
-<status status="PASS" starttime="20200720 11:20:30.026" endtime="20200720 11:20:40.052"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:20:40.052" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(11)'.</msg>
-<status status="PASS" starttime="20200720 11:20:40.052" endtime="20200720 11:20:50.482"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Capture Page Screenshot" library="Selenium2Library">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20200720 11:21:00.918" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20200720 11:20:55.497" endtime="20200720 11:21:00.918"></status>
-</kw>
-<msg timestamp="20200720 11:21:00.918" level="FAIL">Element with locator 'css=.appliedFilters' not found.</msg>
-<status status="FAIL" starttime="20200720 11:20:50.482" endtime="20200720 11:21:00.918"></status>
-</kw>
-<msg timestamp="20200720 11:21:00.918" level="INFO">${status} = False</msg>
-<status status="PASS" starttime="20200720 11:20:50.482" endtime="20200720 11:21:00.918"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<status status="PASS" starttime="20200720 11:21:00.918" endtime="20200720 11:21:00.918"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:21:00.918" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:21:00.918" endtime="20200720 11:21:00.918"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:21:00.918" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:21:00.918" endtime="20200720 11:21:00.918"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:21:00.918" level="INFO">${filter} = 12</msg>
-<status status="PASS" starttime="20200720 11:21:00.918" endtime="20200720 11:21:00.918"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:20:30.026" endtime="20200720 11:21:00.918"></status>
-</kw>
-<kw name="${filter} = 12" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:21:00.918" level="INFO">${num} = 12</msg>
-<status status="PASS" starttime="20200720 11:21:00.918" endtime="20200720 11:21:00.918"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:21:00.918" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:21:00.918" endtime="20200720 11:21:00.918"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:21:00.918" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(12)</msg>
-<status status="PASS" starttime="20200720 11:21:00.918" endtime="20200720 11:21:00.918"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:21:00.918" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(12) label</msg>
-<status status="PASS" starttime="20200720 11:21:00.918" endtime="20200720 11:21:00.918"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:21:00.918" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(12)</msg>
-<status status="PASS" starttime="20200720 11:21:00.918" endtime="20200720 11:21:00.918"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:21:00.918" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(12) label</msg>
-<status status="PASS" starttime="20200720 11:21:00.918" endtime="20200720 11:21:00.918"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:21:10.963" level="INFO">${value} = Bonfire</msg>
-<status status="PASS" starttime="20200720 11:21:00.918" endtime="20200720 11:21:10.963"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:21:10.963" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(12)'.</msg>
-<status status="PASS" starttime="20200720 11:21:10.963" endtime="20200720 11:21:21.609"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:21:31.655" level="INFO">Element 'css=.appliedFilters' contains text 'Bonfire'.</msg>
-<status status="PASS" starttime="20200720 11:21:21.609" endtime="20200720 11:21:31.655"></status>
-</kw>
-<msg timestamp="20200720 11:21:31.655" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:21:21.609" endtime="20200720 11:21:31.655"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:21:41.703" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:21:31.655" endtime="20200720 11:21:41.703"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:21:46.717" level="INFO">${countHotels} = 1</msg>
-<status status="PASS" starttime="20200720 11:21:41.703" endtime="20200720 11:21:46.717"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:21:46.717" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:21:46.717" endtime="20200720 11:21:57.130"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:21:31.655" endtime="20200720 11:21:57.130"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:21:31.655" endtime="20200720 11:21:57.130"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:21:57.130" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:21:57.130" endtime="20200720 11:21:57.130"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:21:57.130" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:21:57.130" endtime="20200720 11:21:57.130"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:21:57.130" level="INFO">${filter} = 13</msg>
-<status status="PASS" starttime="20200720 11:21:57.130" endtime="20200720 11:21:57.130"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:21:00.918" endtime="20200720 11:21:57.130"></status>
-</kw>
-<kw name="${filter} = 13" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:21:57.130" level="INFO">${num} = 13</msg>
-<status status="PASS" starttime="20200720 11:21:57.130" endtime="20200720 11:21:57.130"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:21:57.130" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:21:57.130" endtime="20200720 11:21:57.130"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:21:57.130" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(13)</msg>
-<status status="PASS" starttime="20200720 11:21:57.130" endtime="20200720 11:21:57.130"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:21:57.130" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(13) label</msg>
-<status status="PASS" starttime="20200720 11:21:57.130" endtime="20200720 11:21:57.130"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:21:57.130" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(13)</msg>
-<status status="PASS" starttime="20200720 11:21:57.130" endtime="20200720 11:21:57.130"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:21:57.146" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(13) label</msg>
-<status status="PASS" starttime="20200720 11:21:57.130" endtime="20200720 11:21:57.146"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:22:07.189" level="INFO">${value} = Elevator/Lift</msg>
-<status status="PASS" starttime="20200720 11:21:57.146" endtime="20200720 11:22:07.189"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:22:07.189" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(13)'.</msg>
-<status status="PASS" starttime="20200720 11:22:07.189" endtime="20200720 11:22:17.836"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:22:27.886" level="INFO">Element 'css=.appliedFilters' contains text 'Elevator/Lift'.</msg>
-<status status="PASS" starttime="20200720 11:22:17.836" endtime="20200720 11:22:27.886"></status>
-</kw>
-<msg timestamp="20200720 11:22:27.886" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:22:17.836" endtime="20200720 11:22:27.886"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:22:37.930" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:22:27.886" endtime="20200720 11:22:37.930"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:22:42.944" level="INFO">${countHotels} = 6</msg>
-<status status="PASS" starttime="20200720 11:22:37.930" endtime="20200720 11:22:42.944"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:22:42.944" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:22:42.944" endtime="20200720 11:22:53.491"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:22:27.886" endtime="20200720 11:22:53.491"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:22:27.886" endtime="20200720 11:22:53.491"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:22:53.491" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:22:53.491" endtime="20200720 11:22:53.491"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:22:53.491" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:22:53.491" endtime="20200720 11:22:53.491"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:22:53.491" level="INFO">${filter} = 14</msg>
-<status status="PASS" starttime="20200720 11:22:53.491" endtime="20200720 11:22:53.491"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:21:57.130" endtime="20200720 11:22:53.491"></status>
-</kw>
-<kw name="${filter} = 14" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:22:53.491" level="INFO">${num} = 14</msg>
-<status status="PASS" starttime="20200720 11:22:53.491" endtime="20200720 11:22:53.491"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:22:53.491" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:22:53.491" endtime="20200720 11:22:53.491"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:22:53.491" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(14)</msg>
-<status status="PASS" starttime="20200720 11:22:53.491" endtime="20200720 11:22:53.491"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:22:53.491" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(14) label</msg>
-<status status="PASS" starttime="20200720 11:22:53.491" endtime="20200720 11:22:53.491"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:22:53.506" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(14)</msg>
-<status status="PASS" starttime="20200720 11:22:53.491" endtime="20200720 11:22:53.506"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:22:53.506" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(14) label</msg>
-<status status="PASS" starttime="20200720 11:22:53.506" endtime="20200720 11:22:53.506"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:23:03.571" level="INFO">${value} = Facilities for Guests with Disabilities</msg>
-<status status="PASS" starttime="20200720 11:22:53.506" endtime="20200720 11:23:03.571"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:23:03.571" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(14)'.</msg>
-<status status="PASS" starttime="20200720 11:23:03.571" endtime="20200720 11:23:14.078"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:23:24.137" level="INFO">Element 'css=.appliedFilters' contains text 'Facilities for Guests with Disabilities'.</msg>
-<status status="PASS" starttime="20200720 11:23:14.078" endtime="20200720 11:23:24.137"></status>
-</kw>
-<msg timestamp="20200720 11:23:24.137" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:23:14.078" endtime="20200720 11:23:24.137"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:23:34.199" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:23:24.137" endtime="20200720 11:23:34.199"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:23:39.214" level="INFO">${countHotels} = 2</msg>
-<status status="PASS" starttime="20200720 11:23:34.199" endtime="20200720 11:23:39.214"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:23:39.214" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:23:39.214" endtime="20200720 11:23:49.703"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:23:24.137" endtime="20200720 11:23:49.703"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:23:24.137" endtime="20200720 11:23:49.703"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:23:49.703" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:23:49.703" endtime="20200720 11:23:49.703"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:23:49.703" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:23:49.703" endtime="20200720 11:23:49.703"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:23:49.703" level="INFO">${filter} = 15</msg>
-<status status="PASS" starttime="20200720 11:23:49.703" endtime="20200720 11:23:49.703"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:22:53.491" endtime="20200720 11:23:49.703"></status>
-</kw>
-<kw name="${filter} = 15" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:23:49.703" level="INFO">${num} = 15</msg>
-<status status="PASS" starttime="20200720 11:23:49.703" endtime="20200720 11:23:49.703"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:23:49.703" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:23:49.703" endtime="20200720 11:23:49.703"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:23:49.703" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(15)</msg>
-<status status="PASS" starttime="20200720 11:23:49.703" endtime="20200720 11:23:49.703"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:23:49.703" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(15) label</msg>
-<status status="PASS" starttime="20200720 11:23:49.703" endtime="20200720 11:23:49.703"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:23:49.718" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(15)</msg>
-<status status="PASS" starttime="20200720 11:23:49.703" endtime="20200720 11:23:49.718"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:23:49.718" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(15) label</msg>
-<status status="PASS" starttime="20200720 11:23:49.718" endtime="20200720 11:23:49.718"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:23:59.773" level="INFO">${value} = Wi-Fi</msg>
-<status status="PASS" starttime="20200720 11:23:49.718" endtime="20200720 11:23:59.773"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:23:59.773" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(15)'.</msg>
-<status status="PASS" starttime="20200720 11:23:59.773" endtime="20200720 11:24:10.303"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:24:20.375" level="INFO">Element 'css=.appliedFilters' contains text 'Wi-Fi'.</msg>
-<status status="PASS" starttime="20200720 11:24:10.303" endtime="20200720 11:24:20.375"></status>
-</kw>
-<msg timestamp="20200720 11:24:20.375" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:24:10.303" endtime="20200720 11:24:20.375"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:24:30.475" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:24:20.375" endtime="20200720 11:24:30.475"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:24:35.498" level="INFO">${countHotels} = 10</msg>
-<status status="PASS" starttime="20200720 11:24:30.475" endtime="20200720 11:24:35.498"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:24:35.498" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:24:35.498" endtime="20200720 11:24:46.032"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:24:20.375" endtime="20200720 11:24:46.032"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:24:20.375" endtime="20200720 11:24:46.032"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:24:46.032" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:24:46.032" endtime="20200720 11:24:46.032"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:24:46.032" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:24:46.032" endtime="20200720 11:24:46.032"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:24:46.032" level="INFO">${filter} = 16</msg>
-<status status="PASS" starttime="20200720 11:24:46.032" endtime="20200720 11:24:46.032"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:23:49.703" endtime="20200720 11:24:46.032"></status>
-</kw>
-<kw name="${filter} = 16" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:24:46.032" level="INFO">${num} = 16</msg>
-<status status="PASS" starttime="20200720 11:24:46.032" endtime="20200720 11:24:46.032"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:24:46.032" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:24:46.032" endtime="20200720 11:24:46.032"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:24:46.032" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(16)</msg>
-<status status="PASS" starttime="20200720 11:24:46.032" endtime="20200720 11:24:46.032"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:24:46.032" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(16) label</msg>
-<status status="PASS" starttime="20200720 11:24:46.032" endtime="20200720 11:24:46.032"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:24:46.048" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(16)</msg>
-<status status="PASS" starttime="20200720 11:24:46.048" endtime="20200720 11:24:46.048"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:24:46.048" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(16) label</msg>
-<status status="PASS" starttime="20200720 11:24:46.048" endtime="20200720 11:24:46.048"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:24:56.100" level="INFO">${value} = Bar</msg>
-<status status="PASS" starttime="20200720 11:24:46.048" endtime="20200720 11:24:56.100"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:24:56.100" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(16)'.</msg>
-<status status="PASS" starttime="20200720 11:24:56.100" endtime="20200720 11:25:06.594"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:25:16.631" level="INFO">Element 'css=.appliedFilters' contains text 'Bar'.</msg>
-<status status="PASS" starttime="20200720 11:25:06.594" endtime="20200720 11:25:16.631"></status>
-</kw>
-<msg timestamp="20200720 11:25:16.631" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:25:06.594" endtime="20200720 11:25:16.631"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:25:26.713" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:25:16.631" endtime="20200720 11:25:26.713"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:25:31.746" level="INFO">${countHotels} = 10</msg>
-<status status="PASS" starttime="20200720 11:25:26.713" endtime="20200720 11:25:31.746"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:25:31.746" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:25:31.746" endtime="20200720 11:25:42.256"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:25:16.631" endtime="20200720 11:25:42.256"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:25:16.631" endtime="20200720 11:25:42.256"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:25:42.256" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:25:42.256" endtime="20200720 11:25:42.256"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:25:42.256" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:25:42.256" endtime="20200720 11:25:42.256"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:25:42.256" level="INFO">${filter} = 17</msg>
-<status status="PASS" starttime="20200720 11:25:42.256" endtime="20200720 11:25:42.256"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:24:46.032" endtime="20200720 11:25:42.256"></status>
-</kw>
-<kw name="${filter} = 17" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:25:42.256" level="INFO">${num} = 17</msg>
-<status status="PASS" starttime="20200720 11:25:42.256" endtime="20200720 11:25:42.256"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:25:42.256" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:25:42.256" endtime="20200720 11:25:42.256"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:25:42.256" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(17)</msg>
-<status status="PASS" starttime="20200720 11:25:42.256" endtime="20200720 11:25:42.256"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:25:42.256" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(17) label</msg>
-<status status="PASS" starttime="20200720 11:25:42.256" endtime="20200720 11:25:42.256"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:25:42.256" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(17)</msg>
-<status status="PASS" starttime="20200720 11:25:42.256" endtime="20200720 11:25:42.272"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:25:42.272" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(17) label</msg>
-<status status="PASS" starttime="20200720 11:25:42.272" endtime="20200720 11:25:42.272"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:25:52.323" level="INFO">${value} = Elevator/Lift</msg>
-<status status="PASS" starttime="20200720 11:25:42.272" endtime="20200720 11:25:52.323"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:25:52.323" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(17)'.</msg>
-<status status="PASS" starttime="20200720 11:25:52.323" endtime="20200720 11:26:02.858"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:26:12.931" level="INFO">Element 'css=.appliedFilters' contains text 'Elevator/Lift'.</msg>
-<status status="PASS" starttime="20200720 11:26:02.858" endtime="20200720 11:26:12.931"></status>
-</kw>
-<msg timestamp="20200720 11:26:12.931" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:26:02.858" endtime="20200720 11:26:12.931"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:26:23.013" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:26:12.931" endtime="20200720 11:26:23.013"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:26:28.038" level="INFO">${countHotels} = 6</msg>
-<status status="PASS" starttime="20200720 11:26:23.013" endtime="20200720 11:26:28.038"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:26:28.038" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:26:28.038" endtime="20200720 11:26:38.577"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:26:12.931" endtime="20200720 11:26:38.577"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:26:12.931" endtime="20200720 11:26:38.577"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:26:38.577" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:26:38.577" endtime="20200720 11:26:38.577"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:26:38.577" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:26:38.577" endtime="20200720 11:26:38.577"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:26:38.577" level="INFO">${filter} = 18</msg>
-<status status="PASS" starttime="20200720 11:26:38.577" endtime="20200720 11:26:38.577"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:25:42.256" endtime="20200720 11:26:38.577"></status>
-</kw>
-<kw name="${filter} = 18" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200720 11:26:38.577" level="INFO">${num} = 18</msg>
-<status status="PASS" starttime="20200720 11:26:38.577" endtime="20200720 11:26:38.577"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200720 11:26:38.577" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:26:38.577" endtime="20200720 11:26:38.577"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200720 11:26:38.577" level="INFO">${Filter_Num} = css=#hlistpg_fr_facility .filterList li:nth-child(18)</msg>
-<status status="PASS" starttime="20200720 11:26:38.577" endtime="20200720 11:26:38.577"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200720 11:26:38.577" level="INFO">${Filter_Value} = css=#hlistpg_fr_facility .filterList li:nth-child(18) label</msg>
-<status status="PASS" starttime="20200720 11:26:38.577" endtime="20200720 11:26:38.577"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:26:38.593" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(18)</msg>
-<status status="PASS" starttime="20200720 11:26:38.577" endtime="20200720 11:26:38.593"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200720 11:26:38.593" level="INFO">css=#hlistpg_fr_facility .filterList li:nth-child(18) label</msg>
-<status status="PASS" starttime="20200720 11:26:38.593" endtime="20200720 11:26:38.593"></status>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<assign>
-<var>${value}</var>
-</assign>
-<msg timestamp="20200720 11:26:48.629" level="INFO">${value} = Parking</msg>
-<status status="PASS" starttime="20200720 11:26:38.593" endtime="20200720 11:26:48.629"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200720 11:26:48.629" level="INFO">Clicking element 'css=#hlistpg_fr_facility .filterList li:nth-child(18)'.</msg>
-<status status="PASS" starttime="20200720 11:26:48.629" endtime="20200720 11:26:59.176"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>element should contain</arg>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${applied}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200720 11:27:09.243" level="INFO">Element 'css=.appliedFilters' contains text 'Parking'.</msg>
-<status status="PASS" starttime="20200720 11:26:59.176" endtime="20200720 11:27:09.243"></status>
-</kw>
-<msg timestamp="20200720 11:27:09.243" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200720 11:26:59.176" endtime="20200720 11:27:09.243"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${status}==True</arg>
-<arg>check hotels according to "${selectFilterValue} filter" for destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="check hotels according to &quot;Ficility filter&quot; for destination">
-<arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
-</arguments>
-<kw name="Element Should Be Visible" library="Selenium2Library">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<msg timestamp="20200720 11:27:19.344" level="INFO">Element 'css=.listingRowOuter' is displayed.</msg>
-<status status="PASS" starttime="20200720 11:27:09.243" endtime="20200720 11:27:19.344"></status>
-</kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${hotelsLists}</arg>
-</arguments>
-<assign>
-<var>${countHotels}</var>
-</assign>
-<msg timestamp="20200720 11:27:24.365" level="INFO">${countHotels} = 10</msg>
-<status status="PASS" starttime="20200720 11:27:19.344" endtime="20200720 11:27:24.365"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${appliedFilter}</arg>
-</arguments>
-<msg timestamp="20200720 11:27:24.365" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
-<status status="PASS" starttime="20200720 11:27:24.365" endtime="20200720 11:27:34.792"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:27:09.243" endtime="20200720 11:27:34.792"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:27:09.243" endtime="20200720 11:27:34.792"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${FilterNum}</var>
-</assign>
-<msg timestamp="20200720 11:27:34.792" level="INFO">${FilterNum} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200720 11:27:34.792" endtime="20200720 11:27:34.792"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${filterValue}</arg>
-<arg>${num}</arg>
-<arg>FILTERNUM</arg>
-</arguments>
-<assign>
-<var>${filterValue}</var>
-</assign>
-<msg timestamp="20200720 11:27:34.792" level="INFO">${filterValue} = css=#hlistpg_fr_facility .filterList li:nth-child(FILTERNUM) label</msg>
-<status status="PASS" starttime="20200720 11:27:34.792" endtime="20200720 11:27:34.792"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>${filter}+1</arg>
-</arguments>
-<assign>
-<var>${filter}</var>
-</assign>
-<msg timestamp="20200720 11:27:34.792" level="INFO">${filter} = 19</msg>
-<status status="PASS" starttime="20200720 11:27:34.792" endtime="20200720 11:27:34.792"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:26:38.577" endtime="20200720 11:27:34.792"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:11:58.312" endtime="20200720 11:27:34.792"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:11:53.293" endtime="20200720 11:27:34.792"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:11:53.293" endtime="20200720 11:27:34.792"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:11:32.751" endtime="20200720 11:27:34.792"></status>
-</kw>
-<status status="PASS" starttime="20200720 11:11:22.244" endtime="20200720 11:27:34.792" critical="yes"></status>
+<status status="PASS" starttime="20200721 20:48:56.733" endtime="20200721 20:51:43.055" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20200720 11:10:16.338" endtime="20200720 11:27:34.823"></status>
+<status status="PASS" starttime="20200721 20:48:06.877" endtime="20200721 20:51:43.058"></status>
 </suite>
 <statistics>
 <total>
