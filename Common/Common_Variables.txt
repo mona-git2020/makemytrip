@@ -1,4 +1,5 @@
 *** Variables ***
+${LoginPopup}		css=div[class*="autopop__wrap"]
 ${LoginButton}		css=li[data-cy="account"]
 ${HotelButton}		css=li[class='menu_Hotels']
 ${DestiName}		css=#city
@@ -6,17 +7,19 @@ ${EnterDesti}		css=.react-autosuggest__input
 ${SelectDesti}		css=li[id*='section-0-item-0']
 ${CheckIn}			css=#checkin
 ${CheckOut}			css=#checkout
+${CheckInCheckOutDropdownBox}	css=.RangeExample
 ${CheckInDate}		css=div[aria-label="Fri Jul 24 2020"][aria-disabled="false"]
 ${CheckOutDate}		css=div[aria-label="Sun Jul 26 2020"][aria-disabled="false"]
-${RoomGuest}		css=#guest
+${RoomsGuestsDropdownBox}	css=.roomsGuests
+${RoomGuestDropdown}		css=#guest
 ${Adults}			css=li[data-cy="adults-NUMA"]
 #${Adults}			link=2
 ${Childs}			css=li[data-cy="children-NUMC"]
-${ChildAge}			css=select[data-cy="childAge-CHILD"] 
+${ChildAgeList}			css=select[data-cy="childAge-CHILD"] 
 ${ChildAgeValue}	css=select[data-cy="childAge-CHILD"] option[data-cy="childAgeValue-AGE"]
 ${AddRoomButton}			css=.btnAddRoom
 ${ApplyButton}			css=button[class*='btnApply']
-${TravellingReason}	css=.hsw_inputBox.travelFor
+${TravellingReasonDropdown}	css=.hsw_inputBox.travelFor
 ${TravellingForLeisure}		css=li[data-cy="travelFor-Leisure"]
 ${TravellingForWork}		css=li[data-cy="travelFor-Work"]
 ${SerachButton}		css=#hsw_search_button

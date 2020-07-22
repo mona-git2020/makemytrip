@@ -10,7 +10,6 @@ Suite Setup		Open Makemytrip
 *** Test Cases ***
 Search Hotels Functionality
 	Set Selenium Speed	4 seconds
-#	Click Element		${Blank}
 	Wait Until Element Is Visible	${LoginButton}
 #	Wait Until Element Is Visible	${HotelButton}
 #	Wait Until Element Is Visible	${DestiName}
@@ -57,19 +56,23 @@ Search Hotels Functionality
 
 *** Keywords ***
 Open Makemytrip
-	Open Browser	${url}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
+	Open Browser	${url1}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
 	Maximize Browser Window
 	
 Search Hotels For Destination
-	${status}=		Run Keyword And Return Status	Element Should Be Visible		${HotelButton}
-	Run Keyword If		${status}==False		Click Element	${LoginButton}
+	${loginStatus}=		Run Keyword And Return Status	Element Should Be Visible		${LoginPopup}
+	Run Keyword If		${loginStatus}==True		Click Element	${LoginButton}
 	Click Element	${HotelButton}
-	Click Element	${DestiName}
+	${destiStatus}=		Run Keyword And Return Status	Element Should Be Visible		${EnterDesti}
+	Run Keyword If		${destiStatus}==False		Click Element	${DestiName}
 	Input Text		${EnterDesti}	${Destination}
 	Click Element	${SelectDesti}
+	${checkInCheckOutStatus}=		Run Keyword And Return Status	Element Should Be Visible		${CheckInCheckOutDropdownBox}
+	Run Keyword If		${checkInCheckOutStatus}==False		Click Element	${CheckIn}
 	Click Element	${CheckInDate}
 	Click Element	${CheckOutDate}
-	Click Element	${RoomGuest}
+	${roomsStatus}=		Run Keyword And Return Status	Element Should Be Visible		${RoomsGuestsDropdownBox}
+	Run Keyword If		${roomsStatus}==False		Click Element	${RoomGuestDropdown}	
 	${numa}=	Convert To String	${adultsnum}
 	${Adults}=	Replace String	${Adults}	NUMA	${numa}
 	Click Element	${Adults}
@@ -78,19 +81,19 @@ Search Hotels For Destination
 	Click Element	${Childs}
 	: FOR	${child_num}	IN RANGE	0	${childsnum}	
 	\	${child}=	Convert To String	${child_num}
-	\	${Child_Age}=	Replace String	${ChildAge}		CHILD		${child}
+	\	${Child_Age}=	Replace String	${ChildAgeList}		CHILD		${child}
 	\	${age}=		Convert To String	${age${child_num}}
 	\	${ChildAge_Value}=	Replace String	${ChildAgeValue}	AGE		${age}
 	\	${ChildAge_Value}=	Replace String	${ChildAge_Value}	CHILD		${child}	
-	\	Click Element	${ChildAge}
-	\	Click Element   ${ChildAgeValue}
+	\	Click Element	${Child_Age}
+	\	Click Element   ${ChildAge_Value}
 	\	${child_num}=	Evaluate	${child_num} + 1
-	\	${childAge}=	Replace String	${childAge}		${child}		CHILD	
-	\	${ChildAge_Value}=	Replace String	${ChildAgeValue}	${age}		AGE
-	\	${ChildAge_Value}=	Replace String	${ChildAge_Value}	${child}	CHILD	
+	\	${ChildAgeList}=	Replace String	${ChildAgeList}		${child}		CHILD	
+	\	${ChildAgeValue}=	Replace String	${ChildAgeValue}	${age}		AGE
+	\	${ChildAgeValue}=	Replace String	${ChildAgeValue}	${child}	CHILD	
 
 	Click Element	${ApplyButton}
-	Click Element	${TravellingReason}
+	Click Element	${TravellingReasonDropdown}
 	Click Element	${TravellingForLeisure}
 	Click Element	${SerachButton}
 	
