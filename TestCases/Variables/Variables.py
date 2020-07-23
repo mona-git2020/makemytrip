@@ -13,9 +13,9 @@ age0 = 10
 age1 = 5
 allFilters = ["Popular", "Locality", "Star Category", "User Rating", "Property Types", "Ficility"]
 
-popularFiltersList = {"MMT Assured" : "MMT Assured", "MySafety - Safe and Hygienic Stays" : "MySafety - Safe and Hygienic Stays", "Pay @ Hotel Available" : "Pay@Hotel", "EMI Deals Available" : "EMI Deals Available", "LOW_COST_EMI" : "LOW_COST_EMI", "Free Breakfast" : "Free Breakfast", "Free Cancellation, Zero Payment Now" : "Free Cancellation, Zero Payment Now", "Free Cancellation" : "Free Cancellation"}
+popularFiltersList = {"MMT Assured" : "MMT Assured", "MySafety - Safe and Hygienic Stays" : "MySafety - Safe and Hygienic Stays", "Pay @ Hotel Available" : "Pay@Hotel", "EMI Deals Available" : "EMI", "LOW_COST_EMI" : "EMI", "Free Breakfast" : "Free Breakfast", "Free Cancellation, Zero Payment Now" : "Free Cancellation, Zero Payment Now", "Free Cancellation" : "Free Cancellation"}
 
-localityFilterList = {"Near Diu Airport" : "Diu Airport", "Near Diu Fort" : "Diu Fort", "Near Bandar Chowk" : "Bandar Chowk"}
+localityFilterList = {"Diu Airport (DIU)" : "Diu Airport", "Diu Fort" : "Diu Fort", "Bandar Chowk" : "Bandar Chowk", "Chowk Market" : "Chowk"}
 
 starCategoryFilterList = {"Unrated" : "Unrated", "4 Star" : "4", "3 Star" : "3", "2 Star" : "2", "1 Star" : "1"}
 

@@ -65,7 +65,7 @@ ${FacilityFilterValue}				css=div[id*='facility'] ul li:nth-child(FILTERNUM) lab
 ${UserRatingFilterValue}			css=div[id*='user_rating'] ul li:nth-child(FILTERNUM) label
 ${AppliedSection}			css=.appliedFilters 
 ${AppliedFilter}	css=.appliedFilters li:nth-child(1) a
-${UserRating}		css=#Listing_hotel_ROW div[id*='user_rating'] span[itemprop="ratingValue"]
+${UserRating}		css=#Listing_hotel_ROW span[id*='user_rating'] span[itemprop="ratingValue"]
 ${InitValue}		css=span[class*='slider-container']:nth-child(2) div[class*='slider']
 ${TargetValue}		css=div[aria-valuenow="5"]
 ${LastValue}		css=span[class*='slider-container']:nth-child(3) div[class*='slider']
