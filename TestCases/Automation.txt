@@ -11,46 +11,44 @@ Suite Setup		Open Makemytrip
 #Search Hotels Functionality
 #	Set Selenium Speed	4 seconds
 #	Wait Until Element Is Visible	${LoginButton}
-#	Wait Until Element Is Visible	${HotelButton}
-#	Wait Until Element Is Visible	${DestiName}
 #	Search Hotels For Destination
 #	Check Hotels According to Destination					
 
-Check Popular Filters For Destination
-	Set Selenium Speed	5 seconds
-	Click Element		${Blank}
-	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmoreLink}	${PopularFilter}	${PopularFilterValue}
-
-#Check Price Per Night Filter For Destination
+#Check Popular Filters For Destination
 #	Set Selenium Speed	5 seconds
 #	Click Element		${Blank}
-#	Select Price Per Night And Check Hotels According To Filter		
+#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmoreLink}	${PopularFilter}	${PopularFilterValue}
 
-#Check Locality Filters For Destination		
+Check Price Per Night Filter For Destination
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}
+	Select Price Per Night And Check Hotels According To Filter		
+
+Check Locality Filters For Destination		
 #	Set Selenium Speed	5 seconds
 #	Click Element		${Blank}	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmoreLink}	${LocalityFilter}	${LocalityFilterValue}
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmoreLink}	${LocalityFilter}	${LocalityFilterValue}
 
-#Check Star Category Filters For Destination
+Check Star Category Filters For Destination
 #	Set Selenium Speed	5 seconds
 #	Click Element		${Blank}	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmoreLink}		${StarCategoryFilter}		${StarCategoryFilterValue}
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmoreLink}		${StarCategoryFilter}		${StarCategoryFilterValue}
 
-#Check Property Types Filters For Destination
+Check Property Types Filters For Destination
 #	Set Selenium Speed	5 seconds
 #	Click Element		${Blank}	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmoreLink}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmoreLink}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
 
 
-#Check User Rating Filters For Destination
+Check User Rating Filters For Destination
 #	Set Selenium Speed	5 seconds
 #	Click Element		${Blank}	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmoreLink}		${UserRatingFilter}		${UserRatingFilterValue}
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmoreLink}		${UserRatingFilter}		${UserRatingFilterValue}
 
-#Check Facility Filters For Destination
+Check Facility Filters For Destination
 #	Set Selenium Speed	5 seconds
 #	Click Element		${Blank}	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${FacilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${FacilityFilterNum}		${FacilityCheckBox}		${FacilityFilterShowmoreLink}	${FacilityFilter}		${FacilityFilterValue}
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${FacilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${FacilityFilterNum}		${FacilityCheckBox}		${FacilityFilterShowmoreLink}	${FacilityFilter}		${FacilityFilterValue}
 
 
 
@@ -109,7 +107,6 @@ Check Hotels According to Destination
 	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
 
 	
-
 Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	
 	[Arguments]		${FilterSection}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${FilterShowMore}		${Filters}		${FilterValue}
 	${showmore}=	Run Keyword And Return Status	Page Should Contain Element		${FilterShowMore}
@@ -117,6 +114,7 @@ Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not
 	${totalSection}=	Get Element Count	${FilterSection}
 	Run Keyword If		${totalSection}>1	Select Filter From More Than One Sections		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}			${Filters}		${FilterValue}
 	...		ELSE	Select Filter From Single Section		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}			${Filters}		${FilterValue}
+	
 	
 Select Filter From Single Section
 	[Arguments]		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
@@ -141,6 +139,7 @@ Select Filter From More Than One Sections
 	[Arguments]		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
 	: FOR	${section}		IN RANGE	1	${totalSection}+1
 	\	Select Filter From Section Filter	${section}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
+	
 	
 Select Filter From Section Filter	
 	[Arguments]		${section}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
@@ -181,20 +180,24 @@ Check Hotels According To "Popular Filter" For Destination
 	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
 	Click Element	${AppliedFilter}		
 
+
 Check Image Of "MMT Assured" Popular Filter	
 	[Arguments]		${row}	${value}	
 	${MMTAssuredImage}=		Replace String		${MMTAssuredImage}	ROW		${row}
 	Element Should Be Visible		${MMTAssuredImage}
 	${MMTAssuredImage}=		Replace String		${MMTAssuredImage}	${row}	ROW
+
 	
 Check Image Of "MySafety - Safe and Hygienic Stays" Popular Filter	
 	[Arguments]		${row}	${value}	
 	${MySafetyImage}=		Replace String		${MySafetyImage}	ROW		${row}
 	Element Should Be Visible		${MySafetyImage}
 	${MySafetyImage}=		Replace String		${MySafetyImage}	${row}	ROW
+
 	
 Check Only Filter Hotels For That
 	{countHotels}=		Get Element Count	${HotelsLists}	
+
 	
 Check Hotels According To "Property Types Filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
@@ -210,6 +213,7 @@ Check Hotels According To "Property Types Filter" For Destination
 	\	${Banner}=	Replace String		${Banner}	${row}		ROW
 	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
 	Click Element	${AppliedFilter}		
+
 
 Select Price Per Night And Check Hotels According To Filter
 	Element Should Be Visible	${LastValue}
@@ -227,7 +231,6 @@ Select Price Per Night And Check Hotels According To Filter
 	Log		${MinTargetPrice}
 	${minPrice}=	Strip String		${MinTargetPrice}		characters=INR
 	Log		${minPrice}
-
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${row}=		Convert To String	${singleHotel}
@@ -257,7 +260,6 @@ Check Hotels According To "Locality filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
 	Click Element	${AppliedFilter}		
-
 
 
 Check Hotels According To "Ficility filter" For Destination 
