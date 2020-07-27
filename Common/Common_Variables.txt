@@ -8,12 +8,11 @@ ${SelectDesti}		css=li[id*='section-0-item-0']
 ${CheckIn}			css=#checkin
 ${CheckOut}			css=#checkout
 ${CheckInCheckOutDropdownBox}	css=.RangeExample
-${CheckInDate}		css=div[aria-label="Sat Aug 01 2020"][aria-disabled="false"]
-${CheckOutDate}		css=div[aria-label="Mon Aug 03 2020"][aria-disabled="false"]
+${CheckInDate}		css=div[aria-selected="true"][aria-disabled="false"]:nth-child(4)+div     
+${CheckOutDate}		css=div[aria-disabled="true"][aria-selected="true"]+div                   
 ${RoomsGuestsDropdownBox}	css=.roomsGuests
 ${RoomGuestDropdown}		css=#guest
 ${Adults}			css=li[data-cy="adults-NUMA"]
-#${Adults}			link=2
 ${Childs}			css=li[data-cy="children-NUMC"]
 ${ChildAgeList}			css=select[data-cy="childAge-CHILD"] 
 ${ChildAgeValue}	css=select[data-cy="childAge-CHILD"] option[data-cy="childAgeValue-AGE"]
