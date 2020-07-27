@@ -8,16 +8,16 @@ Suite Setup		Open Makemytrip
 
 
 *** Test Cases ***
-#Search Hotels Functionality
-#	Set Selenium Speed	4 seconds
-#	Wait Until Element Is Visible	${LoginButton}
-#	Search Hotels For Destination
-#	Check Hotels According to Destination					
+Search Hotels Functionality
+	Set Selenium Speed	4 seconds
+	Wait Until Element Is Visible	${LoginButton}
+	Search Hotels For Destination
+	Check Hotels According to Destination					
 
-#Check Popular Filters For Destination
-#	Set Selenium Speed	5 seconds
-#	Click Element		${Blank}
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmoreLink}	${PopularFilter}	${PopularFilterValue}
+Check Popular Filters For Destination
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmoreLink}	${PopularFilter}	${PopularFilterValue}
 
 Check Price Per Night Filter For Destination
 	Set Selenium Speed	5 seconds
@@ -25,36 +25,36 @@ Check Price Per Night Filter For Destination
 	Select Price Per Night And Check Hotels According To Filter		
 
 Check Locality Filters For Destination		
-#	Set Selenium Speed	5 seconds
-#	Click Element		${Blank}	
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}	
 	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmoreLink}	${LocalityFilter}	${LocalityFilterValue}
 
 Check Star Category Filters For Destination
-#	Set Selenium Speed	5 seconds
-#	Click Element		${Blank}	
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}	
 	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmoreLink}		${StarCategoryFilter}		${StarCategoryFilterValue}
 
 Check Property Types Filters For Destination
-#	Set Selenium Speed	5 seconds
-#	Click Element		${Blank}	
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}	
 	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmoreLink}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
 
 
 Check User Rating Filters For Destination
-#	Set Selenium Speed	5 seconds
-#	Click Element		${Blank}	
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}	
 	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmoreLink}		${UserRatingFilter}		${UserRatingFilterValue}
 
 Check Facility Filters For Destination
-#	Set Selenium Speed	5 seconds
-#	Click Element		${Blank}	
+	Set Selenium Speed	5 seconds
+	Click Element		${Blank}	
 	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${FacilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${FacilityFilterNum}		${FacilityCheckBox}		${FacilityFilterShowmoreLink}	${FacilityFilter}		${FacilityFilterValue}
 
 
 
 *** Keywords ***
 Open Makemytrip
-	Open Browser	${url2}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
+	Open Browser	${url1}		${browser}		remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
 	Maximize Browser Window
 	
 Search Hotels For Destination
@@ -91,7 +91,8 @@ Search Hotels For Destination
 	\	${ChildAgeValue}=	Replace String	${ChildAgeValue}	${child}	CHILD	
 
 	Click Element	${ApplyButton}
-	Click Element	${TravellingReasonDropdown}
+	${travelForStatus}=		Run Keyword And Return Status	Element Should Be Visible		${TravellingReasonDropdownBox}
+	Run Keyword If		${travelForStatus}==False		Click Element	${TravellingReasonDropdown}
 	Click Element	${TravellingForLeisure}
 	Click Element	${SerachButton}
 	
@@ -178,7 +179,7 @@ Check Hotels According To "Popular Filter" For Destination
 	\	...		ELSE		Check Only Filter Hotels For That
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
-	Click Element	${AppliedFilter}		
+	Click Element	${AppliedFilterCancelMark}		
 
 
 Check Image Of "MMT Assured" Popular Filter	
@@ -212,7 +213,7 @@ Check Hotels According To "Property Types Filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${Banner}=	Replace String		${Banner}	${row}		ROW
 	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
-	Click Element	${AppliedFilter}		
+	Click Element	${AppliedFilterCancelMark}		
 
 
 Select Price Per Night And Check Hotels According To Filter
@@ -246,7 +247,7 @@ Select Price Per Night And Check Hotels According To Filter
 	\	Should Be True		${maxPrice}>=${price}
 	\	Should Be True		${minPrice}<=${price}
 	\	${InrPrice}=	Replace String		${InrPrice}		${row}	ROW	
-	Click Element	${AppliedFilter}
+	Click Element	${AppliedFilterCancelMark}
 	
 	
 Check Hotels According To "Locality filter" For Destination 
@@ -259,14 +260,14 @@ Check Hotels According To "Locality filter" For Destination
  	\	Element Should Contain		${CheckDesti}		${FiltersList["${value}"]}	
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
-	Click Element	${AppliedFilter}		
+	Click Element	${AppliedFilterCancelMark}		
 
 
 Check Hotels According To "Ficility filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
 	Element Should Be Visible		${HotelsLists}
 	${countHotels}=		Get Element Count	${HotelsLists}
-	Click Element	${AppliedFilter}
+	Click Element	${AppliedFilterCancelMark}
 
 	
 Check Hotels According To "User Rating filter" For Destination	
@@ -279,7 +280,7 @@ Check Hotels According To "User Rating filter" For Destination
 	\	Should Be True		${value}>=${FiltersList[${filter}-1]}	
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${UserRating}=	Replace String		${UserRating}	${row}		ROW
-	Click Element	${AppliedFilter}		
+	Click Element	${AppliedFilterCancelMark}		
 
 
 Check Hotels According To "Star Category filter" For Destination 
@@ -295,7 +296,7 @@ Check Hotels According To "Star Category filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${Stars}=		Replace String		${Stars}	${row}		ROW
 	\	${Stars}=		Replace String		${Stars}	${FiltersList["${value1}"]}		STAR
-	Click Element	${AppliedFilter}		
+	Click Element	${AppliedFilterCancelMark}		
 
 
 
