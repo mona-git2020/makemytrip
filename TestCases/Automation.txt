@@ -54,7 +54,7 @@ Check Facility Filters For Destination
 
 *** Keywords ***
 Open Makemytrip
-	Open Browser	${url1}		${browser}		remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
+	Open Browser	${url2}		${browser}		remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
 	Maximize Browser Window
 	
 Search Hotels For Destination

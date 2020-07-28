@@ -8,8 +8,8 @@ ${SelectDesti}		css=li[id*='section-0-item-0']
 ${CheckIn}			css=#checkin
 ${CheckOut}			css=#checkout
 ${CheckInCheckOutDropdownBox}	css=.RangeExample
-${CheckInDate}		css=div[aria-selected="true"][aria-disabled="false"]:nth-child(4)+div     
-${CheckOutDate}		css=div[aria-disabled="true"][aria-selected="true"]+div                   
+${CheckInDate}		css=div[class*='today']+div+div     
+${CheckOutDate}		css=div[class*='today']+div+div+div                  
 ${RoomsGuestsDropdownBox}	css=.roomsGuests
 ${RoomGuestDropdown}		css=#guest
 ${Adults}			css=li[data-cy="adults-NUMA"]
