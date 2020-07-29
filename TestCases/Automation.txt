@@ -2,10 +2,9 @@
 Library		Selenium2Library
 Library		String
 Library		Collections	
-Variables	Variables/Variables.py
 Resource	../Common/Common_Variables.txt
 Suite Setup		Open Makemytrip
-
+Suite Teardown	Close Browser
 
 *** Test Cases ***
 Search Hotels Functionality
@@ -16,46 +15,42 @@ Search Hotels Functionality
 
 Check Popular Filters For Destination
 	Set Selenium Speed	5 seconds
-	Click Element		${Blank}
 	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmoreLink}	${PopularFilter}	${PopularFilterValue}
 
 Check Price Per Night Filter For Destination
 	Set Selenium Speed	5 seconds
-	Click Element		${Blank}
 	Select Price Per Night And Check Hotels According To Filter		
 
 Check Locality Filters For Destination		
-	Set Selenium Speed	5 seconds
-	Click Element		${Blank}	
+	Set Selenium Speed	5 seconds	
 	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmoreLink}	${LocalityFilter}	${LocalityFilterValue}
 
 Check Star Category Filters For Destination
-	Set Selenium Speed	5 seconds
-	Click Element		${Blank}	
+	Set Selenium Speed	5 seconds	
 	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmoreLink}		${StarCategoryFilter}		${StarCategoryFilterValue}
 
 Check Property Types Filters For Destination
-	Set Selenium Speed	5 seconds
-	Click Element		${Blank}	
+	Set Selenium Speed	5 seconds	
 	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmoreLink}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
 
 
 Check User Rating Filters For Destination
-	Set Selenium Speed	5 seconds
-	Click Element		${Blank}	
+	Set Selenium Speed	5 seconds	
 	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmoreLink}		${UserRatingFilter}		${UserRatingFilterValue}
 
 Check Facility Filters For Destination
-	Set Selenium Speed	5 seconds
-	Click Element		${Blank}	
+	Set Selenium Speed	5 seconds	
 	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${FacilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${FacilityFilterNum}		${FacilityCheckBox}		${FacilityFilterShowmoreLink}	${FacilityFilter}		${FacilityFilterValue}
 
 
 
 *** Keywords ***
 Open Makemytrip
-	Open Browser	${url2}		${browser}		remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
+	Open Browser	${urlOfListedHotels}		${browser}		remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
 	Maximize Browser Window
+	
+Last Keyword For Close Browser
+	Close Browser
 	
 Search Hotels For Destination
 	${loginStatus}=		Run Keyword And Return Status	Element Should Be Visible		${LoginPopup}
@@ -94,10 +89,11 @@ Search Hotels For Destination
 	${travelForStatus}=		Run Keyword And Return Status	Element Should Be Visible		${TravellingReasonDropdownBox}
 	Run Keyword If		${travelForStatus}==False		Click Element	${TravellingReasonDropdown}
 	Click Element	${TravellingForLeisure}
-	Click Element	${SerachButton}
+	Click Element	${SearchButton}
 	
 Check Hotels According to Destination
-	Click Element		${Blank}
+	${statusHotels}=		Run Keyword And Return Status		Element Should Be Visible		${HotelsLists}
+	Run Keyword If		${statusHotels}==False		Click Element	${ExploreHotelsOnMap}
 	Execute Javascript		window.scroll(0,5000)
 	${countHotels}=		Get Element Count	${HotelsLists}	
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
@@ -110,6 +106,8 @@ Check Hotels According to Destination
 	
 Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	
 	[Arguments]		${FilterSection}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${FilterShowMore}		${Filters}		${FilterValue}
+	${statusHotels}=		Run Keyword And Return Status		Element Should Be Visible		${ExploreHotelsOnMap}
+	Run Keyword If		${statusHotels}==True		Click Element	${ExploreHotelsOnMap}
 	${showmore}=	Run Keyword And Return Status	Page Should Contain Element		${FilterShowMore}
 	Run Keyword If		${showmore}==True	Click Element	${FilterShowMore}
 	${totalSection}=	Get Element Count	${FilterSection}

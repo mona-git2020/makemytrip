@@ -22,11 +22,11 @@ ${TravellingReasonDropdownBox}		css=.travelForPopup
 ${TravellingReasonDropdown}	css=.hsw_inputBox.travelFor
 ${TravellingForLeisure}		css=li[data-cy="travelFor-Leisure"]
 ${TravellingForWork}		css=li[data-cy="travelFor-Work"]
-${SerachButton}		css=#hsw_search_button
+${SearchButton}		css=#hsw_search_button
 ${HomeLink}				link='Home'
 ${HotelsLists}		css=.listingRowOuter
 ${CheckDesti}		css=#Listing_hotel_ROW
-${Blank}			css=.bodyFixed.overlayWholeBlack
+${ExploreHotelsOnMap}			css=.bodyFixed.overlayWholeBlack
 ${PopularFilterSection}		css=div[id*='popular_filters']
 ${LocalityFilterSection}	css=div[id*='locality'] div div
 ${StarCategorySection}		css=div[id*='star_category']
