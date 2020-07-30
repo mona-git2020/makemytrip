@@ -1,14 +1,14 @@
 *** Settings ***
-Library		Selenium2Library
+Library		Selenium2Library	
 Library		String
 Library		Collections	
 Resource	../Common/Common_Variables.txt
 Suite Setup		Open Makemytrip
 Suite Teardown	Close Browser
 
+
 *** Test Cases ***
 Search Hotels Functionality
-	Set Selenium Speed	4 seconds
 	Wait Until Element Is Visible	${LoginButton}
 	Search Hotels For Destination
 	Check Hotels According to Destination					
@@ -53,6 +53,7 @@ Last Keyword For Close Browser
 	Close Browser
 	
 Search Hotels For Destination
+	Set Selenium Speed	4 seconds
 	${loginStatus}=		Run Keyword And Return Status	Element Should Be Visible		${LoginPopup}
 	Run Keyword If		${loginStatus}==True		Click Element	${LoginButton}
 	Click Element	${HotelButton}
@@ -92,6 +93,7 @@ Search Hotels For Destination
 	Click Element	${SearchButton}
 	
 Check Hotels According to Destination
+	Set Selenium Speed	4 seconds
 	${statusHotels}=		Run Keyword And Return Status		Element Should Be Visible		${HotelsLists}
 	Run Keyword If		${statusHotels}==False		Click Element	${ExploreHotelsOnMap}
 	Execute Javascript		window.scroll(0,5000)
@@ -215,8 +217,10 @@ Check Hotels According To "Property Types Filter" For Destination
 
 
 Select Price Per Night And Check Hotels According To Filter
+	${statusHotels}=		Run Keyword And Return Status		Element Should Be Visible		${ExploreHotelsOnMap}
+	Run Keyword If		${statusHotels}==True		Click Element	${ExploreHotelsOnMap}
 	Element Should Be Visible	${LastValue}
-	Execute Javascript		window.scroll(0,500)
+	Execute Javascript		window.scrollTo(0,500)
 	Drag And Drop By Offset		${LastValue}	-100		0
 	Execute Javascript		window.scroll(0,500)
 	Drag And Drop By Offset		${InitValue}	50		0

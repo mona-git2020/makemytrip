@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.0.4 (Python 3.7.6 on win32)" generated="20200729 17:35:11.065">
+<robot generator="Robot 3.0.4 (Python 3.7.6 on win32)" generated="20200730 19:22:18.444">
 <suite id="s1" name="Automation" source="D:\MONU\Robotframework\makemytrip\TestCases\Automation.txt">
 <kw name="Open Makemytrip" type="setup">
 <kw name="Open Browser" library="Selenium2Library">
@@ -8,35 +8,25 @@
 <arg>${urlOfListedHotels}</arg>
 <arg>${browser}</arg>
 </arguments>
-<msg timestamp="20200729 17:35:11.416" level="INFO">Opening browser 'Firefox' to base url 'https://www.makemytrip.com/hotels/hotel-listing/?checkin=07302020&amp;city=CTDIU&amp;checkout=07312020&amp;roomStayQualifier=2e2e10e6e&amp;locusId=CTDIU&amp;country=IN&amp;locusType=city&amp;searchText=Diu,%20Daman%20and%20Diu,%20India&amp;visitorId=f399ec2b-c28a-47c5-ba31-f602cdd3f250'.</msg>
-<msg timestamp="20200729 17:35:11.439" level="INFO">Firefox driver log is always forced to to: D:\MONU\Robotframework\makemytrip\TestCases\geckodriver-6.log</msg>
-<status status="PASS" starttime="20200729 17:35:11.416" endtime="20200729 17:35:37.796"></status>
+<msg timestamp="20200730 19:22:19.733" level="INFO">Opening browser 'Firefox' to base url 'https://www.makemytrip.com/hotels/hotel-listing/?checkin=08012020&amp;city=CTDIU&amp;checkout=08022020&amp;roomStayQualifier=2e2e10e6e&amp;locusId=CTDIU&amp;country=IN&amp;locusType=city&amp;searchText=Diu,%20Daman%20and%20Diu,%20India&amp;visitorId=f399ec2b-c28a-47c5-ba31-f602cdd3f250'.</msg>
+<msg timestamp="20200730 19:22:19.748" level="INFO">Firefox driver log is always forced to to: D:\MONU\Robotframework\makemytrip\TestCases\geckodriver-22.log</msg>
+<status status="PASS" starttime="20200730 19:22:19.733" endtime="20200730 19:23:03.266"></status>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20200729 17:35:37.796" endtime="20200729 17:35:37.813"></status>
+<status status="PASS" starttime="20200730 19:23:03.266" endtime="20200730 19:23:03.282"></status>
 </kw>
-<status status="PASS" starttime="20200729 17:35:11.414" endtime="20200729 17:35:37.813"></status>
+<status status="PASS" starttime="20200730 19:22:19.733" endtime="20200730 19:23:03.282"></status>
 </kw>
-<test id="s1-t1" name="Check Popular Filters For Destination">
+<test id="s1-t1" name="Check Price Per Night Filter For Destination">
 <kw name="Set Selenium Speed" library="Selenium2Library">
 <doc>Sets the delay that is waited after each Selenium command.</doc>
 <arguments>
 <arg>5 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200729 17:35:37.815" endtime="20200729 17:35:37.816"></status>
+<status status="PASS" starttime="20200730 19:23:03.282" endtime="20200730 19:23:03.282"></status>
 </kw>
-<kw name="Select Filter From &quot;Select filter&quot; And Check Checkbox Is Clickable Or Not">
-<arguments>
-<arg>${PopularFilterSection}</arg>
-<arg>${allFilters[0]}</arg>
-<arg>${popularFiltersList}</arg>
-<arg>${PopularFilterNum}</arg>
-<arg>${PopularCheckBox}</arg>
-<arg>${PopularFilterShowmoreLink}</arg>
-<arg>${PopularFilter}</arg>
-<arg>${PopularFilterValue}</arg>
-</arguments>
+<kw name="Select Price Per Night And Check Hotels According To Filter">
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
 <arguments>
@@ -51,11 +41,11 @@
 <arguments>
 <arg>${ExploreHotelsOnMap}</arg>
 </arguments>
-<msg timestamp="20200729 17:35:47.925" level="INFO">Element 'css=.bodyFixed.overlayWholeBlack' is displayed.</msg>
-<status status="PASS" starttime="20200729 17:35:37.819" endtime="20200729 17:35:47.925"></status>
+<msg timestamp="20200730 19:23:13.502" level="INFO">Element 'css=.overlayWholeBlack' is displayed.</msg>
+<status status="PASS" starttime="20200730 19:23:03.282" endtime="20200730 19:23:13.502"></status>
 </kw>
-<msg timestamp="20200729 17:35:47.925" level="INFO">${statusHotels} = True</msg>
-<status status="PASS" starttime="20200729 17:35:37.818" endtime="20200729 17:35:47.925"></status>
+<msg timestamp="20200730 19:23:13.502" level="INFO">${statusHotels} = True</msg>
+<status status="PASS" starttime="20200730 19:23:03.282" endtime="20200730 19:23:13.502"></status>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
@@ -69,223 +59,157 @@
 <arguments>
 <arg>${ExploreHotelsOnMap}</arg>
 </arguments>
-<msg timestamp="20200729 17:35:47.926" level="INFO">Clicking element 'css=.bodyFixed.overlayWholeBlack'.</msg>
-<status status="PASS" starttime="20200729 17:35:47.926" endtime="20200729 17:35:58.298"></status>
+<msg timestamp="20200730 19:23:13.533" level="INFO">Clicking element 'css=.overlayWholeBlack'.</msg>
+<status status="PASS" starttime="20200730 19:23:13.533" endtime="20200730 19:23:24.011"></status>
 </kw>
-<status status="PASS" starttime="20200729 17:35:47.925" endtime="20200729 17:35:58.299"></status>
+<status status="PASS" starttime="20200730 19:23:13.502" endtime="20200730 19:23:24.011"></status>
 </kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
 <arguments>
-<arg>Page Should Contain Element</arg>
-<arg>${FilterShowMore}</arg>
+<arg>${LastValue}</arg>
 </arguments>
-<assign>
-<var>${showmore}</var>
-</assign>
-<kw name="Page Should Contain Element" library="Selenium2Library">
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<arguments>
-<arg>${FilterShowMore}</arg>
-</arguments>
-<msg timestamp="20200729 17:36:03.323" level="INFO">Current page contains element 'css=div[id*='popular_filters'] span[id*='show_more']'.</msg>
-<status status="PASS" starttime="20200729 17:35:58.300" endtime="20200729 17:36:03.323"></status>
+<msg timestamp="20200730 19:23:34.082" level="INFO">Element 'css=span[class*='slider-container']:nth-child(3) div[class*='slider']' is displayed.</msg>
+<status status="PASS" starttime="20200730 19:23:24.011" endtime="20200730 19:23:34.082"></status>
 </kw>
-<msg timestamp="20200729 17:36:03.323" level="INFO">${showmore} = True</msg>
-<status status="PASS" starttime="20200729 17:35:58.299" endtime="20200729 17:36:03.323"></status>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollTo(0,500)</arg>
+</arguments>
+<msg timestamp="20200730 19:23:34.082" level="INFO">Executing JavaScript:
+window.scrollTo(0,500)
+Without any arguments.</msg>
+<status status="PASS" starttime="20200730 19:23:34.082" endtime="20200730 19:23:39.105"></status>
 </kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Drag And Drop By Offset" library="Selenium2Library">
+<doc>Drags the element identified with ``locator`` by ``xoffset/yoffset``.</doc>
 <arguments>
-<arg>${showmore}==True</arg>
-<arg>Click Element</arg>
-<arg>${FilterShowMore}</arg>
+<arg>${LastValue}</arg>
+<arg>-100</arg>
+<arg>0</arg>
 </arguments>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${FilterShowMore}</arg>
-</arguments>
-<msg timestamp="20200729 17:36:03.324" level="INFO">Clicking element 'css=div[id*='popular_filters'] span[id*='show_more']'.</msg>
-<status status="PASS" starttime="20200729 17:36:03.324" endtime="20200729 17:36:13.634"></status>
+<status status="PASS" starttime="20200730 19:23:39.105" endtime="20200730 19:23:50.033"></status>
 </kw>
-<status status="PASS" starttime="20200729 17:36:03.323" endtime="20200729 17:36:13.635"></status>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scroll(0,500)</arg>
+</arguments>
+<msg timestamp="20200730 19:23:50.033" level="INFO">Executing JavaScript:
+window.scroll(0,500)
+Without any arguments.</msg>
+<status status="PASS" starttime="20200730 19:23:50.033" endtime="20200730 19:23:55.062"></status>
 </kw>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
+<kw name="Drag And Drop By Offset" library="Selenium2Library">
+<doc>Drags the element identified with ``locator`` by ``xoffset/yoffset``.</doc>
 <arguments>
-<arg>${FilterSection}</arg>
+<arg>${InitValue}</arg>
+<arg>50</arg>
+<arg>0</arg>
 </arguments>
-<assign>
-<var>${totalSection}</var>
-</assign>
-<msg timestamp="20200729 17:36:18.654" level="INFO">${totalSection} = 1</msg>
-<status status="PASS" starttime="20200729 17:36:13.635" endtime="20200729 17:36:18.655"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${totalSection}&gt;1</arg>
-<arg>Select Filter From More Than One Sections</arg>
-<arg>${totalSection}</arg>
-<arg>${selectFilterValue}</arg>
-<arg>${FiltersList}</arg>
-<arg>${FilterNum}</arg>
-<arg>${CheckBox}</arg>
-<arg>${Filters}</arg>
-<arg>${FilterValue}</arg>
-<arg>ELSE</arg>
-<arg>Select Filter From Single Section</arg>
-<arg>${totalSection}</arg>
-<arg>${selectFilterValue}</arg>
-<arg>${FiltersList}</arg>
-<arg>${FilterNum}</arg>
-<arg>${CheckBox}</arg>
-<arg>${Filters}</arg>
-<arg>${FilterValue}</arg>
-</arguments>
-<kw name="Select Filter From Single Section">
-<arguments>
-<arg>${totalSection}</arg>
-<arg>${selectFilterValue}</arg>
-<arg>${FiltersList}</arg>
-<arg>${FilterNum}</arg>
-<arg>${CheckBox}</arg>
-<arg>${Filters}</arg>
-<arg>${FilterValue}</arg>
-</arguments>
-<kw name="Get Element Count" library="Selenium2Library">
-<doc>Returns the number of elements matching ``locator``.</doc>
-<arguments>
-<arg>${Filters}</arg>
-</arguments>
-<assign>
-<var>${totalFilter}</var>
-</assign>
-<msg timestamp="20200729 17:36:23.683" level="INFO">${totalFilter} = 9</msg>
-<status status="PASS" starttime="20200729 17:36:18.660" endtime="20200729 17:36:23.683"></status>
-</kw>
-<kw name="${filter} IN RANGE [ 1 | ${totalFilter}+1 ]" type="for">
-<kw name="${filter} = 1" type="foritem">
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${filter}</arg>
-</arguments>
-<assign>
-<var>${num}</var>
-</assign>
-<msg timestamp="20200729 17:36:23.687" level="INFO">${num} = 1</msg>
-<status status="PASS" starttime="20200729 17:36:23.685" endtime="20200729 17:36:23.687"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-</arguments>
-<msg timestamp="20200729 17:36:23.688" level="INFO">css=div[id*='popular_filters'] ul li:nth-child(FILTERNUM)</msg>
-<status status="PASS" starttime="20200729 17:36:23.688" endtime="20200729 17:36:23.689"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterNum}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Num}</var>
-</assign>
-<msg timestamp="20200729 17:36:23.691" level="INFO">${Filter_Num} = css=div[id*='popular_filters'] ul li:nth-child(1)</msg>
-<status status="PASS" starttime="20200729 17:36:23.689" endtime="20200729 17:36:23.691"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>${FilterValue}</arg>
-<arg>FILTERNUM</arg>
-<arg>${num}</arg>
-</arguments>
-<assign>
-<var>${Filter_Value}</var>
-</assign>
-<msg timestamp="20200729 17:36:23.693" level="INFO">${Filter_Value} = css=div[id*='popular_filters'] ul li:nth-child(1) label</msg>
-<status status="PASS" starttime="20200729 17:36:23.692" endtime="20200729 17:36:23.693"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200729 17:36:23.694" level="INFO">css=div[id*='popular_filters'] ul li:nth-child(1)</msg>
-<status status="PASS" starttime="20200729 17:36:23.693" endtime="20200729 17:36:23.695"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${Filter_Value}</arg>
-</arguments>
-<msg timestamp="20200729 17:36:23.696" level="INFO">css=div[id*='popular_filters'] ul li:nth-child(1) label</msg>
-<status status="PASS" starttime="20200729 17:36:23.695" endtime="20200729 17:36:23.696"></status>
+<status status="PASS" starttime="20200730 19:23:55.062" endtime="20200730 19:24:05.997"></status>
 </kw>
 <kw name="Get Text" library="Selenium2Library">
 <doc>Returns the text value of the element identified by ``locator``.</doc>
 <arguments>
-<arg>${Filter_Value}</arg>
+<arg>${TargetPrice}</arg>
 </arguments>
 <assign>
-<var>${value}</var>
+<var>${MaxTargetPrice}</var>
 </assign>
-<msg timestamp="20200729 17:36:33.832" level="INFO">${value} = Great Value Deals</msg>
-<status status="PASS" starttime="20200729 17:36:23.696" endtime="20200729 17:36:33.833"></status>
+<msg timestamp="20200730 19:24:16.075" level="INFO">${MaxTargetPrice} = INR 4000</msg>
+<status status="PASS" starttime="20200730 19:24:05.998" endtime="20200730 19:24:16.076"></status>
 </kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click the element identified by ``locator``.</doc>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
 <arguments>
-<arg>${Filter_Num}</arg>
-</arguments>
-<msg timestamp="20200729 17:36:33.834" level="INFO">Clicking element 'css=div[id*='popular_filters'] ul li:nth-child(1)'.</msg>
-<status status="PASS" starttime="20200729 17:36:33.833" endtime="20200729 17:36:44.464"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>Element Should Contain</arg>
-<arg>${AppliedSection}</arg>
-<arg>${value}</arg>
+<arg>${MaxTargetPrice}</arg>
 </arguments>
 <assign>
-<var>${status}</var>
+<var>${MaxTargetPrice}</var>
 </assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<arguments>
-<arg>${AppliedSection}</arg>
-<arg>${value}</arg>
-</arguments>
-<msg timestamp="20200729 17:36:54.528" level="INFO">Element 'css=.appliedFilters' contains text 'Great Value Deals'.</msg>
-<status status="PASS" starttime="20200729 17:36:44.466" endtime="20200729 17:36:54.528"></status>
+<msg timestamp="20200730 19:24:16.078" level="INFO">${MaxTargetPrice} = INR 4000</msg>
+<status status="PASS" starttime="20200730 19:24:16.076" endtime="20200730 19:24:16.078"></status>
 </kw>
-<msg timestamp="20200729 17:36:54.528" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20200729 17:36:44.465" endtime="20200729 17:36:54.528"></status>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${MaxTargetPrice}</arg>
+</arguments>
+<msg timestamp="20200730 19:24:16.079" level="INFO">INR 4000</msg>
+<status status="PASS" starttime="20200730 19:24:16.078" endtime="20200730 19:24:16.079"></status>
 </kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Strip String" library="String">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
 <arguments>
-<arg>${status}==True</arg>
-<arg>Check Hotels According To "${selectFilterValue} Filter" For Destination</arg>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
+<arg>${MaxTargetPrice}</arg>
+<arg>characters=INR</arg>
 </arguments>
-<kw name="Check Hotels According To &quot;Popular Filter&quot; For Destination">
+<assign>
+<var>${maxPrice}</var>
+</assign>
+<msg timestamp="20200730 19:24:16.081" level="INFO">${maxPrice} =  4000</msg>
+<status status="PASS" starttime="20200730 19:24:16.080" endtime="20200730 19:24:16.081"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>${filter}</arg>
-<arg>${FiltersList}</arg>
-<arg>${Filter_Num}</arg>
-<arg>${value}</arg>
+<arg>${maxPrice}</arg>
 </arguments>
+<msg timestamp="20200730 19:24:16.082" level="INFO"> 4000</msg>
+<status status="PASS" starttime="20200730 19:24:16.082" endtime="20200730 19:24:16.083"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${StartingPrice}</arg>
+</arguments>
+<assign>
+<var>${MinTargetPrice}</var>
+</assign>
+<msg timestamp="20200730 19:24:26.137" level="INFO">${MinTargetPrice} = INR 2500</msg>
+<status status="PASS" starttime="20200730 19:24:16.083" endtime="20200730 19:24:26.137"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${MinTargetPrice}</arg>
+</arguments>
+<assign>
+<var>${MinTargetPrice}</var>
+</assign>
+<msg timestamp="20200730 19:24:26.138" level="INFO">${MinTargetPrice} = INR 2500</msg>
+<status status="PASS" starttime="20200730 19:24:26.138" endtime="20200730 19:24:26.138"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${MinTargetPrice}</arg>
+</arguments>
+<msg timestamp="20200730 19:24:26.139" level="INFO">INR 2500</msg>
+<status status="PASS" starttime="20200730 19:24:26.139" endtime="20200730 19:24:26.140"></status>
+</kw>
+<kw name="Strip String" library="String">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${MinTargetPrice}</arg>
+<arg>characters=INR</arg>
+</arguments>
+<assign>
+<var>${minPrice}</var>
+</assign>
+<msg timestamp="20200730 19:24:26.141" level="INFO">${minPrice} =  2500</msg>
+<status status="PASS" starttime="20200730 19:24:26.140" endtime="20200730 19:24:26.141"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${minPrice}</arg>
+</arguments>
+<msg timestamp="20200730 19:24:26.142" level="INFO"> 2500</msg>
+<status status="PASS" starttime="20200730 19:24:26.141" endtime="20200730 19:24:26.142"></status>
+</kw>
 <kw name="Get Element Count" library="Selenium2Library">
 <doc>Returns the number of elements matching ``locator``.</doc>
 <arguments>
@@ -294,8 +218,8 @@
 <assign>
 <var>${countHotels}</var>
 </assign>
-<msg timestamp="20200729 17:36:59.544" level="INFO">${countHotels} = 6</msg>
-<status status="PASS" starttime="20200729 17:36:54.531" endtime="20200729 17:36:59.545"></status>
+<msg timestamp="20200730 19:24:31.155" level="INFO">${countHotels} = 6</msg>
+<status status="PASS" starttime="20200730 19:24:26.142" endtime="20200730 19:24:31.155"></status>
 </kw>
 <kw name="${singleHotel} IN RANGE [ 0 | ${countHotels} ]" type="for">
 <kw name="${singleHotel} = 0" type="foritem">
@@ -307,100 +231,838 @@
 <assign>
 <var>${row}</var>
 </assign>
-<msg timestamp="20200729 17:36:59.548" level="INFO">${row} = 0</msg>
-<status status="PASS" starttime="20200729 17:36:59.546" endtime="20200729 17:36:59.548"></status>
+<msg timestamp="20200730 19:24:31.155" level="INFO">${row} = 0</msg>
+<status status="PASS" starttime="20200730 19:24:31.155" endtime="20200730 19:24:31.155"></status>
 </kw>
 <kw name="Replace String" library="String">
 <doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
 <arguments>
-<arg>${CheckDesti}</arg>
+<arg>${InrPrice}</arg>
 <arg>ROW</arg>
 <arg>${row}</arg>
 </arguments>
 <assign>
-<var>${CheckDesti}</var>
+<var>${InrPrice}</var>
 </assign>
-<msg timestamp="20200729 17:36:59.549" level="INFO">${CheckDesti} = css=#Listing_hotel_0</msg>
-<status status="PASS" starttime="20200729 17:36:59.548" endtime="20200729 17:36:59.549"></status>
+<msg timestamp="20200730 19:24:31.155" level="INFO">${InrPrice} = css=#Listing_hotel_0 p[id*='shown_price']</msg>
+<status status="PASS" starttime="20200730 19:24:31.155" endtime="20200730 19:24:31.155"></status>
 </kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
 <arguments>
-<arg>Element Should Contain</arg>
-<arg>${CheckDesti}</arg>
-<arg>${FiltersList["${value}"]}</arg>
+<arg>${InrPrice}</arg>
 </arguments>
 <assign>
-<var>${status}</var>
+<var>${shownInrPrice}</var>
 </assign>
-<kw name="Element Should Contain" library="Selenium2Library">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20200730 19:24:41.196" level="INFO">${shownInrPrice} = INR2,977</msg>
+<status status="PASS" starttime="20200730 19:24:31.155" endtime="20200730 19:24:41.197"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
 <arguments>
-<arg>${CheckDesti}</arg>
-<arg>${FiltersList["${value}"]}</arg>
+<arg>${shownInrPrice}</arg>
 </arguments>
-<msg timestamp="20200729 17:36:59.553" level="FAIL">Resolving variable '${FiltersList["Great Value Deals"]}' failed: KeyError: 'Great Value Deals'</msg>
-<status status="FAIL" starttime="20200729 17:36:59.551" endtime="20200729 17:36:59.553"></status>
+<assign>
+<var>${shownInrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:24:41.199" level="INFO">${shownInrPrice} = INR2,977</msg>
+<status status="PASS" starttime="20200730 19:24:41.197" endtime="20200730 19:24:41.199"></status>
 </kw>
-<msg timestamp="20200729 17:36:59.553" level="INFO">${status} = False</msg>
-<status status="PASS" starttime="20200729 17:36:59.550" endtime="20200729 17:36:59.553"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>${status}==False</arg>
-<arg>Check Image Of "${value}" Popular Filter</arg>
+<arg>${shownInrPrice}</arg>
+</arguments>
+<msg timestamp="20200730 19:24:41.200" level="INFO">INR2,977</msg>
+<status status="PASS" starttime="20200730 19:24:41.199" endtime="20200730 19:24:41.200"></status>
+</kw>
+<kw name="Strip String" library="String">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+<arg>characters=INR</arg>
+</arguments>
+<assign>
+<var>${price}</var>
+</assign>
+<msg timestamp="20200730 19:24:41.202" level="INFO">${price} = 2,977</msg>
+<status status="PASS" starttime="20200730 19:24:41.201" endtime="20200730 19:24:41.202"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<msg timestamp="20200730 19:24:41.203" level="INFO">2,977</msg>
+<status status="PASS" starttime="20200730 19:24:41.203" endtime="20200730 19:24:41.204"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<assign>
+<var>${Legth}</var>
+</assign>
+<msg timestamp="20200730 19:24:41.205" level="INFO">Length is 5</msg>
+<msg timestamp="20200730 19:24:41.205" level="INFO">${Legth} = 5</msg>
+<status status="PASS" starttime="20200730 19:24:41.204" endtime="20200730 19:24:41.205"></status>
+</kw>
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${price}</arg>
+<arg>,</arg>
+</arguments>
+<assign>
+<var>${price}</var>
+</assign>
+<msg timestamp="20200730 19:24:41.207" level="INFO">${price} = 2977</msg>
+<status status="PASS" starttime="20200730 19:24:41.206" endtime="20200730 19:24:41.207"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<msg timestamp="20200730 19:24:41.208" level="INFO">2977</msg>
+<status status="PASS" starttime="20200730 19:24:41.207" endtime="20200730 19:24:41.208"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${maxPrice}&gt;=${price}</arg>
+</arguments>
+<status status="PASS" starttime="20200730 19:24:41.209" endtime="20200730 19:24:41.210"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${minPrice}&lt;=${price}</arg>
+</arguments>
+<status status="PASS" starttime="20200730 19:24:41.211" endtime="20200730 19:24:41.212"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
 <arg>${row}</arg>
-<arg>${value}</arg>
-<arg>ELSE IF</arg>
-<arg>${status}==True</arg>
-<arg>Element Should Contain</arg>
-<arg>${CheckDesti}</arg>
-<arg>${FiltersList["${value}"]}</arg>
-<arg>ELSE</arg>
-<arg>Check Only Filter Hotels For That</arg>
+<arg>ROW</arg>
 </arguments>
-<kw name="Check Image Of &quot;Great Value Deals&quot; Popular Filter">
+<assign>
+<var>${InrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:24:41.213" level="INFO">${InrPrice} = css=#Listing_hotel_ROW p[id*='shown_price']</msg>
+<status status="PASS" starttime="20200730 19:24:41.212" endtime="20200730 19:24:41.214"></status>
+</kw>
+<status status="PASS" starttime="20200730 19:24:31.155" endtime="20200730 19:24:41.214"></status>
+</kw>
+<kw name="${singleHotel} = 1" type="foritem">
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
 <arguments>
-<arg>${row}</arg>
-<arg>${value}</arg>
+<arg>${singleHotel}</arg>
 </arguments>
-<msg timestamp="20200729 17:36:59.570" level="FAIL">No keyword with name 'Check Image Of "Great Value Deals" Popular Filter' found.</msg>
-<status status="FAIL" starttime="20200729 17:36:59.570" endtime="20200729 17:36:59.570"></status>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20200730 19:24:41.216" level="INFO">${row} = 1</msg>
+<status status="PASS" starttime="20200730 19:24:41.215" endtime="20200730 19:24:41.216"></status>
 </kw>
-<status status="FAIL" starttime="20200729 17:36:59.554" endtime="20200729 17:36:59.570"></status>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+<arg>ROW</arg>
+<arg>${row}</arg>
+</arguments>
+<assign>
+<var>${InrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:24:41.217" level="INFO">${InrPrice} = css=#Listing_hotel_1 p[id*='shown_price']</msg>
+<status status="PASS" starttime="20200730 19:24:41.216" endtime="20200730 19:24:41.217"></status>
 </kw>
-<status status="FAIL" starttime="20200729 17:36:59.546" endtime="20200729 17:36:59.570"></status>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+</arguments>
+<assign>
+<var>${shownInrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:24:51.294" level="INFO">${shownInrPrice} = INR3,542</msg>
+<status status="PASS" starttime="20200730 19:24:41.218" endtime="20200730 19:24:51.294"></status>
 </kw>
-<status status="FAIL" starttime="20200729 17:36:59.545" endtime="20200729 17:36:59.571"></status>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+</arguments>
+<assign>
+<var>${shownInrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:24:51.294" level="INFO">${shownInrPrice} = INR3,542</msg>
+<status status="PASS" starttime="20200730 19:24:51.294" endtime="20200730 19:24:51.294"></status>
 </kw>
-<status status="FAIL" starttime="20200729 17:36:54.530" endtime="20200729 17:36:59.571"></status>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+</arguments>
+<msg timestamp="20200730 19:24:51.294" level="INFO">INR3,542</msg>
+<status status="PASS" starttime="20200730 19:24:51.294" endtime="20200730 19:24:51.294"></status>
 </kw>
-<status status="FAIL" starttime="20200729 17:36:54.529" endtime="20200729 17:36:59.571"></status>
+<kw name="Strip String" library="String">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+<arg>characters=INR</arg>
+</arguments>
+<assign>
+<var>${price}</var>
+</assign>
+<msg timestamp="20200730 19:24:51.294" level="INFO">${price} = 3,542</msg>
+<status status="PASS" starttime="20200730 19:24:51.294" endtime="20200730 19:24:51.294"></status>
 </kw>
-<status status="FAIL" starttime="20200729 17:36:23.685" endtime="20200729 17:36:59.571"></status>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<msg timestamp="20200730 19:24:51.294" level="INFO">3,542</msg>
+<status status="PASS" starttime="20200730 19:24:51.294" endtime="20200730 19:24:51.294"></status>
 </kw>
-<status status="FAIL" starttime="20200729 17:36:23.684" endtime="20200729 17:36:59.571"></status>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<assign>
+<var>${Legth}</var>
+</assign>
+<msg timestamp="20200730 19:24:51.294" level="INFO">Length is 5</msg>
+<msg timestamp="20200730 19:24:51.294" level="INFO">${Legth} = 5</msg>
+<status status="PASS" starttime="20200730 19:24:51.294" endtime="20200730 19:24:51.294"></status>
 </kw>
-<status status="FAIL" starttime="20200729 17:36:18.657" endtime="20200729 17:36:59.571"></status>
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${price}</arg>
+<arg>,</arg>
+</arguments>
+<assign>
+<var>${price}</var>
+</assign>
+<msg timestamp="20200730 19:24:51.294" level="INFO">${price} = 3542</msg>
+<status status="PASS" starttime="20200730 19:24:51.294" endtime="20200730 19:24:51.294"></status>
 </kw>
-<status status="FAIL" starttime="20200729 17:36:18.656" endtime="20200729 17:36:59.571"></status>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<msg timestamp="20200730 19:24:51.294" level="INFO">3542</msg>
+<status status="PASS" starttime="20200730 19:24:51.294" endtime="20200730 19:24:51.294"></status>
 </kw>
-<status status="FAIL" starttime="20200729 17:35:37.816" endtime="20200729 17:36:59.572"></status>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${maxPrice}&gt;=${price}</arg>
+</arguments>
+<status status="PASS" starttime="20200730 19:24:51.294" endtime="20200730 19:24:51.294"></status>
 </kw>
-<status status="FAIL" starttime="20200729 17:35:37.814" endtime="20200729 17:36:59.573" critical="yes">No keyword with name 'Check Image Of "Great Value Deals" Popular Filter' found.</status>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${minPrice}&lt;=${price}</arg>
+</arguments>
+<status status="PASS" starttime="20200730 19:24:51.294" endtime="20200730 19:24:51.310"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+<arg>${row}</arg>
+<arg>ROW</arg>
+</arguments>
+<assign>
+<var>${InrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:24:51.310" level="INFO">${InrPrice} = css=#Listing_hotel_ROW p[id*='shown_price']</msg>
+<status status="PASS" starttime="20200730 19:24:51.310" endtime="20200730 19:24:51.310"></status>
+</kw>
+<status status="PASS" starttime="20200730 19:24:41.214" endtime="20200730 19:24:51.310"></status>
+</kw>
+<kw name="${singleHotel} = 2" type="foritem">
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${singleHotel}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20200730 19:24:51.310" level="INFO">${row} = 2</msg>
+<status status="PASS" starttime="20200730 19:24:51.310" endtime="20200730 19:24:51.310"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+<arg>ROW</arg>
+<arg>${row}</arg>
+</arguments>
+<assign>
+<var>${InrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:24:51.310" level="INFO">${InrPrice} = css=#Listing_hotel_2 p[id*='shown_price']</msg>
+<status status="PASS" starttime="20200730 19:24:51.310" endtime="20200730 19:24:51.310"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+</arguments>
+<assign>
+<var>${shownInrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:01.359" level="INFO">${shownInrPrice} = INR3,404</msg>
+<status status="PASS" starttime="20200730 19:24:51.310" endtime="20200730 19:25:01.359"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+</arguments>
+<assign>
+<var>${shownInrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:01.359" level="INFO">${shownInrPrice} = INR3,404</msg>
+<status status="PASS" starttime="20200730 19:25:01.359" endtime="20200730 19:25:01.359"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+</arguments>
+<msg timestamp="20200730 19:25:01.359" level="INFO">INR3,404</msg>
+<status status="PASS" starttime="20200730 19:25:01.359" endtime="20200730 19:25:01.359"></status>
+</kw>
+<kw name="Strip String" library="String">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+<arg>characters=INR</arg>
+</arguments>
+<assign>
+<var>${price}</var>
+</assign>
+<msg timestamp="20200730 19:25:01.359" level="INFO">${price} = 3,404</msg>
+<status status="PASS" starttime="20200730 19:25:01.359" endtime="20200730 19:25:01.359"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<msg timestamp="20200730 19:25:01.359" level="INFO">3,404</msg>
+<status status="PASS" starttime="20200730 19:25:01.359" endtime="20200730 19:25:01.359"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<assign>
+<var>${Legth}</var>
+</assign>
+<msg timestamp="20200730 19:25:01.359" level="INFO">Length is 5</msg>
+<msg timestamp="20200730 19:25:01.359" level="INFO">${Legth} = 5</msg>
+<status status="PASS" starttime="20200730 19:25:01.359" endtime="20200730 19:25:01.359"></status>
+</kw>
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${price}</arg>
+<arg>,</arg>
+</arguments>
+<assign>
+<var>${price}</var>
+</assign>
+<msg timestamp="20200730 19:25:01.359" level="INFO">${price} = 3404</msg>
+<status status="PASS" starttime="20200730 19:25:01.359" endtime="20200730 19:25:01.359"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<msg timestamp="20200730 19:25:01.359" level="INFO">3404</msg>
+<status status="PASS" starttime="20200730 19:25:01.359" endtime="20200730 19:25:01.359"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${maxPrice}&gt;=${price}</arg>
+</arguments>
+<status status="PASS" starttime="20200730 19:25:01.359" endtime="20200730 19:25:01.359"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${minPrice}&lt;=${price}</arg>
+</arguments>
+<status status="PASS" starttime="20200730 19:25:01.359" endtime="20200730 19:25:01.375"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+<arg>${row}</arg>
+<arg>ROW</arg>
+</arguments>
+<assign>
+<var>${InrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:01.375" level="INFO">${InrPrice} = css=#Listing_hotel_ROW p[id*='shown_price']</msg>
+<status status="PASS" starttime="20200730 19:25:01.375" endtime="20200730 19:25:01.375"></status>
+</kw>
+<status status="PASS" starttime="20200730 19:24:51.310" endtime="20200730 19:25:01.375"></status>
+</kw>
+<kw name="${singleHotel} = 3" type="foritem">
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${singleHotel}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20200730 19:25:01.375" level="INFO">${row} = 3</msg>
+<status status="PASS" starttime="20200730 19:25:01.375" endtime="20200730 19:25:01.375"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+<arg>ROW</arg>
+<arg>${row}</arg>
+</arguments>
+<assign>
+<var>${InrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:01.375" level="INFO">${InrPrice} = css=#Listing_hotel_3 p[id*='shown_price']</msg>
+<status status="PASS" starttime="20200730 19:25:01.375" endtime="20200730 19:25:01.375"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+</arguments>
+<assign>
+<var>${shownInrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:11.439" level="INFO">${shownInrPrice} = INR3,542</msg>
+<status status="PASS" starttime="20200730 19:25:01.375" endtime="20200730 19:25:11.439"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+</arguments>
+<assign>
+<var>${shownInrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:11.439" level="INFO">${shownInrPrice} = INR3,542</msg>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:11.439"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+</arguments>
+<msg timestamp="20200730 19:25:11.439" level="INFO">INR3,542</msg>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:11.439"></status>
+</kw>
+<kw name="Strip String" library="String">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+<arg>characters=INR</arg>
+</arguments>
+<assign>
+<var>${price}</var>
+</assign>
+<msg timestamp="20200730 19:25:11.439" level="INFO">${price} = 3,542</msg>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:11.439"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<msg timestamp="20200730 19:25:11.439" level="INFO">3,542</msg>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:11.439"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<assign>
+<var>${Legth}</var>
+</assign>
+<msg timestamp="20200730 19:25:11.439" level="INFO">Length is 5</msg>
+<msg timestamp="20200730 19:25:11.439" level="INFO">${Legth} = 5</msg>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:11.439"></status>
+</kw>
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${price}</arg>
+<arg>,</arg>
+</arguments>
+<assign>
+<var>${price}</var>
+</assign>
+<msg timestamp="20200730 19:25:11.439" level="INFO">${price} = 3542</msg>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:11.439"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<msg timestamp="20200730 19:25:11.439" level="INFO">3542</msg>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:11.439"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${maxPrice}&gt;=${price}</arg>
+</arguments>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:11.439"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${minPrice}&lt;=${price}</arg>
+</arguments>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:11.439"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+<arg>${row}</arg>
+<arg>ROW</arg>
+</arguments>
+<assign>
+<var>${InrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:11.439" level="INFO">${InrPrice} = css=#Listing_hotel_ROW p[id*='shown_price']</msg>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:11.439"></status>
+</kw>
+<status status="PASS" starttime="20200730 19:25:01.375" endtime="20200730 19:25:11.439"></status>
+</kw>
+<kw name="${singleHotel} = 4" type="foritem">
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${singleHotel}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20200730 19:25:11.439" level="INFO">${row} = 4</msg>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:11.439"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+<arg>ROW</arg>
+<arg>${row}</arg>
+</arguments>
+<assign>
+<var>${InrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:11.439" level="INFO">${InrPrice} = css=#Listing_hotel_4 p[id*='shown_price']</msg>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:11.439"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+</arguments>
+<assign>
+<var>${shownInrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:21.473" level="INFO">${shownInrPrice} = INR3,446</msg>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:21.473"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+</arguments>
+<assign>
+<var>${shownInrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:21.473" level="INFO">${shownInrPrice} = INR3,446</msg>
+<status status="PASS" starttime="20200730 19:25:21.473" endtime="20200730 19:25:21.473"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+</arguments>
+<msg timestamp="20200730 19:25:21.473" level="INFO">INR3,446</msg>
+<status status="PASS" starttime="20200730 19:25:21.473" endtime="20200730 19:25:21.473"></status>
+</kw>
+<kw name="Strip String" library="String">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+<arg>characters=INR</arg>
+</arguments>
+<assign>
+<var>${price}</var>
+</assign>
+<msg timestamp="20200730 19:25:21.473" level="INFO">${price} = 3,446</msg>
+<status status="PASS" starttime="20200730 19:25:21.473" endtime="20200730 19:25:21.479"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<msg timestamp="20200730 19:25:21.479" level="INFO">3,446</msg>
+<status status="PASS" starttime="20200730 19:25:21.479" endtime="20200730 19:25:21.479"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<assign>
+<var>${Legth}</var>
+</assign>
+<msg timestamp="20200730 19:25:21.479" level="INFO">Length is 5</msg>
+<msg timestamp="20200730 19:25:21.479" level="INFO">${Legth} = 5</msg>
+<status status="PASS" starttime="20200730 19:25:21.479" endtime="20200730 19:25:21.479"></status>
+</kw>
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${price}</arg>
+<arg>,</arg>
+</arguments>
+<assign>
+<var>${price}</var>
+</assign>
+<msg timestamp="20200730 19:25:21.479" level="INFO">${price} = 3446</msg>
+<status status="PASS" starttime="20200730 19:25:21.479" endtime="20200730 19:25:21.479"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<msg timestamp="20200730 19:25:21.479" level="INFO">3446</msg>
+<status status="PASS" starttime="20200730 19:25:21.479" endtime="20200730 19:25:21.479"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${maxPrice}&gt;=${price}</arg>
+</arguments>
+<status status="PASS" starttime="20200730 19:25:21.479" endtime="20200730 19:25:21.479"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${minPrice}&lt;=${price}</arg>
+</arguments>
+<status status="PASS" starttime="20200730 19:25:21.479" endtime="20200730 19:25:21.479"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+<arg>${row}</arg>
+<arg>ROW</arg>
+</arguments>
+<assign>
+<var>${InrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:21.479" level="INFO">${InrPrice} = css=#Listing_hotel_ROW p[id*='shown_price']</msg>
+<status status="PASS" starttime="20200730 19:25:21.479" endtime="20200730 19:25:21.479"></status>
+</kw>
+<status status="PASS" starttime="20200730 19:25:11.439" endtime="20200730 19:25:21.479"></status>
+</kw>
+<kw name="${singleHotel} = 5" type="foritem">
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${singleHotel}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20200730 19:25:21.479" level="INFO">${row} = 5</msg>
+<status status="PASS" starttime="20200730 19:25:21.479" endtime="20200730 19:25:21.479"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+<arg>ROW</arg>
+<arg>${row}</arg>
+</arguments>
+<assign>
+<var>${InrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:21.479" level="INFO">${InrPrice} = css=#Listing_hotel_5 p[id*='shown_price']</msg>
+<status status="PASS" starttime="20200730 19:25:21.479" endtime="20200730 19:25:21.479"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+</arguments>
+<assign>
+<var>${shownInrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:31.569" level="INFO">${shownInrPrice} = INR3,760</msg>
+<status status="PASS" starttime="20200730 19:25:21.495" endtime="20200730 19:25:31.569"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+</arguments>
+<assign>
+<var>${shownInrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:31.569" level="INFO">${shownInrPrice} = INR3,760</msg>
+<status status="PASS" starttime="20200730 19:25:31.569" endtime="20200730 19:25:31.569"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+</arguments>
+<msg timestamp="20200730 19:25:31.569" level="INFO">INR3,760</msg>
+<status status="PASS" starttime="20200730 19:25:31.569" endtime="20200730 19:25:31.569"></status>
+</kw>
+<kw name="Strip String" library="String">
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<arguments>
+<arg>${shownInrPrice}</arg>
+<arg>characters=INR</arg>
+</arguments>
+<assign>
+<var>${price}</var>
+</assign>
+<msg timestamp="20200730 19:25:31.569" level="INFO">${price} = 3,760</msg>
+<status status="PASS" starttime="20200730 19:25:31.569" endtime="20200730 19:25:31.569"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<msg timestamp="20200730 19:25:31.569" level="INFO">3,760</msg>
+<status status="PASS" starttime="20200730 19:25:31.569" endtime="20200730 19:25:31.569"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<assign>
+<var>${Legth}</var>
+</assign>
+<msg timestamp="20200730 19:25:31.569" level="INFO">Length is 5</msg>
+<msg timestamp="20200730 19:25:31.569" level="INFO">${Legth} = 5</msg>
+<status status="PASS" starttime="20200730 19:25:31.569" endtime="20200730 19:25:31.569"></status>
+</kw>
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${price}</arg>
+<arg>,</arg>
+</arguments>
+<assign>
+<var>${price}</var>
+</assign>
+<msg timestamp="20200730 19:25:31.569" level="INFO">${price} = 3760</msg>
+<status status="PASS" starttime="20200730 19:25:31.569" endtime="20200730 19:25:31.569"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${price}</arg>
+</arguments>
+<msg timestamp="20200730 19:25:31.569" level="INFO">3760</msg>
+<status status="PASS" starttime="20200730 19:25:31.569" endtime="20200730 19:25:31.569"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${maxPrice}&gt;=${price}</arg>
+</arguments>
+<status status="PASS" starttime="20200730 19:25:31.569" endtime="20200730 19:25:31.569"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${minPrice}&lt;=${price}</arg>
+</arguments>
+<status status="PASS" starttime="20200730 19:25:31.569" endtime="20200730 19:25:31.585"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${InrPrice}</arg>
+<arg>${row}</arg>
+<arg>ROW</arg>
+</arguments>
+<assign>
+<var>${InrPrice}</var>
+</assign>
+<msg timestamp="20200730 19:25:31.585" level="INFO">${InrPrice} = css=#Listing_hotel_ROW p[id*='shown_price']</msg>
+<status status="PASS" starttime="20200730 19:25:31.585" endtime="20200730 19:25:31.585"></status>
+</kw>
+<status status="PASS" starttime="20200730 19:25:21.479" endtime="20200730 19:25:31.585"></status>
+</kw>
+<status status="PASS" starttime="20200730 19:24:31.155" endtime="20200730 19:25:31.585"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${AppliedFilterCancelMark}</arg>
+</arguments>
+<msg timestamp="20200730 19:25:31.585" level="INFO">Clicking element 'css=.appliedFilters li:nth-child(1) a'.</msg>
+<status status="PASS" starttime="20200730 19:25:31.585" endtime="20200730 19:25:42.134"></status>
+</kw>
+<status status="PASS" starttime="20200730 19:23:03.282" endtime="20200730 19:25:42.134"></status>
+</kw>
+<status status="PASS" starttime="20200730 19:23:03.282" endtime="20200730 19:25:42.134" critical="yes"></status>
 </test>
-<status status="FAIL" starttime="20200729 17:35:11.069" endtime="20200729 17:36:59.575"></status>
+<status status="PASS" starttime="20200730 19:22:18.491" endtime="20200730 19:25:42.223"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1">Critical Tests</stat>
-<stat pass="0" fail="1">All Tests</stat>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" id="s1" name="Automation">Automation</stat>
+<stat pass="1" fail="0" id="s1" name="Automation">Automation</stat>
 </suite>
 </statistics>
 <errors>
