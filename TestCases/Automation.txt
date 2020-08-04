@@ -1,53 +1,53 @@
 *** Settings ***
 Library		Selenium2Library	
-#Library		ExtendedSelenium2Library
+Library		ExtendedSelenium2Library
 Library		String
 Library		Collections	
 Resource	../Common/Common_Variables.txt
 Suite Setup		Open Makemytrip
-#Suite Teardown	Close Browser
+Suite Teardown	Close Browser
 
 
 *** Test Cases ***
-#Search Hotels Functionality
-#	Wait Until Element Is Visible	${LoginButton}
-#	Search Hotels For Destination
-#	Check Hotels According to Destination					
+Search Hotels Functionality
+	Wait Until Element Is Visible	${LoginButton}
+	Search Hotels For Destination
+	Check Hotels According to Destination					
 
-#Check Popular Filters For Destination
-#	Set Selenium Speed	5 seconds
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmoreLink}	${PopularFilter}	${PopularFilterValue}
+Check Popular Filters For Destination
+	Set Selenium Speed	5 seconds
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmoreLink}	${PopularFilter}	${PopularFilterValue}
 
 Check Price Per Night Filter For Destination
 	Set Selenium Speed	2 seconds
 	Select Price Per Night And Check Hotels According To Filter		
 
-#Check Locality Filters For Destination		
-#	Set Selenium Speed	2 seconds	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmoreLink}	${LocalityFilter}	${LocalityFilterValue}
+Check Locality Filters For Destination		
+	Set Selenium Speed	2 seconds	
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmoreLink}	${LocalityFilter}	${LocalityFilterValue}
 
-#Check Star Category Filters For Destination
-#	Set Selenium Speed	2 seconds	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmoreLink}		${StarCategoryFilter}		${StarCategoryFilterValue}
+Check Star Category Filters For Destination
+	Set Selenium Speed	2 seconds	
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmoreLink}		${StarCategoryFilter}		${StarCategoryFilterValue}
 
-#Check Property Types Filters For Destination
-#	Set Selenium Speed	2 seconds	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmoreLink}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
+Check Property Types Filters For Destination
+	Set Selenium Speed	2 seconds	
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmoreLink}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
 
 
-#Check User Rating Filters For Destination
-#	Set Selenium Speed	2 seconds	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmoreLink}		${UserRatingFilter}		${UserRatingFilterValue}
+Check User Rating Filters For Destination
+	Set Selenium Speed	2 seconds	
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmoreLink}		${UserRatingFilter}		${UserRatingFilterValue}
 
-#Check Facility Filters For Destination
-#	Set Selenium Speed	2 seconds	
-#	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${FacilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${FacilityFilterNum}		${FacilityCheckBox}		${FacilityFilterShowmoreLink}	${FacilityFilter}		${FacilityFilterValue}
+Check Facility Filters For Destination
+	Set Selenium Speed	2 seconds	
+	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${FacilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${FacilityFilterNum}		${FacilityCheckBox}		${FacilityFilterShowmoreLink}	${FacilityFilter}		${FacilityFilterValue}
 
 
 
 *** Keywords ***
 Open Makemytrip
-	Open Browser	${urlOfListedHotels}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
+	Open Browser	${urlOfListedHotels}		${browser}		remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
 	Maximize Browser Window
 	
 Last Keyword For Close Browser
@@ -222,12 +222,14 @@ Select Price Per Night And Check Hotels According To Filter
 	Run Keyword If		${statusHotels}==True		Click Element	${ExploreHotelsOnMap}
 	Element Should Be Visible	${LastValue}
 	Element Should Be Enabled	${LastValue}
-#	Element Should Be Focused	${LastValue}
-	Page Should Contain	Element		${LastValue}
-#	Execute Javascript		window.scrollTo(0,500)
+	Element Should Be Focused	${LastValue}
+	Page Should Contain Element		${LastValue}
+	Execute Javascript		window.scrollTo(0,500)
+	Wait Until Element Is Visible		${LastValue}
 	Scroll Element Into View	${LastValue}
+	sleep		2s
 	Drag And Drop By Offset		${LastValue}	-100		0
-#	Execute Javascript		window.scroll(0,500)
+	Execute Javascript		window.scroll(0,500)
 	Drag And Drop By Offset		${InitValue}	50		0
 	${MaxTargetPrice}=		Get Text	${TargetPrice}
 	${MaxTargetPrice}=		Convert To String	${MaxTargetPrice}

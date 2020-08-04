@@ -1,7 +1,7 @@
 
 
 
-urlOfListedHotels = 'https://www.makemytrip.com/hotels/hotel-listing/?checkin=08012020&city=CTDIU&checkout=08022020&roomStayQualifier=2e2e10e6e&locusId=CTDIU&country=IN&locusType=city&searchText=Diu,%20Daman%20and%20Diu,%20India&visitorId=f399ec2b-c28a-47c5-ba31-f602cdd3f250'
+urlOfListedHotels = 'https://www.makemytrip.com/hotels/hotel-listing/?checkin=08062020&city=CTDIU&checkout=08072020&roomStayQualifier=2e2e10e6e&locusId=CTDIU&country=IN&locusType=city&searchText=Diu,%20Daman%20and%20Diu,%20India&visitorId=f399ec2b-c28a-47c5-ba31-f602cdd3f250'
 urlOfMakeMyTrip = 'https://www.makemytrip.com/'
 
 destination = 'Diu'
