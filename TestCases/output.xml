@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.0.4 (Python 3.7.6 on win32)" generated="20200804 10:55:43.414">
+<robot generator="Robot 3.0.4 (Python 3.7.6 on win32)" generated="20200805 18:48:13.724">
 <suite id="s1" name="Automation" source="D:\MONU\Robotframework\makemytrip\TestCases\Automation.txt">
 <kw name="Open Makemytrip" type="setup">
 <kw name="Open Browser" library="Selenium2Library">
@@ -8,15 +8,15 @@
 <arg>${urlOfListedHotels}</arg>
 <arg>${browser}</arg>
 </arguments>
-<msg timestamp="20200804 10:55:43.724" level="INFO">Opening browser 'Firefox' to base url 'https://www.makemytrip.com/hotels/hotel-listing/?checkin=08062020&amp;city=CTDIU&amp;checkout=08072020&amp;roomStayQualifier=2e2e10e6e&amp;locusId=CTDIU&amp;country=IN&amp;locusType=city&amp;searchText=Diu,%20Daman%20and%20Diu,%20India&amp;visitorId=f399ec2b-c28a-47c5-ba31-f602cdd3f250'.</msg>
-<msg timestamp="20200804 10:55:43.726" level="INFO">Firefox driver log is always forced to to: D:\MONU\Robotframework\makemytrip\TestCases\geckodriver-4.log</msg>
-<status status="PASS" starttime="20200804 10:55:43.724" endtime="20200804 10:56:25.130"></status>
+<msg timestamp="20200805 18:48:14.305" level="INFO">Opening browser 'Firefox' to base url 'https://www.makemytrip.com/hotels/hotel-listing/?checkin=08062020&amp;city=CTDIU&amp;checkout=08072020&amp;roomStayQualifier=2e2e10e6e&amp;locusId=CTDIU&amp;country=IN&amp;locusType=city&amp;searchText=Diu,%20Daman%20and%20Diu,%20India&amp;visitorId=f399ec2b-c28a-47c5-ba31-f602cdd3f250'.</msg>
+<msg timestamp="20200805 18:48:14.311" level="INFO">Firefox driver log is always forced to to: D:\MONU\Robotframework\makemytrip\TestCases\geckodriver-10.log</msg>
+<status status="PASS" starttime="20200805 18:48:14.305" endtime="20200805 18:49:00.238"></status>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20200804 10:56:25.130" endtime="20200804 10:56:25.232"></status>
+<status status="PASS" starttime="20200805 18:49:00.239" endtime="20200805 18:49:00.254"></status>
 </kw>
-<status status="PASS" starttime="20200804 10:55:43.722" endtime="20200804 10:56:25.233"></status>
+<status status="PASS" starttime="20200805 18:48:14.305" endtime="20200805 18:49:00.255"></status>
 </kw>
 <test id="s1-t1" name="Check Price Per Night Filter For Destination">
 <kw name="Set Selenium Speed" library="Selenium2Library">
@@ -24,7 +24,7 @@
 <arguments>
 <arg>2 seconds</arg>
 </arguments>
-<status status="PASS" starttime="20200804 10:56:25.234" endtime="20200804 10:56:25.235"></status>
+<status status="PASS" starttime="20200805 18:49:00.257" endtime="20200805 18:49:00.257"></status>
 </kw>
 <kw name="Select Price Per Night And Check Hotels According To Filter">
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -41,11 +41,11 @@
 <arguments>
 <arg>${ExploreHotelsOnMap}</arg>
 </arguments>
-<msg timestamp="20200804 10:56:29.348" level="INFO">Element 'css=.overlayWholeBlack' is displayed.</msg>
-<status status="PASS" starttime="20200804 10:56:25.237" endtime="20200804 10:56:29.348"></status>
+<msg timestamp="20200805 18:49:04.405" level="INFO">Element 'css=.overlayWholeBlack' is displayed.</msg>
+<status status="PASS" starttime="20200805 18:49:00.260" endtime="20200805 18:49:04.405"></status>
 </kw>
-<msg timestamp="20200804 10:56:29.348" level="INFO">${statusHotels} = True</msg>
-<status status="PASS" starttime="20200804 10:56:25.236" endtime="20200804 10:56:29.348"></status>
+<msg timestamp="20200805 18:49:04.405" level="INFO">${statusHotels} = True</msg>
+<status status="PASS" starttime="20200805 18:49:00.259" endtime="20200805 18:49:04.405"></status>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
@@ -59,65 +59,42 @@
 <arguments>
 <arg>${ExploreHotelsOnMap}</arg>
 </arguments>
-<msg timestamp="20200804 10:56:29.441" level="INFO">Clicking element 'css=.overlayWholeBlack'.</msg>
-<status status="PASS" starttime="20200804 10:56:29.441" endtime="20200804 10:56:34.263"></status>
+<msg timestamp="20200805 18:49:04.422" level="INFO">Clicking element 'css=.overlayWholeBlack'.</msg>
+<status status="PASS" starttime="20200805 18:49:04.422" endtime="20200805 18:49:08.850"></status>
 </kw>
-<status status="PASS" starttime="20200804 10:56:29.348" endtime="20200804 10:56:34.263"></status>
+<status status="PASS" starttime="20200805 18:49:04.405" endtime="20200805 18:49:08.850"></status>
 </kw>
 <kw name="Element Should Be Visible" library="Selenium2Library">
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
 <arguments>
 <arg>${LastValue}</arg>
 </arguments>
-<msg timestamp="20200804 10:56:38.350" level="INFO">Element 'css=span[class*='slider-container']:nth-child(3) div[class*='slider']' is displayed.</msg>
-<status status="PASS" starttime="20200804 10:56:34.263" endtime="20200804 10:56:38.350"></status>
+<msg timestamp="20200805 18:49:12.921" level="INFO">Element 'css=span[class*='slider-container']:nth-child(3) div[class*='slider']' is displayed.</msg>
+<status status="PASS" starttime="20200805 18:49:08.851" endtime="20200805 18:49:12.922"></status>
 </kw>
-<kw name="Element Should Be Enabled" library="Selenium2Library">
-<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<kw name="Execute Async Javascript" library="Selenium2Library">
+<doc>Executes asynchronous JavaScript code with possible arguments.</doc>
 <arguments>
-<arg>${LastValue}</arg>
+<arg>var Element = ${LastValue}; js.executeScript("arguments[0].scrollIntoView();", Element);</arg>
 </arguments>
-<status status="PASS" starttime="20200804 10:56:38.350" endtime="20200804 10:56:44.438"></status>
-</kw>
-<kw name="Page Should Contain Element" library="Selenium2Library">
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<arguments>
-<arg>${LastValue}</arg>
-</arguments>
-<msg timestamp="20200804 10:56:46.450" level="INFO">Current page contains element 'css=span[class*='slider-container']:nth-child(3) div[class*='slider']'.</msg>
-<status status="PASS" starttime="20200804 10:56:44.438" endtime="20200804 10:56:46.450"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${LastValue}</arg>
-</arguments>
-<status status="PASS" starttime="20200804 10:56:46.451" endtime="20200804 10:56:50.493"></status>
-</kw>
-<kw name="Scroll Element Into View" library="Selenium2Library">
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<arguments>
-<arg>${LastValue}</arg>
-</arguments>
+<msg timestamp="20200805 18:49:12.926" level="INFO">Executing Asynchronous JavaScript:
+var Element = css=span[class*='slider-container']:nth-child(3) div[class*='slider']; js.executeScript("arguments[0].scrollIntoView();", Element);
+Without any arguments.</msg>
 <kw name="Capture Page Screenshot" library="Selenium2Library">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20200804 10:56:55.104" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20200804 10:56:52.560" endtime="20200804 10:56:55.105"></status>
+<msg timestamp="20200805 18:49:15.513" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200805 18:49:12.976" endtime="20200805 18:49:15.513"></status>
 </kw>
-<msg timestamp="20200804 10:56:55.259" level="FAIL">MoveTargetOutOfBoundsException: Message: (290, 719) is out of bounds of viewport width (1366) and height (664)
+<msg timestamp="20200805 18:49:15.629" level="FAIL">JavascriptException: Message: SyntaxError: missing { before class body
 </msg>
-<status status="FAIL" starttime="20200804 10:56:50.494" endtime="20200804 10:56:55.259"></status>
+<status status="FAIL" starttime="20200805 18:49:12.923" endtime="20200805 18:49:15.629"></status>
 </kw>
-<status status="FAIL" starttime="20200804 10:56:25.235" endtime="20200804 10:56:55.259"></status>
+<status status="FAIL" starttime="20200805 18:49:00.258" endtime="20200805 18:49:15.629"></status>
 </kw>
-<status status="FAIL" starttime="20200804 10:56:25.233" endtime="20200804 10:56:55.262" critical="yes">MoveTargetOutOfBoundsException: Message: (290, 719) is out of bounds of viewport width (1366) and height (664)
+<status status="FAIL" starttime="20200805 18:49:00.255" endtime="20200805 18:49:15.629" critical="yes">JavascriptException: Message: SyntaxError: missing { before class body
 </status>
 </test>
-<kw name="Close Browser" library="Selenium2Library" type="teardown">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200804 10:56:55.293" endtime="20200804 10:57:11.482"></status>
-</kw>
-<status status="FAIL" starttime="20200804 10:55:43.418" endtime="20200804 10:57:11.482"></status>
+<status status="FAIL" starttime="20200805 18:48:13.765" endtime="20200805 18:49:15.676"></status>
 </suite>
 <statistics>
 <total>
