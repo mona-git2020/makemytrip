@@ -3,17 +3,17 @@ ${LoginPopup}		css=div[class*="autopop__wrap"]
 ${LoginButton}		css=li[data-cy="account"]
 ${HotelButton}		css=li[class='menu_Hotels']
 ${DestiName}		css=#city
-${EnterDesti}		css=.react-autosuggest__input
-${SelectDesti}		css=li[id*='section-0-item-0']
-${CheckIn}			css=#checkin
-${CheckOut}			css=#checkout
+${EnterDestination}		css=.react-autosuggest__input
+${SelectDestination}		css=li[id*='section-0-item-0']
+${CheckInDropdown}			css=#checkin
+${CheckOutDropdown}			css=#checkout
 ${CheckInCheckOutDropdownBox}	css=.RangeExample
 ${CheckInDate}		css=div[class*='today']+div+div     
 ${CheckOutDate}		css=div[class*='today']+div+div+div                  
 ${RoomsGuestsDropdownBox}	css=.roomsGuests
 ${RoomGuestDropdown}		css=#guest
-${Adults}			css=li[data-cy="adults-NUMA"]
-${Childs}			css=li[data-cy="children-NUMC"]
+${SelectAdultsNum}			css=li[data-cy="adults-NUMA"]
+${SelectChildsNum}			css=li[data-cy="children-NUMC"]
 ${ChildAgeList}			css=select[data-cy="childAge-CHILD"] 
 ${ChildAgeValue}	css=select[data-cy="childAge-CHILD"] option[data-cy="childAgeValue-AGE"]
 ${AddRoomButton}			css=.btnAddRoom
@@ -79,9 +79,6 @@ ${MMTAssuredImage}			css=#Listing_hotel_ROW img[src*="mmtAssured.png"]
 ${MySafetyNum}		css=div[id*='popular_filters'] ul li:nth-child(2) 
 ${MySafetyImage}	css=#Listing_hotel_ROW img[src*="safe.png"]	
 
-
-
-${NearByHotels}		css=div[class="latoBlack font24 blackText appendTop20"]+p~div.listingRowOuter
 ${TotalStars}		css=span[class*="rating_blank"]
 ${Stars}		css=#Listing_hotel_ROW span[content="STAR"]
 
