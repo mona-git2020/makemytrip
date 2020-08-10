@@ -2,14 +2,14 @@
 ${LoginPopup}		css=div[class*="autopop__wrap"]
 ${LoginButton}		css=li[data-cy="account"]
 ${HotelButton}		css=li[class='menu_Hotels']
-${DestiName}		css=#city
+${DestinationName}		css=#city
 ${EnterDestination}		css=.react-autosuggest__input
 ${SelectDestination}		css=li[id*='section-0-item-0']
 ${CheckInDropdown}			css=#checkin
 ${CheckOutDropdown}			css=#checkout
 ${CheckInCheckOutDropdownBox}	css=.RangeExample
-${CheckInDate}		css=div[class*='today']+div+div     
-${CheckOutDate}		css=div[class*='today']+div+div+div                  
+${SelectCheckInDate}		css=div[class*='today']+div+div     
+${SelectCheckOutDate}		css=div[class*='today']+div+div+div                  
 ${RoomsGuestsDropdownBox}	css=.roomsGuests
 ${RoomGuestDropdown}		css=#guest
 ${SelectAdultsNum}			css=li[data-cy="adults-NUMA"]
@@ -22,10 +22,10 @@ ${TravellingReasonDropdownBox}		css=.travelForPopup
 ${TravellingReasonDropdown}	css=.hsw_inputBox.travelFor
 ${TravellingForLeisure}		css=li[data-cy="travelFor-Leisure"]
 ${TravellingForWork}		css=li[data-cy="travelFor-Work"]
-${SearchButton}		css=#hsw_search_button
+${SearchHotelButton}		css=#hsw_search_button
 ${HomeLink}				link='Home'
 ${HotelsLists}		css=.listingRowOuter
-${CheckDesti}		css=#Listing_hotel_ROW
+${CheckSingleHotel}		css=#Listing_hotel_ROW
 ${ExploreHotelsOnMap}			css=.overlayWholeBlack
 ${PopularFilterSection}		css=div[id*='popular_filters']
 ${LocalityFilterSection}	css=div[id*='locality'] div div
@@ -63,24 +63,23 @@ ${starCategoryFilterValue}			css=div[id*='star_category'] ul li:nth-child(FILTER
 ${PropertyTypeFilterValue}			css=div[id*='property_types'] ul li:nth-child(FILTERNUM) label
 ${FacilityFilterValue}				css=div[id*='facility'] ul li:nth-child(FILTERNUM) label
 ${UserRatingFilterValue}			css=div[id*='user_rating'] ul li:nth-child(FILTERNUM) label
+${FilterNamePopupDatails}			css=.infoTooltip
 ${AppliedSection}			css=.appliedFilters 
 ${AppliedFilterCancelMark}	css=.appliedFilters li:nth-child(1) a
-${UserRating}		css=#Listing_hotel_ROW span[id*='user_rating'] span[itemprop="ratingValue"]
-${InitValue}		css=span[class*='slider-container']:nth-child(2) div[class*='slider']
-${TargetValue}		css=div[aria-valuenow="5"]
-${LastValue}		css=span[class*='slider-container']:nth-child(3) div[class*='slider']
-${inrPrice}			css=#Listing_hotel_ROW p[id*='shown_price']
+${UserRatingValue}		css=#Listing_hotel_ROW span[id*='user_rating'] span[itemprop="ratingValue"]
+${SliderInitValue}		css=span[class*='slider-container']:nth-child(2) div[class*='slider']
+${SliderLastValue}		css=span[class*='slider-container']:nth-child(3) div[class*='slider']
+${INRPrice}			css=#Listing_hotel_ROW p[id*='shown_price']
 ${TargetPrice}		css=.maxValue
 ${StartingPrice}=	css=.minValue
 ${MmtAssuredhotels}	css=.listingRowOuter:nth-child(2)
-${Banner}			css=#Listing_hotel_ROW #hlistpg_hotel_type
+${BannerImage}			css=#Listing_hotel_ROW #hlistpg_hotel_type
 ${MMTAssuredImage}			css=#Listing_hotel_ROW img[src*="mmtAssured.png"]
 
 ${MySafetyNum}		css=div[id*='popular_filters'] ul li:nth-child(2) 
 ${MySafetyImage}	css=#Listing_hotel_ROW img[src*="safe.png"]	
 
 ${TotalStars}		css=span[class*="rating_blank"]
-${Stars}		css=#Listing_hotel_ROW span[content="STAR"]
+${StarsAccorgingFilter}		css=#Listing_hotel_ROW span[content="STAR"]
 
-${HotelFacilities}	css=#detpg_hotel_facilities
-${Facilities}		css=#Facilities
+

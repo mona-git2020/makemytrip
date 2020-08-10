@@ -8,38 +8,38 @@ Suite Teardown	Close Browser
 
 
 *** Test Cases ***
-Search Hotels Functionality
-	Wait Until Element Is Visible	${LoginButton}
-	Search Hotels For Destination
-	Check Hotels According to Destination					
+#Search Hotels Functionality
+#	Wait Until Element Is Visible	${LoginButton}
+#	Search Hotels For Destination
+#	Check Hotels According to Destination					
 
 Check Popular Filters For Destination
-	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmoreLink}	${PopularFilter}	${PopularFilterValue}
+	Count Total Number Of Filter Sections And Select Filter		${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmoreLink}	${PopularFilter}	${PopularFilterValue}
 
 Check Price Per Night Filter For Destination
 	Select Price Per Night And Check Hotels According To Filter		
 
-Check Locality Filters For Destination		
-	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmoreLink}	${LocalityFilter}	${LocalityFilterValue}
+#Check Locality Filters For Destination		
+#	Count Total Number Of Filter Sections And Select Filter		${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmoreLink}	${LocalityFilter}	${LocalityFilterValue}
 
 Check Star Category Filters For Destination
-	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmoreLink}		${StarCategoryFilter}		${StarCategoryFilterValue}
+	Count Total Number Of Filter Sections And Select Filter		${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmoreLink}		${StarCategoryFilter}		${StarCategoryFilterValue}
 
 Check Property Types Filters For Destination	
-	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmoreLink}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
+	Count Total Number Of Filter Sections And Select Filter		${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmoreLink}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
 
 
 Check User Rating Filters For Destination	
-	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmoreLink}		${UserRatingFilter}		${UserRatingFilterValue}
+	Count Total Number Of Filter Sections And Select Filter		${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmoreLink}		${UserRatingFilter}		${UserRatingFilterValue}
 
 Check Facility Filters For Destination	
-	Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	${FacilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${FacilityFilterNum}		${FacilityCheckBox}		${FacilityFilterShowmoreLink}	${FacilityFilter}		${FacilityFilterValue}
+	Count Total Number Of Filter Sections And Select Filter		${FacilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${FacilityFilterNum}		${FacilityCheckBox}		${FacilityFilterShowmoreLink}	${FacilityFilter}		${FacilityFilterValue}
 
 
 
 *** Keywords ***
 Open Makemytrip
-	Open Browser	${urlOfListedHotels}		${browser}		remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
+	Open Browser	${urlOfListedHotels}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
 	Maximize Browser Window
 	
 	
@@ -48,8 +48,8 @@ Search Hotels For Destination
 	Run Keyword If		${loginStatus}==True		Click Element	${LoginButton}
 	Click Element	${HotelButton}
 	${destiStatus}=		Run Keyword And Return Status	Element Should Be Visible		${EnterDestination}
-	Run Keyword If		${destiStatus}==False		Click Element	${DestiName}
-	Input Text		${EnterDestination}	${Destination}
+	Run Keyword If		${destiStatus}==False		Click Element	${DestinationName}
+	Input Text		${EnterDestination}		${Destination}
 	Click Element	${SelectDestination}
 	${checkInCheckOutStatus}=		Run Keyword And Return Status	Element Should Be Visible		${CheckInCheckOutDropdownBox}
 	Run Keyword If		${checkInCheckOutStatus}==False		Click Element	${CheckInDropdown}
@@ -80,7 +80,7 @@ Search Hotels For Destination
 	${travelForStatus}=		Run Keyword And Return Status	Element Should Be Visible		${TravellingReasonDropdownBox}
 	Run Keyword If		${travelForStatus}==False		Click Element	${TravellingReasonDropdown}
 	Click Element	${TravellingForLeisure}
-	Click Element	${SearchButton}
+	Click Element	${SearchHotelButton}
 	
 Check Hotels According to Destination
 	Set Selenium Speed	4 seconds
@@ -90,13 +90,13 @@ Check Hotels According to Destination
 	${countHotels}=		Get Element Count	${HotelsLists}	
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${row}=		Convert To String	${singleHotel}
-	\	${CheckDesti}=	Replace String		${CheckDesti}	ROW		${row}
- 	\	Element Should Contain		${CheckDesti}		${Destination}
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	ROW		${row}
+ 	\	Element Should Contain		${CheckSingleHotel}		${Destination}
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
-	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${row}		ROW
 
 	
-Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not	
+Count Total Number Of Filter Sections And Select Filter	
 	[Arguments]		${FilterSection}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${FilterShowMore}		${Filters}		${FilterValue}
 	${statusHotels}=		Run Keyword And Return Status		Element Should Be Visible		${ExploreHotelsOnMap}
 	Run Keyword If		${statusHotels}==True		Click Element	${ExploreHotelsOnMap}
@@ -104,10 +104,10 @@ Select Filter From "Select filter" And Check Checkbox Is Clickable Or Not
 	Run Keyword If		${showmore}==True	Click Element	${FilterShowMore}
 	${totalSection}=	Get Element Count	${FilterSection}
 	Run Keyword If		${totalSection}>1	Select Filter From More Than One Sections		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}			${Filters}		${FilterValue}
-	...		ELSE	Select Filter From Single Section		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}			${Filters}		${FilterValue}
+	...		ELSE	Select Filter From Single Section And Check Wheather Filter Is Selected Or Not		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}			${Filters}		${FilterValue}
 	
 	
-Select Filter From Single Section
+Select Filter From Single Section And Check Wheather Filter Is Selected Or Not  
 	[Arguments]		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
 	${totalFilter}=	Get Element Count	${Filters}
 	: FOR	${filter}		IN RANGE	1	${totalFilter}+1
@@ -118,6 +118,8 @@ Select Filter From Single Section
 	\	Log		${Filter_Num}
 	\	Log		${Filter_Value}
 	\	${value}=	Get Text	${Filter_Value}
+	\	${statusPopup}=		Run Keyword And Return Status		Element Should Be Visible		${FilterNamePopupDatails}
+	\	Run Keyword If		${statusPopup}==True		Mouse Out		${FilterNamePopupDatails}
 	\	Click Element	${Filter_Num}	
 	\	${status}=	Run Keyword And Return Status	Element Should Contain		${AppliedSection}		${value}
 	\	Run Keyword If	${status}==True		Check Hotels According To "${selectFilterValue} Filter" For Destination		${filter}		${FiltersList}		${Filter_Num}		${value}
@@ -129,10 +131,10 @@ Select Filter From Single Section
 Select Filter From More Than One Sections
 	[Arguments]		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
 	: FOR	${section}		IN RANGE	1	${totalSection}+1
-	\	Select Filter From Section Filter	${section}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
+	\	Select Filter From Section Filter And Check Wheather Filter Is Selected Or Not		${section}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
 	
 	
-Select Filter From Section Filter	
+Select Filter From Section Filter And Check Wheather Filter Is Selected Or Not	
 	[Arguments]		${section}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
 	${sec}=		Convert To String	${section}
 	${sec_filter}=	Replace String	${Filters}		SEC		${sec}
@@ -147,6 +149,8 @@ Select Filter From Section Filter
 	\	Log		${Filter_Num}
 	\	Log		${Filter_Value}
 	\	${value}=	Get Text	${Filter_Value}
+	\	${statusPopup}=		Run Keyword And Return Status		Element Should Be Visible		${FilterNamePopupDatails}
+	\	Run Keyword If		${statusPopup}==True		Mouse Out		${FilterNamePopupDatails}
 	\	Click Element	${Filter_Num}	
 	\	${status}=	Run Keyword And Return Status	Element Should Contain		${AppliedSection}		${value}
 	\	Run Keyword If	${status}==True		check hotels according to "${selectFilterValue} filter" for destination		${filter}		${FiltersList}		${Filter_Num}		${value}
@@ -163,14 +167,14 @@ Check Hotels According To "Popular Filter" For Destination
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${row}=		Convert To String	${singleHotel}
-	\	${CheckDesti}=	Replace String		${CheckDesti}	ROW		${row}
- 	\	${status}=		Run Keyword And Return Status	Element Should Contain		${CheckDesti}		${FiltersList["${value}"]}
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	ROW		${row}
+ 	\	${status}=		Run Keyword And Return Status	Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}
 	\	${status1}=		Run Keyword And Return Status	Keyword Should Exist	Check Image Of "${value}" Popular Filter	
 	\	Run Keyword If		${status1}==True	Check Image Of "${value}" Popular Filter	${row}	${value}	
-	\	...		ELSE IF		${status}==True		Element Should Contain		${CheckDesti}		${FiltersList["${value}"]}
-	\	...		ELSE IF		${status1}==False and ${status}==False		Check Only Filter Hotels 
+	\	...		ELSE IF		${status}==True		Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}
+	\	...		ELSE IF		${status1}==False and ${status}==False		Check Filter Hotels For Applied Filter
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
-	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${row}		ROW
 	Click Element	${AppliedFilterCancelMark}		
 	Sleep		5s
 
@@ -190,7 +194,7 @@ Check Image Of "MySafety - Safe and Hygienic Stays" Popular Filter
 	${MySafetyImage}=		Replace String		${MySafetyImage}	${row}	ROW
 
 	
-Check Only Filter Hotels
+Check Filter Hotels For Applied Filter
 	Wait Until Element Is Visible		${HotelsLists}	
 	${countHotels}=		Get Element Count	${HotelsLists}	
 
@@ -202,13 +206,13 @@ Check Hotels According To "Property Types Filter" For Destination
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${row}=		Convert To String	${singleHotel}
-	\	${CheckDesti}=	Replace String		${CheckDesti}	ROW		${row}
-	\	${Banner}=	Replace String		${Banner}	ROW		${row}
- 	\	${status}=		Run Keyword And Return Status	Element Should Be Visible		${Banner}		
-	\	Run Keyword If		${status}==True		Element Should Contain		${CheckDesti}		${valueUpper}	ELSE	Log		Hotels
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	ROW		${row}
+	\	${BannerImage}=	Replace String		${BannerImage}	ROW		${row}
+ 	\	${status}=		Run Keyword And Return Status	Element Should Be Visible		${BannerImage}		
+	\	Run Keyword If		${status}==True		Element Should Contain		${CheckSingleHotel}		${valueUpper}	ELSE	Log		Hotels
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
-	\	${Banner}=	Replace String		${Banner}	${row}		ROW
-	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
+	\	${BannerImage}=	Replace String		${BannerImage}	${row}		ROW
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${row}		ROW
 	Click Element	${AppliedFilterCancelMark}		
 	Sleep		5s
 
@@ -217,9 +221,10 @@ Select Price Per Night And Check Hotels According To Filter
 	Run Keyword If		${statusHotels}==True		Click Element	${ExploreHotelsOnMap}
 	Execute Javascript    window.document.getElementById("hlistpg_fr_popular_filters").scrollIntoView(true);
 	sleep		2s
-	Drag And Drop By Offset		${LastValue}	-100		0
+	Drag And Drop By Offset		${SliderLastValue}	-100		0
 	Execute Javascript    window.document.getElementById("hlistpg_fr_popular_filters").scrollIntoView(true);
-	Drag And Drop By Offset		${InitValue}	50		0
+	sleep		2s
+	Drag And Drop By Offset		${SliderInitValue}	50		0
 	${MaxTargetPrice}=		Get Text	${TargetPrice}
 	${MaxTargetPrice}=		Convert To String	${MaxTargetPrice}
 	Log		${MaxTargetPrice}
@@ -234,8 +239,8 @@ Select Price Per Night And Check Hotels According To Filter
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${row}=		Convert To String	${singleHotel}
-	\	${InrPrice}=	Replace String		${InrPrice}		ROW		${row}
-	\	${shownInrPrice}=		Get Text	${InrPrice}
+	\	${INRPrice}=	Replace String		${INRPrice}		ROW		${row}
+	\	${shownInrPrice}=		Get Text	${INRPrice}
 	\	${shownInrPrice}=		Convert To String	${shownInrPrice}
 	\	Log		${shownInrPrice}
 	\	${price}=	Strip String		${shownInrPrice}		characters=INR
@@ -245,7 +250,7 @@ Select Price Per Night And Check Hotels According To Filter
 	\	Log		${price}
 	\	Should Be True		${maxPrice}>=${price}
 	\	Should Be True		${minPrice}<=${price}
-	\	${InrPrice}=	Replace String		${InrPrice}		${row}	ROW	
+	\	${INRPrice}=	Replace String		${INRPrice}		${row}	ROW	
 	Click Element	${AppliedFilterCancelMark}
 	Sleep		5s	
 	
@@ -256,10 +261,10 @@ Check Hotels According To "Locality filter" For Destination
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${row}=		Convert To String	${singleHotel}
-	\	${CheckDesti}=	Replace String		${CheckDesti}	ROW		${row}
- 	\	Element Should Contain		${CheckDesti}		${FiltersList["${value}"]}	
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	ROW		${row}
+ 	\	Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}	
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
-	\	${CheckDesti}=	Replace String		${CheckDesti}	${row}		ROW
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${row}		ROW
 	Click Element	${AppliedFilterCancelMark}		
 	Sleep		5s
 
@@ -277,11 +282,11 @@ Check Hotels According To "User Rating filter" For Destination
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}	
 	\	${row}=		Convert To String	${singleHotel}
-	\	${UserRating}=	Replace String		${UserRating}	ROW		${row}	
-	\	${value}=	Get Text	${UserRating}
+	\	${UserRatingValue}=		Replace String		${UserRatingValue}	ROW		${row}	
+	\	${value}=	Get Text	${UserRatingValue}
 	\	Should Be True		${value}>=${FiltersList[${filter}-1]}	
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
-	\	${UserRating}=	Replace String		${UserRating}	${row}		ROW
+	\	${UserRatingValue}=	Replace String		${UserRatingValue}	${row}		ROW
 	Click Element	${AppliedFilterCancelMark}		
 	Sleep		5s
 
@@ -292,13 +297,13 @@ Check Hotels According To "Star Category filter" For Destination
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${row}=		Convert To String	${singleHotel}
 	\	${value1}=		Convert To String		${value}
-	\	${Star}=		Replace String		${Stars}	ROW		${row}
+	\	${Star}=		Replace String		${StarsAccorgingFilter}		ROW		${row}
 	\	${Star}=		Replace String		${Star}		STAR	${FiltersList["${value1}"]}
 	\	${status}=		Run Keyword And Return Status	Element Should Be Visible		${Star}		
 	\	Run Keyword If		${status}==True		Log		match 
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
-	\	${Stars}=		Replace String		${Stars}	${row}		ROW
-	\	${Stars}=		Replace String		${Stars}	${FiltersList["${value1}"]}		STAR
+	\	${StarsAccorgingFilter}=		Replace String		${StarsAccorgingFilter}		${row}		ROW
+	\	${StarsAccorgingFilter}=		Replace String		${StarsAccorgingFilter}		${FiltersList["${value1}"]}		STAR
 	Click Element	${AppliedFilterCancelMark}		
 	Sleep		5s
 
