@@ -25,7 +25,7 @@ ${TravellingForWork}		css=li[data-cy="travelFor-Work"]
 ${SearchHotelButton}		css=#hsw_search_button
 ${HomeLink}				link='Home'
 ${HotelsLists}		css=.listingRowOuter
-${CheckSingleHotel}		css=#Listing_hotel_ROW
+${CheckSingleHotel}		css=#Listing_hotel_HOTELNUM
 ${ExploreHotelsOnMap}			css=.overlayWholeBlack
 ${PopularFilterSection}		css=div[id*='popular_filters']
 ${LocalityFilterSection}	css=div[id*='locality'] div div
@@ -66,20 +66,20 @@ ${UserRatingFilterValue}			css=div[id*='user_rating'] ul li:nth-child(FILTERNUM)
 ${FilterNamePopupDatails}			css=.infoTooltip
 ${AppliedSection}			css=.appliedFilters 
 ${AppliedFilterCancelMark}	css=.appliedFilters li:nth-child(1) a
-${UserRatingValue}		css=#Listing_hotel_ROW span[id*='user_rating'] span[itemprop="ratingValue"]
+${UserRatingValue}		css=#Listing_hotel_HOTELNUM span[id*='user_rating'] span[itemprop="ratingValue"]
 ${SliderInitValue}		css=span[class*='slider-container']:nth-child(2) div[class*='slider']
 ${SliderLastValue}		css=span[class*='slider-container']:nth-child(3) div[class*='slider']
-${INRPrice}			css=#Listing_hotel_ROW p[id*='shown_price']
+${INRPrice}			css=#Listing_hotel_HOTELNUM p[id*='shown_price']
 ${TargetPrice}		css=.maxValue
 ${StartingPrice}=	css=.minValue
 ${MmtAssuredhotels}	css=.listingRowOuter:nth-child(2)
-${BannerImage}			css=#Listing_hotel_ROW #hlistpg_hotel_type
-${MMTAssuredImage}			css=#Listing_hotel_ROW img[src*="mmtAssured.png"]
+${BannerImage}			css=#Listing_hotel_HOTELNUM #hlistpg_hotel_type
+${MMTAssuredImage}			css=#Listing_hotel_HOTELNUM img[src*="mmtAssured.png"]
 
 ${MySafetyNum}		css=div[id*='popular_filters'] ul li:nth-child(2) 
-${MySafetyImage}	css=#Listing_hotel_ROW img[src*="safe.png"]	
+${MySafetyImage}	css=#Listing_hotel_HOTELNUM img[src*="safe.png"]	
 
 ${TotalStars}		css=span[class*="rating_blank"]
-${StarsAccorgingFilter}		css=#Listing_hotel_ROW span[content="STAR"]
+${StarsAccorgingFilter}		css=#Listing_hotel_HOTELNUM span[content="STAR"]
 
 

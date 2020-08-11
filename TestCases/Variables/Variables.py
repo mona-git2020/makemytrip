@@ -20,6 +20,6 @@ starCategoryFilterList = {"Unrated" : "Unrated", "4 Star" : "4", "3 Star" : "3",
 userRatingList = ["4.5", "4.0", "3.0"]
 
 
-propertyTypeList = []
+propertyTypeList = ["Hotels", "Resort", "Guest House", "Apartment"]
 
-facilityFilterList = []
+facilityFilterList = ["Restaurent", "Swimming Pool", "Cafe", "Room Service"]
