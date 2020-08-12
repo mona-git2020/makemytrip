@@ -51,12 +51,12 @@ ${StarCategoryFilterNum}	css=div[id*='star_category'] ul li:nth-child(FILTERNUM)
 ${PropertyTypeFilterNum}	css=div[id*='property_types'] ul li:nth-child(FILTERNUM) 
 ${FacilityFilterNum}		css=div[id*='facility'] ul li:nth-child(FILTERNUM) 
 ${UserRatingFilterNum}		css=div[id*='user_rating'] ul li:nth-child(FILTERNUM) 
-${PopularCheckBox}				css=div[id*='popular_filters'] ul li:nth-child(FILTERNUM) input[type="checkbox"]
-${LocalityCheckBox}				css=div[id*='locality'] div div:nth-child(SEC) ul li:nth-child(FILTERNUM) input[type="checkbox"]
-${StarCategoryCheckBox}			css=div[id*='star_category'] ul li:nth-child(FILTERNUM) input[type="checkbox"]
-${PropertyTypeCheckBox}			css=div[id*='property_types'] ul li:nth-child(FILTERNUM) input[type="checkbox"]
-${FacilityCheckBox}				css=div[id*='facility'] ul li:nth-child(FILTERNUM) input[type="checkbox"]
-${UserRatingCheckBox}			css=div[id*='user_rating'] ul li:nth-child(FILTERNUM) input[type="checkbox"]
+${PopularCheckBox}				css=div[id*='popular_filters'] ul li:nth-child(FILTERNUM) input
+${LocalityCheckBox}				css=div[id*='locality'] div div:nth-child(SEC) ul li:nth-child(FILTERNUM) input
+${StarCategoryCheckBox}			css=div[id*='star_category'] ul li:nth-child(FILTERNUM) input
+${PropertyTypeCheckBox}			css=div[id*='property_types'] ul li:nth-child(FILTERNUM) input
+${FacilityCheckBox}				css=div[id*='facility'] ul li:nth-child(FILTERNUM) input
+${UserRatingCheckBox}			css=div[id*='user_rating'] ul li:nth-child(FILTERNUM) input
 ${PopularFilterValue}				css=div[id*='popular_filters'] ul li:nth-child(FILTERNUM) label
 ${LocalityFilterValue}				css=div[id*='locality'] div div:nth-child(SEC) ul li:nth-child(FILTERNUM) label
 ${starCategoryFilterValue}			css=div[id*='star_category'] ul li:nth-child(FILTERNUM) label

@@ -20,6 +20,6 @@ starCategoryFilterList = {"Unrated" : "Unrated", "4 Star" : "4", "3 Star" : "3",
 userRatingList = ["4.5", "4.0", "3.0"]
 
 
-propertyTypeList = ["Hotels", "Resort", "Guest House", "Apartment"]
+propertyTypeList = ["Hotels", "Resort", "Guest House", "Apartment", "Camp", "Homestay"]
 
-facilityFilterList = ["Restaurent", "Swimming Pool", "Cafe", "Room Service"]
+facilityFilterList = ["Restaurent", "Swimming Pool", "Cafe", "Room Service", "Railway Station Transfers", "Fireplace", "Wi-Fi", "Caretaker", "Kitchenette", "Bonfire", "Lift", "Spa", "Parking", "Living Room"]

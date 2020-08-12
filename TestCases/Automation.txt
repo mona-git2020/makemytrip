@@ -57,11 +57,11 @@ Search Hotels For Destination
 	Click Element	${CheckOutDate}
 	${roomsStatus}=		Run Keyword And Return Status	Element Should Be Visible		${RoomsGuestsDropdownBox}
 	Run Keyword If		${roomsStatus}==False		Click Element	${RoomGuestDropdown}	
-	${numa}=	Convert To String	${adultsNum}
-	${SelectAdultsNum}=	Replace String	${SelectAdultsNum}	NUMA	${numa}
+	${numadult}=	Convert To String	${adultsNum}
+	${SelectAdultsNum}=	Replace String	${SelectAdultsNum}	NUMA	${numadult}
 	Click Element	${SelectAdultsNum}
-	${numc}=	Convert To String	${childsNum}
-	${SelectChildsNum}=	Replace String	${SelectChildsNum}	NUMC	${numc}	
+	${numchild}=	Convert To String	${childsNum}
+	${SelectChildsNum}=	Replace String	${SelectChildsNum}	NUMC	${numchild}	
 	Click Element	${SelectChildsNum}
 	: FOR	${child_num}	IN RANGE	0	${childsNum}	
 	\	${child}=	Convert To String	${child_num}
@@ -113,14 +113,19 @@ Select Filter From Single Section And Check Wheather Filter Is Selected Or Not
 	\	${num}=		Convert To String	${filter}
 	\	${Filter_Num}=	Replace String		${FilterNum}	FILTERNUM		${num}	
 	\	${Filter_Value}=	Replace String		${FilterValue}		FILTERNUM		${num}		
+	\	${CheckBox}=	Replace String		${CheckBox}		FILTERNUM		${num}
 	\	${value}=	Get Text	${Filter_Value}
 	\	${statusPopup}=		Run Keyword And Return Status		Element Should Be Visible		${FilterNamePopupDatails}
 	\	Run Keyword If		${statusPopup}==True		Mouse Out		${FilterNamePopupDatails}
-	\	Click Element	${Filter_Num}	
+	\	Wait Until Element Is Visible		${Filter_Num}		timeout=5s		
+	\	Wait Until Element Is Enabled		${Filter_Num}		
+	\	Wait Until Page Contains Element		${Filter_Num}	
+	\	Click Element		${Filter_Num}	
 	\	${statusAppliedSection}=	Run Keyword And Return Status	Element Should Contain		${AppliedSection}		${value}
 	\	Run Keyword If	${statusAppliedSection}==True		Check Hotels According To "${selectFilterValue} Filter" For Destination		${filter}		${FiltersList}		${Filter_Num}		${value}
 	\	${FilterNum}=	Replace String		${FilterNum}		${num}		FILTERNUM	
-	\	${FilterValue}=	Replace String		${FilterValue}		${num}		FILTERNUM	
+	\	${FilterValue}=	Replace String		${FilterValue}		${num}		FILTERNUM
+	\	${CheckBox}=	Replace String		${CheckBox}			${num}		FILTERNUM	
 	\	${filter}=	Evaluate	${filter}+1				
 
 	
@@ -144,9 +149,10 @@ Select Filter From Section Filter And Check Wheather Filter Is Selected Or Not
 	\	${value}=	Get Text	${Filter_Value}
 	\	${statusPopup}=		Run Keyword And Return Status		Element Should Be Visible		${FilterNamePopupDatails}
 	\	Run Keyword If		${statusPopup}==True		Mouse Out		${FilterNamePopupDatails}
+	\	Wait Until Element Is Visible		${Filter_Num}		timeout=5s	
 	\	Click Element	${Filter_Num}	
-	\	${status}=	Run Keyword And Return Status	Element Should Contain		${AppliedSection}		${value}
-	\	Run Keyword If	${status}==True		check hotels according to "${selectFilterValue} filter" for destination		${filter}		${FiltersList}		${Filter_Num}		${value}
+	\	${statusAppliedSection}=	Run Keyword And Return Status	Element Should Contain		${AppliedSection}		${value}
+	\	Run Keyword If	${statusAppliedSection}==True		check hotels according to "${selectFilterValue} filter" for destination		${filter}		${FiltersList}		${Filter_Num}		${value}
 	\	${FilterNum}=	Replace String		${FilterNum}		${sec}		SEC			count=1	
 	\	${FilterNum}=	Replace String		${FilterNum}		${num}		FILTERNUM	
 	\	${FilterValue}=	Replace String		${FilterValue}		${sec}		SEC			count=1	
@@ -161,18 +167,18 @@ Check Hotels According To "Popular Filter" For Destination
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${hotelnum}=		Convert To String	${singleHotel}
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	HOTELNUM		${hotelnum}
- 	\	${status}=		Run Keyword And Return Status	Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}
-	\	${status1}=		Run Keyword And Return Status	Keyword Should Exist	Check Image Of "${value}" Popular Filter	
-	\	Run Keyword If		${status1}==True	Check Image Of "${value}" Popular Filter	${hotelnum}	${value}	
-	\	...		ELSE IF		${status}==True		Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}
-	\	...		ELSE IF		${status1}==False and ${status}==False		Check Filter Hotels For Applied Filter
+ 	\	${statusSingleHotel}=		Run Keyword And Return Status	Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}
+	\	${statusImage}=		Run Keyword And Return Status	Keyword Should Exist	Check Image Of "${value}" Popular Filter	
+	\	Run Keyword If		${statusImage}==True	Check Image Of "${value}" Popular Filter	${hotelnum}	
+	\	...		ELSE IF		${statusSingleHotel}==True		Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}
+	\	...		ELSE IF		${statusImage}==False and ${statusSingleHotel}==False		Check Filter Hotels For Applied Filter
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
 	Click Element	${AppliedFilterCancelMark}		
-	Sleep		5s
+
 
 Check Image Of "MMT Assured" Popular Filter	
-	[Arguments]		${hotelnum}	${value}	
+	[Arguments]		${hotelnum}	
 	Wait Until Element Is Visible		${HotelsLists}
 	${MMTAssuredImage}=		Replace String		${MMTAssuredImage}	HOTELNUM		${hotelnum}
 	Element Should Be Visible		${MMTAssuredImage}
@@ -180,18 +186,16 @@ Check Image Of "MMT Assured" Popular Filter
 
 	
 Check Image Of "MySafety - Safe and Hygienic Stays" Popular Filter	
-	[Arguments]		${hotelnum}	${value}	
+	[Arguments]		${hotelnum}	
 	Wait Until Element Is Visible		${HotelsLists}
 	${MySafetyImage}=		Replace String		${MySafetyImage}	HOTELNUM		${hotelnum}
 	Element Should Be Visible		${MySafetyImage}
-	${MySafetyImage}=		Replace String		${MySafetyImage}	${hotelnum}	HOTELNUM
+	${MySafetyImage}=		Replace String		${MySafetyImage}	${hotelnum}		HOTELNUM
 
 	
 Check Filter Hotels For Applied Filter
 	Wait Until Element Is Visible		${HotelsLists}	
 	${countHotels}=		Get Element Count	${HotelsLists}	
-	Click Element	${AppliedFilterCancelMark}		
-	Sleep		5s
 
 	
 Check Hotels According To "Property Types Filter" For Destination 
@@ -203,22 +207,22 @@ Check Hotels According To "Property Types Filter" For Destination
 	\	${hotelnum}=		Convert To String	${singleHotel}
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	HOTELNUM		${hotelnum}
 	\	${BannerImage}=	Replace String		${BannerImage}	HOTELNUM		${hotelnum}
- 	\	${status}=		Run Keyword And Return Status	Element Should Be Visible		${BannerImage}		
-	\	Run Keyword If		${status}==True		Element Should Contain		${CheckSingleHotel}		${valueUpper}	ELSE	Log		Hotels
+ 	\	${statusBanner}=		Run Keyword And Return Status	Element Should Be Visible		${BannerImage}		
+	\	Run Keyword If		${statusBanner}==True		Element Should Contain		${CheckSingleHotel}		${valueUpper}	ELSE	Log		Hotels
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${BannerImage}=	Replace String		${BannerImage}	${hotelnum}		HOTELNUM
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
 	Click Element	${AppliedFilterCancelMark}		
-	Sleep		5s
+
 
 Select Price Per Night And Check Hotels According To Filter
 	${statusHotels}=		Run Keyword And Return Status		Element Should Be Visible		${ExploreHotelsOnMap}
 	Run Keyword If		${statusHotels}==True		Click Element	${ExploreHotelsOnMap}
 	Execute Javascript    window.document.getElementById("hlistpg_fr_popular_filters").scrollIntoView(true);
-	sleep		2s
+	Wait Until Element Is Visible		${SliderLastValue}
 	Drag And Drop By Offset		${SliderLastValue}	-100		0
 	Execute Javascript    window.document.getElementById("hlistpg_fr_popular_filters").scrollIntoView(true);
-	sleep		2s
+	Wait Until Element Is Visible		${SliderInitValue}
 	Drag And Drop By Offset		${SliderInitValue}	50		0
 	${MaxTargetPrice}=		Get Text	${TargetPrice}
 	${MaxTargetPrice}=		Convert To String	${MaxTargetPrice}
@@ -238,9 +242,9 @@ Select Price Per Night And Check Hotels According To Filter
 	\	${price}=	Remove String		${price}	,
 	\	Should Be True		${maxPrice}>=${price}
 	\	Should Be True		${minPrice}<=${price}
-	\	${INRPrice}=	Replace String		${INRPrice}		${hotelnum}	HOTELNUM	
+	\	${INRPrice}=	Replace String		${INRPrice}		${hotelnum}		HOTELNUM	
 	Click Element	${AppliedFilterCancelMark}
-	Sleep		5s	
+	
 	
 Check Hotels According To "Locality filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
@@ -254,7 +258,7 @@ Check Hotels According To "Locality filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
 	Click Element	${AppliedFilterCancelMark}		
-	Sleep		5s
+
 
 Check Hotels According To "Ficility filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
@@ -262,7 +266,7 @@ Check Hotels According To "Ficility filter" For Destination
 	Element Should Be Visible		${HotelsLists}
 	${countHotels}=		Get Element Count	${HotelsLists}
 	Click Element	${AppliedFilterCancelMark}
-	Sleep		5s
+
 	
 Check Hotels According To "User Rating filter" For Destination	
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}	${value1}
@@ -276,7 +280,7 @@ Check Hotels According To "User Rating filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${UserRatingValue}=	Replace String		${UserRatingValue}	${hotelnum}		HOTELNUM
 	Click Element	${AppliedFilterCancelMark}		
-	Sleep		5s
+
 
 Check Hotels According To "Star Category filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
@@ -287,13 +291,13 @@ Check Hotels According To "Star Category filter" For Destination
 	\	${value1}=		Convert To String		${value}
 	\	${Star}=		Replace String		${StarsAccorgingFilter}		HOTELNUM		${hotelnum}
 	\	${Star}=		Replace String		${Star}		STAR	${FiltersList["${value1}"]}
-	\	${status}=		Run Keyword And Return Status	Element Should Be Visible		${Star}		
-	\	Run Keyword If		${status}==True		Log		match 
+	\	${statusStar}=		Run Keyword And Return Status	Element Should Be Visible		${Star}		
+	\	Run Keyword If		${statusStar}==True		Log		match 
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${StarsAccorgingFilter}=		Replace String		${StarsAccorgingFilter}		${hotelnum}		HOTELNUM
 	\	${StarsAccorgingFilter}=		Replace String		${StarsAccorgingFilter}		${FiltersList["${value1}"]}		STAR
 	Click Element	${AppliedFilterCancelMark}		
-	Sleep		5s
+
 
 
 
