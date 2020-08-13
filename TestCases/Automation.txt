@@ -111,16 +111,18 @@ Select Filter From Single Section And Check Wheather Filter Is Selected Or Not
 	${totalFilter}=	Get Element Count	${Filters}
 	: FOR	${filter}		IN RANGE	1	${totalFilter}+1
 	\	${num}=		Convert To String	${filter}
-	\	${Filter_Num}=	Replace String		${FilterNum}	FILTERNUM		${num}	
+	\	${Filter_Num}=		Replace String		${FilterNum}		FILTERNUM		${num}	
 	\	${Filter_Value}=	Replace String		${FilterValue}		FILTERNUM		${num}		
-	\	${CheckBox}=	Replace String		${CheckBox}		FILTERNUM		${num}
+	\	${CheckBox}=		Replace String		${CheckBox}			FILTERNUM		${num}
 	\	${value}=	Get Text	${Filter_Value}
 	\	${statusPopup}=		Run Keyword And Return Status		Element Should Be Visible		${FilterNamePopupDatails}
 	\	Run Keyword If		${statusPopup}==True		Mouse Out		${FilterNamePopupDatails}
-	\	Wait Until Element Is Visible		${Filter_Num}		timeout=5s		
-	\	Wait Until Element Is Enabled		${Filter_Num}		
-	\	Wait Until Page Contains Element		${Filter_Num}	
+	\	Wait Until Element Is Visible		${Filter_Num}				
+	\	Wait Until Element Is Enabled		${Filter_Num}	
+	\	Wait Until Page Contains Element		${Filter_Num}
+	\	Mouse Out		${Filter_Num}	
 	\	Click Element		${Filter_Num}	
+	\	Select Checkbox		${CheckBox}
 	\	${statusAppliedSection}=	Run Keyword And Return Status	Element Should Contain		${AppliedSection}		${value}
 	\	Run Keyword If	${statusAppliedSection}==True		Check Hotels According To "${selectFilterValue} Filter" For Destination		${filter}		${FiltersList}		${Filter_Num}		${value}
 	\	${FilterNum}=	Replace String		${FilterNum}		${num}		FILTERNUM	
