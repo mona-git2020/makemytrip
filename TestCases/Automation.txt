@@ -120,9 +120,9 @@ Select Filter From Single Section And Check Wheather Filter Is Selected Or Not
 	\	Wait Until Element Is Visible		${Filter_Num}				
 	\	Wait Until Element Is Enabled		${Filter_Num}	
 	\	Wait Until Page Contains Element		${Filter_Num}
-	\	Mouse Out		${Filter_Num}	
+	\	Page Should Contain Element		${Filter_Num}
+	\	Wait Until Element Is Visible		${HotelsLists}
 	\	Click Element		${Filter_Num}	
-	\	Select Checkbox		${CheckBox}
 	\	${statusAppliedSection}=	Run Keyword And Return Status	Element Should Contain		${AppliedSection}		${value}
 	\	Run Keyword If	${statusAppliedSection}==True		Check Hotels According To "${selectFilterValue} Filter" For Destination		${filter}		${FiltersList}		${Filter_Num}		${value}
 	\	${FilterNum}=	Replace String		${FilterNum}		${num}		FILTERNUM	
@@ -130,6 +130,10 @@ Select Filter From Single Section And Check Wheather Filter Is Selected Or Not
 	\	${CheckBox}=	Replace String		${CheckBox}			${num}		FILTERNUM	
 	\	${filter}=	Evaluate	${filter}+1				
 
+Calculate
+	[Arguments]		${num}
+	${num}=		Evaluate	${num}-3
+	Execute Javascript    window.document.querySelector("div[id*='popular_filters'] ul li:nth-child(${num})").scrollIntoView(true);
 	
 Select Filter From More Than One Sections
 	[Arguments]		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
@@ -151,7 +155,8 @@ Select Filter From Section Filter And Check Wheather Filter Is Selected Or Not
 	\	${value}=	Get Text	${Filter_Value}
 	\	${statusPopup}=		Run Keyword And Return Status		Element Should Be Visible		${FilterNamePopupDatails}
 	\	Run Keyword If		${statusPopup}==True		Mouse Out		${FilterNamePopupDatails}
-	\	Wait Until Element Is Visible		${Filter_Num}		timeout=5s	
+	\	Wait Until Element Is Visible		${Filter_Num}		
+	\	Wait Until Element Is Visible		${HotelsLists}
 	\	Click Element	${Filter_Num}	
 	\	${statusAppliedSection}=	Run Keyword And Return Status	Element Should Contain		${AppliedSection}		${value}
 	\	Run Keyword If	${statusAppliedSection}==True		check hotels according to "${selectFilterValue} filter" for destination		${filter}		${FiltersList}		${Filter_Num}		${value}
@@ -164,7 +169,7 @@ Select Filter From Section Filter And Check Wheather Filter Is Selected Or Not
 
 Check Hotels According To "Popular Filter" For Destination
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
-	Wait Until Element Is Visible		${HotelsLists}
+	Wait Until Element Is Visible		${HotelsLists}			timeout=15s
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${hotelnum}=		Convert To String	${singleHotel}
@@ -177,6 +182,7 @@ Check Hotels According To "Popular Filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
 	Click Element	${AppliedFilterCancelMark}		
+	Wait Until Element Is Visible		${HotelsLists}			
 
 
 Check Image Of "MMT Assured" Popular Filter	
@@ -215,7 +221,7 @@ Check Hotels According To "Property Types Filter" For Destination
 	\	${BannerImage}=	Replace String		${BannerImage}	${hotelnum}		HOTELNUM
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
 	Click Element	${AppliedFilterCancelMark}		
-
+	Wait Until Element Is Visible		${HotelsLists}
 
 Select Price Per Night And Check Hotels According To Filter
 	${statusHotels}=		Run Keyword And Return Status		Element Should Be Visible		${ExploreHotelsOnMap}
@@ -223,6 +229,7 @@ Select Price Per Night And Check Hotels According To Filter
 	Execute Javascript    window.document.getElementById("hlistpg_fr_popular_filters").scrollIntoView(true);
 	Wait Until Element Is Visible		${SliderLastValue}
 	Drag And Drop By Offset		${SliderLastValue}	-100		0
+	Wait Until Element Is Visible		${HotelsLists}
 	Execute Javascript    window.document.getElementById("hlistpg_fr_popular_filters").scrollIntoView(true);
 	Wait Until Element Is Visible		${SliderInitValue}
 	Drag And Drop By Offset		${SliderInitValue}	50		0
@@ -246,7 +253,7 @@ Select Price Per Night And Check Hotels According To Filter
 	\	Should Be True		${minPrice}<=${price}
 	\	${INRPrice}=	Replace String		${INRPrice}		${hotelnum}		HOTELNUM	
 	Click Element	${AppliedFilterCancelMark}
-	
+	Wait Until Element Is Visible		${HotelsLists}	
 	
 Check Hotels According To "Locality filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
@@ -260,7 +267,7 @@ Check Hotels According To "Locality filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
 	Click Element	${AppliedFilterCancelMark}		
-
+	Wait Until Element Is Visible		${HotelsLists}
 
 Check Hotels According To "Ficility filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
@@ -268,7 +275,7 @@ Check Hotels According To "Ficility filter" For Destination
 	Element Should Be Visible		${HotelsLists}
 	${countHotels}=		Get Element Count	${HotelsLists}
 	Click Element	${AppliedFilterCancelMark}
-
+	Wait Until Element Is Visible		${HotelsLists}
 	
 Check Hotels According To "User Rating filter" For Destination	
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}	${value1}
@@ -282,7 +289,7 @@ Check Hotels According To "User Rating filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${UserRatingValue}=	Replace String		${UserRatingValue}	${hotelnum}		HOTELNUM
 	Click Element	${AppliedFilterCancelMark}		
-
+	Wait Until Element Is Visible		${HotelsLists}
 
 Check Hotels According To "Star Category filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
@@ -299,7 +306,7 @@ Check Hotels According To "Star Category filter" For Destination
 	\	${StarsAccorgingFilter}=		Replace String		${StarsAccorgingFilter}		${hotelnum}		HOTELNUM
 	\	${StarsAccorgingFilter}=		Replace String		${StarsAccorgingFilter}		${FiltersList["${value1}"]}		STAR
 	Click Element	${AppliedFilterCancelMark}		
-
+	Wait Until Element Is Visible		${HotelsLists}
 
 
 
