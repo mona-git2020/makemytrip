@@ -81,5 +81,6 @@ ${MySafetyImage}	css=#Listing_hotel_HOTELNUM img[src*="safe.png"]
 
 ${TotalStars}		css=span[class*="rating_blank"]
 ${StarsAccorgingFilter}		css=#Listing_hotel_HOTELNUM span[content="STAR"]
-
-
+${HotelImage}		css=div[id*='detpg_bread_crumbs'] 
+${FacilitiesLink}		css=#detpg_hotel_facilities
+${FacilitiesSection}	css=#Facilities
