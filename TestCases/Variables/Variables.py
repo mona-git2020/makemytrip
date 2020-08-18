@@ -22,4 +22,4 @@ userRatingList = ["4.5", "4.0", "3.0"]
 
 propertyTypeList = ["Hotels", "Resort", "Guest House", "Apartment", "Camp", "Homestay"]
 
-facilityFilterList = ["Restaurent", "Swimming Pool", "Cafe", "Room Service", "Railway Station Transfers", "Fireplace", "Wi-Fi", "Caretaker", "Kitchenette", "Bonfire", "Lift", "Spa", "Parking", "Living Room"]
+facilityFilterList = {"Restaurant" : "Restaurant", "Swimming Pool" : "Swimming Pool", "Cafe" : "Cafe", "Room Service" : "Room Service", "Indoor Games" : "Indoor Games", "Railway Station Transfers" : "Railway Station Transfers", "Airport Transfers" : "Airport Transfer", "Bus Station Transfers" : "Bus Station Transfer", "Bar" : "Bar", "Balcony/Terrace" : "Balcony Terrace", "Fireplace" : "Fireplace", "Wi-Fi" : "Wi-Fi", "Caretaker" : "Caretaker", "Kitchenette" : "Kitchenette", "Bonfire" : "Bonfire", "Elevator/Lift" : "Lift", "Spa" : "Spa", "Parking" : "Parking", "Living Room" : "Living Room"}

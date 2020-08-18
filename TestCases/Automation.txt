@@ -4,34 +4,33 @@ Library		String
 Library		Collections	
 Resource	../Common/Common_Variables.txt
 Suite Setup		Open Makemytrip
-#Suite Teardown	Close Browser
+Suite Teardown	Close Browser
 
 
 *** Test Cases ***
 Search Hotels Functionality
 	Wait Until Element Is Visible	${LoginButton}
-#	Set Selenium Speed		2s
 	Search Hotels For Destination
 	Check Hotels According to Destination					
 
-#Check Popular Filters For Destination
-#	Count Total Number Of Filter Sections And Select Filter		${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmoreLink}	${PopularFilter}	${PopularFilterValue}
+Check Popular Filters For Destination
+	Count Total Number Of Filter Sections And Select Filter		${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmoreLink}	${PopularFilter}	${PopularFilterValue}
 
-#Check Price Per Night Filter For Destination
-#	Select Price Per Night And Check Hotels According To Filter		
+Check Price Per Night Filter For Destination
+	Select Price Per Night And Check Hotels According To Filter		
 
-#Check Locality Filters For Destination		
-#	Count Total Number Of Filter Sections And Select Filter		${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmoreLink}	${LocalityFilter}	${LocalityFilterValue}
+Check Locality Filters For Destination		
+	Count Total Number Of Filter Sections And Select Filter		${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmoreLink}	${LocalityFilter}	${LocalityFilterValue}
 
-#Check Star Category Filters For Destination
-#	Count Total Number Of Filter Sections And Select Filter		${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmoreLink}		${StarCategoryFilter}		${StarCategoryFilterValue}
+Check Star Category Filters For Destination
+	Count Total Number Of Filter Sections And Select Filter		${StarCategorySection}		${allFilters[2]}	${starCategoryFilterList}	${StarCategoryFilterNum}		${StarCategoryCheckBox}		${StarCategoryShowmoreLink}		${StarCategoryFilter}		${StarCategoryFilterValue}
 
-#Check Property Types Filters For Destination	
-#	Count Total Number Of Filter Sections And Select Filter		${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmoreLink}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
+Check Property Types Filters For Destination	
+	Count Total Number Of Filter Sections And Select Filter		${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmoreLink}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
 
 
-#Check User Rating Filters For Destination	
-#	Count Total Number Of Filter Sections And Select Filter		${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmoreLink}		${UserRatingFilter}		${UserRatingFilterValue}
+Check User Rating Filters For Destination	
+	Count Total Number Of Filter Sections And Select Filter		${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmoreLink}		${UserRatingFilter}		${UserRatingFilterValue}
 
 Check Facility Filters For Destination	
 	Count Total Number Of Filter Sections And Select Filter		${FacilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${FacilityFilterNum}		${FacilityCheckBox}		${FacilityFilterShowmoreLink}	${FacilityFilter}		${FacilityFilterValue}
@@ -40,7 +39,7 @@ Check Facility Filters For Destination
 
 *** Keywords ***
 Open Makemytrip
-	Open Browser	${urlOfMakeMyTrip}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
+	Open Browser	${urlOfMakeMyTrip}		${browser}		remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
 	Maximize Browser Window
 	
 	
@@ -49,11 +48,11 @@ Search Hotels For Destination
 	Run Keyword If		${loginStatus}==True		Click Element	${LoginButton}
 	Click Element	${HotelButton}
 	${destiStatus}=		Run Keyword And Return Status	Element Should Be Visible		${EnterDestination}
-	Wait Until Element Is Visible		 ${DestinationName}
+	Wait Until Element Is Visible		 ${DestinationName}		timeout=15s
 	Run Keyword If		${destiStatus}==False		Click Element	${DestinationName}
 	Wait Until Element Is Visible		 ${EnterDestination}
 	Input Text		${EnterDestination}		${Destination}
-	Wait Until Element Contains		${SelectDestination}		${Destination}
+	Wait Until Element Contains		${SelectDestination}		${Destination}		timeout=15s
 	Click Element	${SelectDestination}
 	${checkInCheckOutStatus}=		Run Keyword And Return Status	Element Should Be Visible		${CheckInCheckOutDropdownBox}
 	Run Keyword If		${checkInCheckOutStatus}==False		Click Element	${CheckInDropdown}
@@ -188,7 +187,8 @@ Check Hotels According To "Popular Filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
 	Click Element	${AppliedFilterCancelMark}		
-	Wait Until Element Is Visible		${HotelsLists}			
+	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
+	Wait Until Element Is Visible		${HotelsLists}		timeout=15s	
 
 
 Check Image Of "MMT Assured" Popular Filter	
@@ -214,7 +214,7 @@ Check Filter Hotels For Applied Filter
 	
 Check Hotels According To "Property Types Filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
-	Wait Until Element Is Visible		${HotelsLists}	
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	${valueUpper}=		convert to upper case	${value}
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
@@ -227,25 +227,26 @@ Check Hotels According To "Property Types Filter" For Destination
 	\	${BannerImage}=	Replace String		${BannerImage}	${hotelnum}		HOTELNUM
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
 	Click Element	${AppliedFilterCancelMark}		
-	Wait Until Element Is Visible		${HotelsLists}
+	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 
 Select Price Per Night And Check Hotels According To Filter
 	${statusHotels}=		Run Keyword And Return Status		Element Should Be Visible		${ExploreHotelsOnMap}
 	Run Keyword If		${statusHotels}==True		Click Element	${ExploreHotelsOnMap}
 	Execute Javascript    window.document.getElementById("hlistpg_fr_popular_filters").scrollIntoView(true);
 	Wait Until Element Is Visible		${SliderLastValue}
-	Drag And Drop By Offset		${SliderLastValue}	-100		0
+	Drag And Drop By Offset		${SliderLastValue}	-50		0
 	Wait Until Element Is Visible		${HotelsLists}
 	Execute Javascript    window.document.getElementById("hlistpg_fr_popular_filters").scrollIntoView(true);
 	Wait Until Element Is Visible		${SliderInitValue}
-	Drag And Drop By Offset		${SliderInitValue}	50		0
+	Drag And Drop By Offset		${SliderInitValue}	80		0
 	${MaxTargetPrice}=		Get Text	${TargetPrice}
 	${MaxTargetPrice}=		Convert To String	${MaxTargetPrice}
 	${maxPrice}=	Strip String		${MaxTargetPrice}		characters=INR
 	${MinTargetPrice}=		Get Text	${StartingPrice}
 	${MinTargetPrice}=		Convert To String	${MinTargetPrice}
 	${minPrice}=	Strip String		${MinTargetPrice}		characters=INR
-	Wait Until Element Is Visible		${HotelsLists}	
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s		
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${hotelnum}=		Convert To String	${singleHotel}
@@ -259,11 +260,12 @@ Select Price Per Night And Check Hotels According To Filter
 	\	Should Be True		${minPrice}<=${price}
 	\	${INRPrice}=	Replace String		${INRPrice}		${hotelnum}		HOTELNUM	
 	Click Element	${AppliedFilterCancelMark}
-	Wait Until Element Is Visible		${HotelsLists}	
+	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	
 Check Hotels According To "Locality filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
-	Wait Until Element Is Visible		${HotelsLists}
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	Execute Javascript		window.scrollTo(0,document.body.scrollHeight);
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
@@ -273,33 +275,39 @@ Check Hotels According To "Locality filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
 	Click Element	${AppliedFilterCancelMark}		
-	Wait Until Element Is Visible		${HotelsLists}
+	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 
 Check Hotels According To "Ficility filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
 	${HotelListURL}=	Get Location
-	Wait Until Element Is Visible		${HotelsLists}
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${hotelnum}=		Convert To String	${singleHotel}
-	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	HOTELNUM		${hotelnum}
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}		HOTELNUM		${hotelnum}
 	\	Click Element		${CheckSingleHotel}
-	\	${DetailURL}=	Get Location
-	\	Go To		${DetailURL}
-	\	Wait Until Element Is Enabled		${HotelImage}		timeout=15s
-	\	Wait Until Element Is Visible		${FacilitiesLink}
+	\	Switch Window		NEW
+	\	${title1}=		Get Title	
+	\	log		${title1} 
+	\	Wait Until Page Contains Element		${HotelImage}		timeout=60s
 	\	Execute Javascript    window.document.getElementById("detpg_hotel_facilities").scrollIntoView(true);
+	\	Wait Until Element Is Visible		${FacilitiesLink}
 	\	Click Element		${FacilitiesLink}
- 	\	Element Should Contain		${FacilitiesSection}		${value}
-	\	Go To		${HotelListURL}
+	\	Wait Until Element Is Visible		${FacilitiesSection}	
+ 	\	Element Should Contain		${FacilitiesSection}		${FiltersList['${value}']}
+	\	Close Window
+	\	Switch Window		MAIN
+	\	${title2}=		Get Title
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
-	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}		${hotelnum}		HOTELNUM
 	Click Element	${AppliedFilterCancelMark}
-	Wait Until Element Is Visible		${HotelsLists}
+	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	
 Check Hotels According To "User Rating filter" For Destination	
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}	${value1}
-	Wait Until Element Is Visible		${HotelsLists}	
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}	
 	\	${hotelnum}=		Convert To String	${singleHotel}
@@ -309,12 +317,13 @@ Check Hotels According To "User Rating filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${UserRatingValue}=	Replace String		${UserRatingValue}	${hotelnum}		HOTELNUM
 	Click Element	${AppliedFilterCancelMark}		
-	Wait Until Element Is Visible		${HotelsLists}
+	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 
 Check Hotels According To "Star Category filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
-	Wait Until Element Is Visible		${HotelsLists}	
-	${countHotels}=		Get Element Count	${HotelsLists}
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
+	${countHotels}=		Get Element Count	${HotelsLists}		
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${hotelnum}=		Convert To String	${singleHotel}
 	\	${value1}=		Convert To String		${value}
@@ -325,8 +334,9 @@ Check Hotels According To "Star Category filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${StarsAccorgingFilter}=		Replace String		${StarsAccorgingFilter}		${hotelnum}		HOTELNUM
 	\	${StarsAccorgingFilter}=		Replace String		${StarsAccorgingFilter}		${FiltersList["${value1}"]}		STAR
-	Click Element	${AppliedFilterCancelMark}		
-	Wait Until Element Is Visible		${HotelsLists}
+	Click Element	${AppliedFilterCancelMark}	
+	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s	
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 
 
 
