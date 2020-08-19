@@ -84,3 +84,4 @@ ${StarsAccorgingFilter}		css=#Listing_hotel_HOTELNUM span[content="STAR"]
 ${HotelImage}		css=div[class*='_Header'] 
 ${FacilitiesLink}		css=#detpg_hotel_facilities
 ${FacilitiesSection}	css=#Facilities
+${PickAnotherDateLink}		css=.errorLinkText

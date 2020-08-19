@@ -123,9 +123,6 @@ Select Filter From Single Section And Check Wheather Filter Is Selected Or Not
 	\	${statusPopup}=		Run Keyword And Return Status		Element Should Be Visible		${FilterNamePopupDatails}
 	\	Run Keyword If		${statusPopup}==True		Mouse Out		${FilterNamePopupDatails}
 	\	Wait Until Element Is Visible		${Filter_Num}				
-	\	Wait Until Element Is Enabled		${Filter_Num}	
-	\	Wait Until Page Contains Element		${Filter_Num}
-	\	Page Should Contain Element		${Filter_Num}
 	\	Wait Until Element Is Visible		${HotelsLists}
 	\	Click Element		${Filter_Num}	
 	\	${statusAppliedSection}=	Run Keyword And Return Status	Element Should Contain		${AppliedSection}		${value}
@@ -135,14 +132,11 @@ Select Filter From Single Section And Check Wheather Filter Is Selected Or Not
 	\	${CheckBox}=	Replace String		${CheckBox}			${num}		FILTERNUM	
 	\	${filter}=	Evaluate	${filter}+1				
 
-Calculate
-	[Arguments]		${num}
-	${num}=		Evaluate	${num}-3
-	Execute Javascript    window.document.querySelector("div[id*='popular_filters'] ul li:nth-child(${num})").scrollIntoView(true);
 	
 Select Filter From More Than One Sections
 	[Arguments]		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
 	: FOR	${section}		IN RANGE	1	${totalSection}+1
+	\	${updatedSection}=		Get Element Count		${LocalityFilterSection}
 	\	Select Filter From Section Filter And Check Wheather Filter Is Selected Or Not		${section}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
 	
 	
@@ -265,6 +259,18 @@ Select Price Per Night And Check Hotels According To Filter
 	
 Check Hotels According To "Locality filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
+	${HotelListURL}=	Get Location
+	${statusPickAnotherDate}=	Run Keyword And Return Status		Element Should Be Visible	${HotelsLists}
+	Run Keyword IF		${statusPickAnotherDate}==False		Go To		${HotelListURL}
+	...			ELSE		Check Hotels If Hotel Is Visible		${value}	${FiltersList}
+	${statusAppliedFilter}=		Run Keyword And Return Status		Element Should Be Visible		${AppliedFilterCancelMark}
+	Run Keyword IF		${statusAppliedFilter}==True		Click Element	${AppliedFilterCancelMark}		
+	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
+
+	
+Check Hotels If Hotel Is Visible		
+	[Arguments]		${value}	${FiltersList}	
 	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	Execute Javascript		window.scrollTo(0,document.body.scrollHeight);
 	${countHotels}=		Get Element Count	${HotelsLists}
@@ -274,9 +280,6 @@ Check Hotels According To "Locality filter" For Destination
  	\	Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}	
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
-	Click Element	${AppliedFilterCancelMark}		
-	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
-	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 
 Check Hotels According To "Ficility filter" For Destination 
 	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
@@ -289,7 +292,6 @@ Check Hotels According To "Ficility filter" For Destination
 	\	Click Element		${CheckSingleHotel}
 	\	Switch Window		NEW
 	\	${title1}=		Get Title	
-	\	log		${title1} 
 	\	Wait Until Page Contains Element		${HotelImage}		timeout=60s
 	\	Execute Javascript    window.document.getElementById("detpg_hotel_facilities").scrollIntoView(true);
 	\	Wait Until Element Is Visible		${FacilitiesLink}
