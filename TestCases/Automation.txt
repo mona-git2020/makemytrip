@@ -39,7 +39,7 @@ Check Facility Filters For Destination
 
 *** Keywords ***
 Open Makemytrip
-	Open Browser	${urlOfMakeMyTrip}		${browser}		remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
+	Open Browser	${urlOfMakeMyTrip}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
 	Maximize Browser Window
 	
 	
@@ -124,9 +124,14 @@ Select Filter From Single Section And Check Wheather Filter Is Selected Or Not
 	\	Run Keyword If		${statusPopup}==True		Mouse Out		${FilterNamePopupDatails}
 	\	Wait Until Element Is Visible		${Filter_Num}				
 	\	Wait Until Element Is Visible		${HotelsLists}
+	\	${HotelListURL}=	Get Location
 	\	Click Element		${Filter_Num}	
-	\	${statusAppliedSection}=	Run Keyword And Return Status	Element Should Contain		${AppliedSection}		${value}
-	\	Run Keyword If	${statusAppliedSection}==True		Check Hotels According To "${selectFilterValue} Filter" For Destination		${filter}		${FiltersList}		${Filter_Num}		${value}
+	\	${statusAppliedSection}=	Run Keyword And Return Status		Element Should Contain		${AppliedSection}		${value}
+	\	Run Keyword If		${statusAppliedSection}==True		check hotels according to "${selectFilterValue} filter" for destination		${filter}		${FiltersList}		${Filter_Num}		${value}	${HotelListURL}
+	\	${statusAppliedFilter}=		Run Keyword And Return Status		Element Should Be Visible		${AppliedFilterCancelMark}
+	\	Run Keyword IF		${statusAppliedFilter}==True		Click Element	${AppliedFilterCancelMark}		
+	\	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
+	\	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	\	${FilterNum}=	Replace String		${FilterNum}		${num}		FILTERNUM	
 	\	${FilterValue}=	Replace String		${FilterValue}		${num}		FILTERNUM
 	\	${CheckBox}=	Replace String		${CheckBox}			${num}		FILTERNUM	
@@ -156,9 +161,16 @@ Select Filter From Section Filter And Check Wheather Filter Is Selected Or Not
 	\	Run Keyword If		${statusPopup}==True		Mouse Out		${FilterNamePopupDatails}
 	\	Wait Until Element Is Visible		${Filter_Num}		
 	\	Wait Until Element Is Visible		${HotelsLists}
-	\	Click Element	${Filter_Num}	
-	\	${statusAppliedSection}=	Run Keyword And Return Status	Element Should Contain		${AppliedSection}		${value}
-	\	Run Keyword If	${statusAppliedSection}==True		check hotels according to "${selectFilterValue} filter" for destination		${filter}		${FiltersList}		${Filter_Num}		${value}
+	\	${HotelListURL}=	Get Location
+	\	Click Element	${Filter_Num}
+	\	${statusAppliedSection}=	Run Keyword And Return Status		Element Should Contain		${AppliedSection}		${value}
+	\	${statusPickAnotherDate}=	Run Keyword And Return Status		Wait Until Element Is Visible	${HotelsLists}		timeout=10s
+	\	Run Keyword If		${statusAppliedSection}==True and ${statusPickAnotherDate}==True		check hotels according to "${selectFilterValue} filter" for destination		${filter}		${FiltersList}		${Filter_Num}		${value}	${HotelListURL}
+	\	...			ELSE		Go To		${HotelListURL}
+	\	${statusAppliedFilter}=		Run Keyword And Return Status		Element Should Be Visible		${AppliedFilterCancelMark}
+	\	Run Keyword IF		${statusAppliedFilter}==True		Click Element	${AppliedFilterCancelMark}		
+	\	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
+	\	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	\	${FilterNum}=	Replace String		${FilterNum}		${sec}		SEC			count=1	
 	\	${FilterNum}=	Replace String		${FilterNum}		${num}		FILTERNUM	
 	\	${FilterValue}=	Replace String		${FilterValue}		${sec}		SEC			count=1	
@@ -167,7 +179,7 @@ Select Filter From Section Filter And Check Wheather Filter Is Selected Or Not
 
 
 Check Hotels According To "Popular Filter" For Destination
-	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
+	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}	${HotelListURL}
 	Wait Until Element Is Visible		${HotelsLists}			timeout=15s
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
@@ -180,9 +192,6 @@ Check Hotels According To "Popular Filter" For Destination
 	\	...		ELSE IF		${statusImage}==False and ${statusSingleHotel}==False		Check Filter Hotels For Applied Filter
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
-	Click Element	${AppliedFilterCancelMark}		
-	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
-	Wait Until Element Is Visible		${HotelsLists}		timeout=15s	
 
 
 Check Image Of "MMT Assured" Popular Filter	
@@ -207,7 +216,7 @@ Check Filter Hotels For Applied Filter
 
 	
 Check Hotels According To "Property Types Filter" For Destination 
-	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
+	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}	${HotelListURL}
 	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	${valueUpper}=		convert to upper case	${value}
 	${countHotels}=		Get Element Count	${HotelsLists}
@@ -220,9 +229,6 @@ Check Hotels According To "Property Types Filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${BannerImage}=	Replace String		${BannerImage}	${hotelnum}		HOTELNUM
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
-	Click Element	${AppliedFilterCancelMark}		
-	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
-	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 
 Select Price Per Night And Check Hotels According To Filter
 	${statusHotels}=		Run Keyword And Return Status		Element Should Be Visible		${ExploreHotelsOnMap}
@@ -233,7 +239,8 @@ Select Price Per Night And Check Hotels According To Filter
 	Wait Until Element Is Visible		${HotelsLists}
 	Execute Javascript    window.document.getElementById("hlistpg_fr_popular_filters").scrollIntoView(true);
 	Wait Until Element Is Visible		${SliderInitValue}
-	Drag And Drop By Offset		${SliderInitValue}	80		0
+	Drag And Drop By Offset		${SliderInitValue}	100		0
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	${MaxTargetPrice}=		Get Text	${TargetPrice}
 	${MaxTargetPrice}=		Convert To String	${MaxTargetPrice}
 	${maxPrice}=	Strip String		${MaxTargetPrice}		characters=INR
@@ -253,36 +260,25 @@ Select Price Per Night And Check Hotels According To Filter
 	\	Should Be True		${maxPrice}>=${price}
 	\	Should Be True		${minPrice}<=${price}
 	\	${INRPrice}=	Replace String		${INRPrice}		${hotelnum}		HOTELNUM	
-	Click Element	${AppliedFilterCancelMark}
-	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
+	${statusAppliedFilter}=		Run Keyword And Return Status		Element Should Be Visible		${AppliedFilterCancelMark}
+	Run Keyword IF		${statusAppliedFilter}==True		Click Element	${AppliedFilterCancelMark}		
+	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s	
 	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	
 Check Hotels According To "Locality filter" For Destination 
-	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
-	${HotelListURL}=	Get Location
-	${statusPickAnotherDate}=	Run Keyword And Return Status		Element Should Be Visible	${HotelsLists}
-	Run Keyword IF		${statusPickAnotherDate}==False		Go To		${HotelListURL}
-	...			ELSE		Check Hotels If Hotel Is Visible		${value}	${FiltersList}
-	${statusAppliedFilter}=		Run Keyword And Return Status		Element Should Be Visible		${AppliedFilterCancelMark}
-	Run Keyword IF		${statusAppliedFilter}==True		Click Element	${AppliedFilterCancelMark}		
-	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
+	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}	${HotelListURL}
 	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
-
-	
-Check Hotels If Hotel Is Visible		
-	[Arguments]		${value}	${FiltersList}	
-	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
-	Execute Javascript		window.scrollTo(0,document.body.scrollHeight);
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${hotelnum}=		Convert To String	${singleHotel}
-	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	HOTELNUM		${hotelnum}
- 	\	Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}	
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}		HOTELNUM		${hotelnum}
+	\	Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}	
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
 
+	
 Check Hotels According To "Ficility filter" For Destination 
-	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
+	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}	${HotelListURL}	
 	${HotelListURL}=	Get Location
 	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	${countHotels}=		Get Element Count	${HotelsLists}
@@ -303,12 +299,9 @@ Check Hotels According To "Ficility filter" For Destination
 	\	${title2}=		Get Title
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}		${hotelnum}		HOTELNUM
-	Click Element	${AppliedFilterCancelMark}
-	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
-	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	
 Check Hotels According To "User Rating filter" For Destination	
-	[Arguments]		${filter}		${FiltersList}		${Filter_Num}	${value1}
+	[Arguments]		${filter}		${FiltersList}		${Filter_Num}	${value1}	${HotelListURL}
 	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}	
@@ -318,12 +311,9 @@ Check Hotels According To "User Rating filter" For Destination
 	\	Should Be True		${value}>=${FiltersList[${filter}-1]}	
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${UserRatingValue}=	Replace String		${UserRatingValue}	${hotelnum}		HOTELNUM
-	Click Element	${AppliedFilterCancelMark}		
-	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
-	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 
 Check Hotels According To "Star Category filter" For Destination 
-	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}
+	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}	${HotelListURL}
 	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	${countHotels}=		Get Element Count	${HotelsLists}		
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
@@ -336,9 +326,6 @@ Check Hotels According To "Star Category filter" For Destination
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${StarsAccorgingFilter}=		Replace String		${StarsAccorgingFilter}		${hotelnum}		HOTELNUM
 	\	${StarsAccorgingFilter}=		Replace String		${StarsAccorgingFilter}		${FiltersList["${value1}"]}		STAR
-	Click Element	${AppliedFilterCancelMark}	
-	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s	
-	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 
 
 
