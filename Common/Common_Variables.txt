@@ -8,8 +8,8 @@ ${SelectDestination}		css=li[id*='section-0-item-0']
 ${CheckInDropdown}			css=#checkin
 ${CheckOutDropdown}			css=#checkout
 ${CheckInCheckOutDropdownBox}	css=.RangeExample
-${SelectCheckInDate}		css=div[class*='today']+div     
-${SelectCheckOutDate}		css=div[class*='today']+div+div                  
+${SelectCheckInDate}		xpath=//div[contains(@class,'today')]/../following-sibling::div[1]//div[3]
+${SelectCheckOutDate}		xpath=//div[contains(@class,'today')]/../following-sibling::div[1]//div[4]                  
 ${RoomsGuestsDropdownBox}	css=.roomsGuests
 ${RoomGuestDropdown}		css=#guest
 ${SelectAdultsNum}			css=li[data-cy="adults-NUMA"]

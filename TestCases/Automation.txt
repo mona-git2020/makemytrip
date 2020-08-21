@@ -39,7 +39,7 @@ Check Facility Filters For Destination
 
 *** Keywords ***
 Open Makemytrip
-	Open Browser	${urlOfMakeMyTrip}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
+	Open Browser	${urlOfMakeMyTrip}		${browser}		remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
 	Maximize Browser Window
 	
 	
@@ -87,7 +87,7 @@ Search Hotels For Destination
 	Click Element	${SearchHotelButton}
 	
 Check Hotels According to Destination
-	${statusHotels}=		Run Keyword And Return Status		Element Should Be Visible		${HotelsLists}
+	${statusHotels}=		Run Keyword And Return Status		Wait Until Element Is Visible		${HotelsLists}		timeout=10s
 	Run Keyword If		${statusHotels}==False		Click Element	${ExploreHotelsOnMap}
 	Wait Until Element Is Visible		${HotelsLists}
 	Execute Javascript		window.scroll(0,document.body.scrollHeight)
@@ -95,7 +95,8 @@ Check Hotels According to Destination
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${hotelnum}=		Convert To String	${singleHotel}
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	HOTELNUM		${hotelnum}
- 	\	Element Should Contain		${CheckSingleHotel}		${Destination}
+ 	\	${statusDestiname}=		Run Keyword And Return Status		Element Should Contain		${CheckSingleHotel}		${Destination}		
+	\	Run Keyword If		${statusDestiname}==False		Element Should Contain			${CheckSingleHotel}			${nearestLocations[0]}		OR		${nearestLocations[1]}		
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
 	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
 
@@ -184,14 +185,14 @@ Check Hotels According To "Popular Filter" For Destination
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${hotelnum}=		Convert To String	${singleHotel}
-	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	HOTELNUM		${hotelnum}
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}		HOTELNUM		${hotelnum}
  	\	${statusSingleHotel}=		Run Keyword And Return Status	Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}
 	\	${statusImage}=		Run Keyword And Return Status	Keyword Should Exist	Check Image Of "${value}" Popular Filter	
 	\	Run Keyword If		${statusImage}==True	Check Image Of "${value}" Popular Filter	${hotelnum}	
 	\	...		ELSE IF		${statusSingleHotel}==True		Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}
 	\	...		ELSE IF		${statusImage}==False and ${statusSingleHotel}==False		Check Filter Hotels For Applied Filter
 	\	${singleHotel}=	Evaluate	${singleHotel}+1
-	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}		${hotelnum}		HOTELNUM
 
 
 Check Image Of "MMT Assured" Popular Filter	
@@ -222,8 +223,8 @@ Check Hotels According To "Property Types Filter" For Destination
 	${countHotels}=		Get Element Count	${HotelsLists}
 	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
 	\	${hotelnum}=		Convert To String	${singleHotel}
-	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	HOTELNUM		${hotelnum}
-	\	${BannerImage}=	Replace String		${BannerImage}	HOTELNUM		${hotelnum}
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}		HOTELNUM		${hotelnum}
+	\	${BannerImage}=	Replace String		${BannerImage}		HOTELNUM		${hotelnum}
  	\	${statusBanner}=		Run Keyword And Return Status	Element Should Be Visible		${BannerImage}		
 	\	Run Keyword If		${statusBanner}==True		Element Should Contain		${CheckSingleHotel}		${valueUpper}	ELSE	Log		Hotels
 	\	${singleHotel}=	Evaluate	${singleHotel}+1

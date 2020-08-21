@@ -9,6 +9,8 @@ adultsNum = 2
 childsNum = 2
 ageChild1 = 10
 ageChild2 = 5
+nearestLocations = ["Una", "Ghoghola"]
+
 allFilters = ["Popular", "Locality", "Star Category", "User Rating", "Property Types", "Ficility"]
 
 popularFiltersList = {"MMT Assured" : "MMT Assured", "MySafety - Safe and Hygienic Stays" : "MySafety - Safe and Hygienic Stays", "Pay @ Hotel Available" : "Pay@Hotel", "EMI Deals Available" : "EMI", "Low Cost EMI" : "EMI", "No Cost EMI" : "EMI", "Free Breakfast" : "Free Breakfast", "Free Cancellation, Zero Payment Now" : "Free Cancellation, Zero Payment Now", "Free Cancellation" : "Free Cancellation"}
