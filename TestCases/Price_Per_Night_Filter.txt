@@ -1,0 +1,54 @@
+*** Settings ***
+Library		Selenium2Library	
+Library		String
+Library		Collections	
+Resource	../Common/Common_Variables.txt
+Resource	Resources/Keywords.txt	
+Suite Setup		Open Makemytrip
+Suite Teardown	Close Browser
+
+
+*** Test Cases ***
+Check Price Per Night Filter For Destination
+	${statusHotels}=		Run Keyword And Return Status		Element Should Be Visible		${ExploreHotelsOnMap}
+	Run Keyword If		${statusHotels}==True		Click Element	${ExploreHotelsOnMap}
+	Element Should Be Visible		${HotelsLists}		
+	Select Price Per Night And Check Hotels According To Filter		
+
+*** Keywords ***
+Open Makemytrip
+	Open Browser	${urlOfListedHotels}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
+	Maximize Browser Window
+
+Select Price Per Night And Check Hotels According To Filter
+	Execute Javascript    window.document.getElementById("hlistpg_fr_popular_filters").scrollIntoView(true);
+	Wait Until Element Is Visible		${SliderLastValue}
+	Drag And Drop By Offset		${SliderLastValue}	-50		0
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
+	Execute Javascript    window.document.getElementById("hlistpg_fr_popular_filters").scrollIntoView(true);
+	Wait Until Element Is Visible		${SliderInitValue}
+	Drag And Drop By Offset		${SliderInitValue}	100		0
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
+	${MaxTargetPrice}=		Get Text	${TargetPrice}
+	${MaxTargetPrice}=		Convert To String	${MaxTargetPrice}
+	${maxPrice}=	Strip String		${MaxTargetPrice}		characters=INR
+	${MinTargetPrice}=		Get Text	${StartingPrice}
+	${MinTargetPrice}=		Convert To String	${MinTargetPrice}
+	${minPrice}=	Strip String		${MinTargetPrice}		characters=INR
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s		
+	${countHotels}=		Get Element Count	${HotelsLists}
+	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
+	\	${hotelnum}=		Convert To String	${singleHotel}
+	\	${INRPrice}=	Replace String		${INRPrice}		HOTELNUM		${hotelnum}
+	\	${shownInrPrice}=		Get Text	${INRPrice}
+	\	${shownInrPrice}=		Convert To String	${shownInrPrice}
+	\	${price}=	Strip String		${shownInrPrice}		characters=INR
+	\	${Legth}=	Get Length		${price}
+	\	${price}=	Remove String		${price}	,
+	\	Should Be True		${maxPrice}>=${price}
+	\	Should Be True		${minPrice}<=${price}
+	\	${INRPrice}=	Replace String		${INRPrice}		${hotelnum}		HOTELNUM	
+	${statusAppliedFilter}=		Run Keyword And Return Status		Element Should Be Visible		${AppliedFilterCancelMark}
+	Run Keyword IF		${statusAppliedFilter}==True		Click Element	${AppliedFilterCancelMark}		
+	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s	
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
