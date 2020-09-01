@@ -1,0 +1,137 @@
+*** Settings ***
+Library		Selenium2Library	
+Library		String
+Library		Collections	
+Resource	Common/Common_Variables.txt
+
+
+*** Keywords ***
+Open Makemytrip
+	Open Browser	${urlOfMakeMyTrip}		${browser}		#remote_url=http://192.168.43.6:4444/wd/hub		desired_capabilities={"browserName":"firefox","platform":"WINDOWS"}
+	Maximize Browser Window
+
+
+Search Hotels For Destination
+	Wait Until Element Is Visible	${LoginButton}
+	${loginStatus}=		Run Keyword And Return Status	Element Should Be Visible		${LoginPopup}
+	Run Keyword If		${loginStatus}==True		Click Element	${LoginButton}
+	Click Element	${HotelButton}
+	${destiStatus}=		Run Keyword And Return Status	Element Should Be Visible		${EnterDestination}
+	Wait Until Element Is Visible		 ${DestinationName}		timeout=15s
+	Run Keyword If		${destiStatus}==False		Click Element	${DestinationName}
+	Wait Until Element Is Visible		 ${EnterDestination}
+	Input Text		${EnterDestination}		${Destination}
+	Wait Until Element Contains		${SelectDestination}		${Destination}		timeout=15s
+	Click Element	${SelectDestination}
+	${checkInCheckOutStatus}=		Run Keyword And Return Status	Element Should Be Visible		${CheckInCheckOutDropdownBox}
+	Run Keyword If		${checkInCheckOutStatus}==False		Click Element	${CheckInDropdown}
+	Click Element	${SelectCheckInDate}
+	Click Element	${SelectCheckOutDate}
+	${roomsStatus}=		Run Keyword And Return Status	Element Should Be Visible		${RoomsGuestsDropdownBox}
+	Run Keyword If		${roomsStatus}==False		Click Element	${RoomGuestDropdown}	
+	${numadult}=	Convert To String	${adultsNum}
+	${SelectAdultsNum}=	Replace String	${SelectAdultsNum}	NUMA	${numadult}
+	Click Element	${SelectAdultsNum}
+	${numchild}=	Convert To String	${childsNum}
+	${SelectChildsNum}=	Replace String	${SelectChildsNum}	NUMC	${numchild}	
+	Click Element	${SelectChildsNum}
+	: FOR	${child_num}	IN RANGE	0	${childsNum}
+	\	${child_n}=		Evaluate	${child_num}+1
+	\	${child}=	Convert To String	${child_num}
+	\	${Child_Age}=	Replace String	${ChildAgeList}		CHILD		${child}
+	\	${age}=		Convert To String	${ageChild${child_n}}
+	\	${ChildAge_Value}=	Replace String	${ChildAgeValue}	AGE		${age}
+	\	${ChildAge_Value}=	Replace String	${ChildAge_Value}	CHILD		${child}	
+	\	Click Element	${Child_Age}
+	\	Click Element   ${ChildAge_Value}
+	\	${child_num}=	Evaluate	${child_num} + 1
+	\	${ChildAgeList}=	Replace String	${ChildAgeList}		${child}		CHILD	
+	\	${ChildAgeValue}=	Replace String	${ChildAgeValue}	${age}		AGE
+	\	${ChildAgeValue}=	Replace String	${ChildAgeValue}	${child}	CHILD	
+	Click Element	${ApplyButton}
+	${travelForStatus}=		Run Keyword And Return Status	Element Should Be Visible		${TravellingReasonDropdownBox}
+	Run Keyword If		${travelForStatus}==False		Click Element	${TravellingReasonDropdown}
+	Click Element	${TravellingForLeisure}
+	Click Element	${SearchHotelButton}
+
+Check Hotels Must Be Displayed
+	Element Should Be Visible		${HotelsLists}
+
+Count Total Number Of Filter Sections And Select Filter	
+	[Arguments]		${FilterSection}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${FilterShowMore}		${Filters}		${FilterValue}
+	${statusHotels}=		Run Keyword And Return Status		Element Should Be Visible		${ExploreHotelsOnMap}
+	Run Keyword If		${statusHotels}==True		Click Element	${ExploreHotelsOnMap}
+	${showmore}=	Run Keyword And Return Status	Page Should Contain Element		${FilterShowMore}
+	Run Keyword If		${showmore}==True	Click Element	${FilterShowMore}
+	${totalSection}=	Get Element Count	${FilterSection}
+	Run Keyword If		${totalSection}>1	Select Filter From More Than One Sections		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}			${Filters}		${FilterValue}
+	...		ELSE	Select Filter From Single Section And Check Wheather Filter Is Selected Or Not		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}			${Filters}		${FilterValue}
+	
+	
+Select Filter From Single Section And Check Wheather Filter Is Selected Or Not  
+	[Arguments]		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
+	${totalFilter}=	Get Element Count	${Filters}
+	: FOR	${filter}		IN RANGE	1	${totalFilter}+1
+	\	${num}=		Convert To String	${filter}
+	\	${Filter_Num}=		Replace String		${FilterNum}		FILTERNUM		${num}	
+	\	${Filter_Value}=	Replace String		${FilterValue}		FILTERNUM		${num}		
+	\	${CheckBox}=		Replace String		${CheckBox}			FILTERNUM		${num}
+	\	${value}=	Get Text	${Filter_Value}
+	\	${statusPopup}=		Run Keyword And Return Status		Element Should Be Visible		${FilterNamePopupDatails}
+	\	Run Keyword If		${statusPopup}==True		Mouse Out		${FilterNamePopupDatails}
+	\	Wait Until Element Is Visible		${Filter_Num}				
+	\	Wait Until Element Is Visible		${HotelsLists}
+	\	${HotelListURL}=	Get Location
+	\	Click Element		${Filter_Num}	
+	\	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
+	\	${statusAppliedSection}=	Run Keyword And Return Status		Element Should Contain		${AppliedSection}		${value}
+	\	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
+	\	Run Keyword If		${statusAppliedSection}==True		Check Hotels According To "${selectFilterValue} filter" For Destination		${filter}		${FiltersList}		${Filter_Num}		${value}	${HotelListURL}
+	\	${statusAppliedFilter}=		Run Keyword And Return Status		Element Should Be Visible		${AppliedFilterCancelMark}
+	\	Run Keyword IF		${statusAppliedFilter}==True		Click Element	${AppliedFilterCancelMark}		
+	\	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
+	\	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
+	\	${FilterNum}=	Replace String		${FilterNum}		${num}		FILTERNUM	
+	\	${FilterValue}=	Replace String		${FilterValue}		${num}		FILTERNUM
+	\	${CheckBox}=	Replace String		${CheckBox}			${num}		FILTERNUM	
+	\	${filter}=	Evaluate	${filter}+1				
+
+	
+Select Filter From More Than One Sections
+	[Arguments]		${totalSection}		${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
+	: FOR	${section}		IN RANGE	1	${totalSection}+1
+	\	${updatedSection}=		Get Element Count		${LocalityFilterSection}
+	\	Select Filter From Section Filter And Check Wheather Filter Is Selected Or Not		${section}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
+	
+	
+Select Filter From Section Filter And Check Wheather Filter Is Selected Or Not	
+	[Arguments]		${section}	${selectFilterValue}	${FiltersList}		${FilterNum}		${CheckBox}		${Filters}		${FilterValue}
+	${sec}=		Convert To String	${section}
+	${sec_filter}=	Replace String	${Filters}		SEC		${sec}
+	${totalFilter}=	Get Element Count	${sec_filter}
+	: FOR	${filter}		IN RANGE	1	${totalFilter}+1
+	\	${num}=		Convert To String	${filter}
+	\	${Filter_Num}=	Replace String		${FilterNum}	FILTERNUM		${num}	
+	\	${Filter_Num}=	Replace String		${Filter_Num}	SEC		${sec}
+	\	${Filter_Value}=	Replace String		${FilterValue}		FILTERNUM		${num}		
+	\	${Filter_Value}=	Replace String		${Filter_Value}		SEC		${sec}	
+	\	${value}=	Get Text	${Filter_Value}
+	\	${statusPopup}=		Run Keyword And Return Status		Element Should Be Visible		${FilterNamePopupDatails}
+	\	Run Keyword If		${statusPopup}==True		Mouse Out		${FilterNamePopupDatails}
+	\	Wait Until Element Is Visible		${Filter_Num}		
+	\	Wait Until Element Is Visible		${HotelsLists}
+	\	${HotelListURL}=	Get Location
+	\	Click Element	${Filter_Num}
+	\	${statusAppliedSection}=	Run Keyword And Return Status		Element Should Contain		${AppliedSection}		${value}
+	\	${statusPickAnotherDate}=	Run Keyword And Return Status		Wait Until Element Is Visible	${HotelsLists}		timeout=10s
+	\	Run Keyword If		${statusAppliedSection}==True and ${statusPickAnotherDate}==True		Check Hotels According To "${selectFilterValue} filter" For Destination		${filter}		${FiltersList}		${Filter_Num}		${value}	${HotelListURL}
+	\	...			ELSE		Go To		${HotelListURL}
+	\	${statusAppliedFilter}=		Run Keyword And Return Status		Element Should Be Visible		${AppliedFilterCancelMark}
+	\	Run Keyword IF		${statusAppliedFilter}==True		Click Element	${AppliedFilterCancelMark}		
+	\	Wait Until Element Is Not Visible		${AppliedFilterCancelMark}		timeout=10s
+	\	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
+	\	${FilterNum}=	Replace String		${FilterNum}		${sec}		SEC			count=1	
+	\	${FilterNum}=	Replace String		${FilterNum}		${num}		FILTERNUM	
+	\	${FilterValue}=	Replace String		${FilterValue}		${sec}		SEC			count=1	
+	\	${FilterValue}=	Replace String		${FilterValue}		${num}		FILTERNUM	
+	\	${filter}=	Evaluate	${filter}+1				
