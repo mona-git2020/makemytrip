@@ -1,0 +1,31 @@
+*** Settings ***
+Library		Selenium2Library	
+Library		String
+Library		Collections	
+Resource	Common/Common_Variables.txt
+Resource	Resources/Keywords.txt	
+Suite Setup		Open Makemytrip
+Suite Teardown	Close Browser
+
+*** Test Cases ***
+
+Check Property Types Filters For Destination	
+	Search Hotels For Destination
+	Check Hotels Must Be Displayed
+	Count Total Number Of Filter Sections And Select Filter		${PropertyTypeSection}		${allFilters[4]}	${propertyTypeList}		${PropertyTypeFilterNum}		${PropertyTypeCheckBox}		${PropertyTypeShowmoreLink}		${PropertyTypeFilter}		${PropertyTypeFilterValue}
+
+*** Keywords ***
+Check Hotels According To "Property Types filter" For Destination 
+	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}	${HotelListURL}
+	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
+	${valueUpper}=		convert to upper case	${value}
+	${countHotels}=		Get Element Count	${HotelsLists}
+	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
+	\	${hotelnum}=		Convert To String	${singleHotel}
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}		HOTELNUM		${hotelnum}
+	\	${BannerImage}=	Replace String		${BannerImage}		HOTELNUM		${hotelnum}
+ 	\	${statusBanner}=		Run Keyword And Return Status	Element Should Be Visible		${BannerImage}		
+	\	Run Keyword If		${statusBanner}==True		Element Should Contain		${CheckSingleHotel}		${valueUpper}	ELSE	Log		Hotels
+	\	${singleHotel}=	Evaluate	${singleHotel}+1
+	\	${BannerImage}=	Replace String		${BannerImage}	${hotelnum}		HOTELNUM
+	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
