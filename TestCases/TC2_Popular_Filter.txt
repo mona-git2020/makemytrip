@@ -16,41 +16,5 @@ Check Popular Filters For Destination
 	Count Total Number Of Filter Sections And Select Filter		${PopularFilterSection}		${allFilters[0]}	${popularFiltersList}	${PopularFilterNum}		${PopularCheckBox}		${PopularFilterShowmoreLink}	${PopularFilter}	${PopularFilterValue}
 
 
-*** Keywords ***
-Check Hotels According To "Popular Filter" For Destination
-	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}	${HotelListURL}
-	Wait Until Element Is Visible		${HotelsLists}			timeout=15s
-	${countHotels}=		Get Element Count	${HotelsLists}
-	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
-	\	${hotelnum}=		Convert To String	${singleHotel}
-	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}		HOTELNUM		${hotelnum}
- 	\	${statusSingleHotel}=		Run Keyword And Return Status	Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}
-	\	${statusImage}=		Run Keyword And Return Status	Keyword Should Exist	Check Image Of "${value}" Popular Filter	
-	\	Run Keyword If		${statusImage}==True	Check Image Of "${value}" Popular Filter	${hotelnum}	
-	\	...		ELSE IF		${statusSingleHotel}==True		Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}
-	\	...		ELSE IF		${statusImage}==False and ${statusSingleHotel}==False		Check Filter Hotels For Applied Filter
-	\	${singleHotel}=	Evaluate	${singleHotel}+1
-	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}		${hotelnum}		HOTELNUM
-
-
-Check Image Of "MMT Assured" Popular Filter	
-	[Arguments]		${hotelnum}	
-	Wait Until Element Is Visible		${HotelsLists}
-	${MMTAssuredImage}=		Replace String		${MMTAssuredImage}	HOTELNUM		${hotelnum}
-	Element Should Be Visible		${MMTAssuredImage}
-	${MMTAssuredImage}=		Replace String		${MMTAssuredImage}	${hotelnum}	HOTELNUM
-
-	
-Check Image Of "MySafety - Safe and Hygienic Stays" Popular Filter	
-	[Arguments]		${hotelnum}	
-	Wait Until Element Is Visible		${HotelsLists}
-	${MySafetyImage}=		Replace String		${MySafetyImage}	HOTELNUM		${hotelnum}
-	Element Should Be Visible		${MySafetyImage}
-	${MySafetyImage}=		Replace String		${MySafetyImage}	${hotelnum}		HOTELNUM
-
-	
-Check Filter Hotels For Applied Filter
-	Wait Until Element Is Visible		${HotelsLists}	
-	${countHotels}=		Get Element Count	${HotelsLists}	
 	
 

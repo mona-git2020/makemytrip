@@ -14,15 +14,5 @@ Check Locality Filters For Destination
 	Check Hotels Must Be Displayed
 	Count Total Number Of Filter Sections And Select Filter		${LocalityFilterSection}	${allFilters[1]}	${localityFilterList}	${LocalityFilterNum}		${LocalityCheckBox}		${LocalityFilterShowmoreLink}	${LocalityFilter}	${LocalityFilterValue}
 
-*** Keywords ***
-Check Hotels According To "Locality filter" For Destination 
-	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}	${HotelListURL}
-	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
-	${countHotels}=		Get Element Count	${HotelsLists}
-	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
-	\	${hotelnum}=		Convert To String	${singleHotel}
-	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}		HOTELNUM		${hotelnum}
-	\	Element Should Contain		${CheckSingleHotel}		${FiltersList["${value}"]}	
-	\	${singleHotel}=	Evaluate	${singleHotel}+1
-	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}	${hotelnum}		HOTELNUM
+
 	

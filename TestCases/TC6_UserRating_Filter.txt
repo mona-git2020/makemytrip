@@ -14,15 +14,4 @@ Check User Rating Filters For Destination
 	Count Total Number Of Filter Sections And Select Filter		${UserRatingFilterSection}	${allFilters[3]}	${userRatingList}		${UserRatingFilterNum}		${UserRatingCheckBox}	${UserRatingFilterShowmoreLink}		${UserRatingFilter}		${UserRatingFilterValue}
 
 
-*** Keywords ***
-Check Hotels According To "User Rating filter" For Destination	
-	[Arguments]		${filter}		${FiltersList}		${Filter_Num}	${value1}	${HotelListURL}
-	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
-	${countHotels}=		Get Element Count	${HotelsLists}
-	:FOR	${singleHotel}	IN RANGE	0	${countHotels}	
-	\	${hotelnum}=		Convert To String	${singleHotel}
-	\	${UserRatingValue}=		Replace String		${UserRatingValue}	HOTELNUM		${hotelnum}	
-	\	${value}=	Get Text	${UserRatingValue}
-	\	Should Be True		${value}>=${FiltersList[${filter}-1]}	
-	\	${singleHotel}=	Evaluate	${singleHotel}+1
-	\	${UserRatingValue}=	Replace String		${UserRatingValue}	${hotelnum}		HOTELNUM
+

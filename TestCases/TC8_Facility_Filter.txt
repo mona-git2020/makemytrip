@@ -14,26 +14,4 @@ Check Facility Filters For Destination
 	Count Total Number Of Filter Sections And Select Filter		${FacilityFilterSection}	${allFilters[5]}	${facilityFilterList}	${FacilityFilterNum}		${FacilityCheckBox}		${FacilityFilterShowmoreLink}	${FacilityFilter}		${FacilityFilterValue}
 
 
-*** Keywords ***
-Check Hotels According To "Ficility filter" For Destination 
-	[Arguments]		${filter}		${FiltersList}		${Filter_Num}		${value}	${HotelListURL}	
-	${HotelListURL}=	Get Location
-	Wait Until Element Is Visible		${HotelsLists}		timeout=10s
-	${countHotels}=		Get Element Count	${HotelsLists}
-	:FOR	${singleHotel}	IN RANGE	0	${countHotels}
-	\	${hotelnum}=		Convert To String	${singleHotel}
-	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}		HOTELNUM		${hotelnum}
-	\	Click Element		${CheckSingleHotel}
-	\	Switch Window		NEW
-	\	${title1}=		Get Title	
-	\	Wait Until Page Contains Element		${HotelImage}		timeout=60s
-	\	Execute Javascript    window.document.getElementById("detpg_hotel_facilities").scrollIntoView(true);
-	\	Wait Until Element Is Visible		${FacilitiesLink}
-	\	Click Element		${FacilitiesLink}
-	\	Wait Until Element Is Visible		${FacilitiesSection}	
- 	\	Element Should Contain		${FacilitiesSection}		${FiltersList['${value}']}
-	\	Close Window
-	\	Switch Window		MAIN
-	\	${title2}=		Get Title
-	\	${singleHotel}=	Evaluate	${singleHotel}+1
-	\	${CheckSingleHotel}=	Replace String		${CheckSingleHotel}		${hotelnum}		HOTELNUM
+
